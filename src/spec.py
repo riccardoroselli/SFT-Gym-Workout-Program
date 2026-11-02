@@ -28,3 +28,6 @@ SETS_REPS = {
     "medium": (3, "8-12"),
     "hard": (4, "5-8"),
 }
+
+# Section 3: difficulties whose workouts may include exercises with "advanced": true.
+ADVANCED_ALLOWED = {"hard"}

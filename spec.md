@@ -15,6 +15,29 @@ A sentence like *"chest workout, medium difficulty, free weights, 5 exercises"*,
 
 Exercises with any other equipment (rope, tire, hammer, …: 8 exercises) are never used.
 
+### Request vocabulary
+Every word `src/make_dataset.py` uses in requests, and what it means. Body parts use the friendly name ~80% of the time and a synonym ~20%.
+
+| Part | User says | Maps to |
+|---|---|---|
+| Body part | `chest` · synonyms: `pecs` | `chest` |
+| Body part | `back` · synonyms: `lats and upper back` | `back` |
+| Body part | `shoulders` · synonyms: `delts` | `shoulders` |
+| Body part | `arms` · synonyms: `upper arms`, `biceps and triceps` | `upper arms` |
+| Body part | `forearms` · synonyms: `lower arms` | `lower arms` |
+| Body part | `legs` · synonyms: `upper legs`, `thighs` | `upper legs` |
+| Body part | `calves` · synonyms: `lower legs` | `lower legs` |
+| Body part | `abs`, `core` · synonyms: `abdominals`, `midsection`, `waist` | `waist` |
+| Equipment | `free weights`, `weights` | **free weights** group |
+| Equipment | `machines`, `gym machines`, `machines and cables` | **machines** group |
+| Equipment | `bodyweight`, `bodyweight exercises`, `calisthenics` | **bodyweight** group |
+| Equipment | `bands`, `resistance bands`, `elastic bands` | **bands** group |
+| Equipment | `any equipment`, `whatever equipment`, `anything in the gym` | all four groups |
+| Difficulty | `easy`, `beginner`, `light` | `easy` (2 × "12-15") |
+| Difficulty | `medium`, `intermediate`, `moderate` | `medium` (3 × "8-12") |
+| Difficulty | `hard`, `advanced`, `intense` | `hard` (4 × "5-8") |
+| Count | `3`–`6` or `three`–`six`; left out | that many exercises; **4** |
+
 ## 2. The answer
 ```json
 {"workout": [{"name": "...", "sets": 3, "reps": "8-12"}]}
@@ -25,11 +48,11 @@ Exercises with any other equipment (rope, tire, hammer, …: 8 exercises) are ne
 
 ## 3. Difficulty rule
 Difficulty is decided by **sets and reps** (section 2), not by the exercises. The only exercise rule:
-- **easy** workout → no exercise with `"advanced": true` in `catalog.json` (skills a beginner can't do at any rep count: pull-ups, dips, planches, muscle-ups, pistols, Olympic lifts, …).
-- **medium** and **hard** workouts → any exercise that matches body part and equipment.
+- **easy** and **medium** workouts → no exercise with `"advanced": true` in `catalog.json` (skills a beginner can't do at any rep count: pull-ups, dips, planches, muscle-ups, pistols, Olympic lifts, …).
+- **hard** workouts → any exercise that matches body part and equipment, advanced ones included.
 
 ## 4. Impossible requests
-If not enough exercises match (body part + equipment, and no advanced ones for easy), answer with an error instead of inventing or repeating exercises:
+If not enough exercises match (body part + equipment, and no advanced ones unless the workout is hard), answer with an error instead of inventing or repeating exercises:
 ```json
 {"error": "..."}
 ```

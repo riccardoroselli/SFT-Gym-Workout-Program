@@ -67,6 +67,15 @@ def test_advanced_exercise_in_easy_workout():
     assert not r["all_correct"]
 
 
+def test_advanced_exercise_in_medium_workout_fails():
+    names = ["push-up", "incline push-up", "clap push up"]  # clap push up is advanced
+    medium = {"body_part": "chest", "equipment_group": "bodyweight", "difficulty": "medium", "n_exercises": 3}
+    r = verify(medium, answer(names, sets=3, reps="8-12"))
+    assert r["advanced_ok"] is False and not r["all_correct"]
+    hard = {**medium, "difficulty": "hard"}  # the same exercises are fine in a hard workout
+    assert verify(hard, answer(names, sets=4, reps="5-8"))["all_correct"]
+
+
 def test_invalid_json():
     r = verify(CHEST_FW_MEDIUM, '{"workout": [{"name": "barbell bench press", "sets": 3,')
     assert r["parse_ok"] is False and r["reward"] == 0.0

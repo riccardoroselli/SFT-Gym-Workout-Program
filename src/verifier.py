@@ -8,7 +8,7 @@ import json
 import re
 from pathlib import Path
 
-from spec import BODY_PARTS, EQUIPMENT_GROUPS, GROUP_OF, SETS_REPS
+from spec import ADVANCED_ALLOWED, BODY_PARTS, EQUIPMENT_GROUPS, GROUP_OF, SETS_REPS
 
 ROOT = Path(__file__).resolve().parent.parent
 CATALOG = {e["name"]: e for e in json.loads((ROOT / "data/processed/catalog.json").read_text())}
@@ -46,10 +46,10 @@ def _group_ok(exercise, group):
 
 
 def matching_exercises(request):
-    """Catalog names that fit body part + equipment group (+ no advanced for easy)."""
+    """Catalog names that fit body part + equipment group (+ no advanced unless the difficulty allows it)."""
     body, group, difficulty, _ = _normalize(request)
     return [name for name, e in CATALOG.items()
-            if e["body_part"] == body and _group_ok(e, group) and not (difficulty == "easy" and e["advanced"])]
+            if e["body_part"] == body and _group_ok(e, group) and (difficulty in ADVANCED_ALLOWED or not e["advanced"])]
 
 
 def is_feasible(request):
@@ -93,7 +93,7 @@ def _check_workout(items, body, group, difficulty, n):
         "no_duplicates": len(set(map(str, names))) == len(names),
         "sets_reps_ok": all(isinstance(it, dict) and type(it.get("sets")) is int and it["sets"] == sets
                             and it.get("reps") == reps for it in items),
-        "advanced_ok": difficulty != "easy" or not any(e is not None and e["advanced"] for e in found),
+        "advanced_ok": difficulty in ADVANCED_ALLOWED or not any(e is not None and e["advanced"] for e in found),
     }
 
 

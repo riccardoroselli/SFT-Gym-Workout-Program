@@ -1,7 +1,7 @@
 """Review the advanced flags (see spec.md section 3).
 
 Workout difficulty comes from sets/reps. The only exercise rule: advanced skills
-(moves a beginner can't do at any rep count) are kept out of easy workouts.
+(moves a beginner can't do at any rep count) are allowed only in hard workouts.
 Claude Code read the exercises batch by batch and listed the advanced ones, following
 RUBRIC, in data/processed/advanced_ids.json. build_catalog.py applies that list.
 
@@ -14,7 +14,7 @@ from pathlib import Path
 
 import pandas as pd
 
-from spec import GROUP_OF
+from spec import ADVANCED_ALLOWED, GROUP_OF
 
 ROOT = Path(__file__).resolve().parent.parent
 CATALOG = ROOT / "data/processed/catalog.json"
@@ -36,9 +36,10 @@ def print_batches(df):
 
 
 def report(df):
-    # how many exercises each request can draw from: medium/hard use all, easy skips advanced
+    # how many exercises each request can draw from: hard uses all, easy/medium skip advanced
+    assert ADVANCED_ALLOWED == {"hard"}, "update the column names below"
     df["group"] = df["equipment"].map(GROUP_OF)
-    table = df.groupby(["body_part", "group"]).agg(medium_hard=("id", "size"), easy=("advanced", lambda a: (~a).sum()))
+    table = df.groupby(["body_part", "group"]).agg(hard=("id", "size"), easy_medium=("advanced", lambda a: (~a).sum()))
     print(table.to_string(), "\n")
     print(f"advanced exercises ({df['advanced'].sum()}):")
     print(df[df["advanced"]][["name", "body_part", "equipment"]].to_string(index=False))
