@@ -45,14 +45,16 @@ def _group_ok(exercise, group):
     return group == "any" or GROUP_OF[exercise["equipment"]] == group
 
 
+def matching_exercises(request):
+    """Catalog names that fit body part + equipment group (+ no advanced for easy)."""
+    body, group, difficulty, _ = _normalize(request)
+    return [name for name, e in CATALOG.items()
+            if e["body_part"] == body and _group_ok(e, group) and not (difficulty == "easy" and e["advanced"])]
+
+
 def is_feasible(request):
-    """True if the catalog has at least n exercises matching body part + equipment (+ no advanced for easy)."""
-    body, group, difficulty, n = _normalize(request)
-    matching = sum(
-        e["body_part"] == body and _group_ok(e, group) and not (difficulty == "easy" and e["advanced"])
-        for e in CATALOG.values()
-    )
-    return matching >= n
+    """True if the catalog has at least n matching exercises."""
+    return len(matching_exercises(request)) >= _normalize(request)[3]
 
 
 def _parse(text):
