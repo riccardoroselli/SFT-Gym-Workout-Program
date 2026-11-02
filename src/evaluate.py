@@ -65,6 +65,7 @@ def generate(run, model_name, adapter_path, k, limit=None):
             text = "".join(r.text for r in pieces)
             truncated = pieces[-1].finish_reason == "length"  # stopped by the token limit, not by the model
             row = {"meta": ex["meta"], "request": user["content"], "output": text, "truncated": truncated,
+                   "tokens": pieces[-1].generation_tokens, "tps": round(pieces[-1].generation_tps, 1),
                    "model": model_name, "adapter": adapter_path, "few_shot": k}
             f.write(json.dumps(row, ensure_ascii=False) + "\n")
             f.flush()
