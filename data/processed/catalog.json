@@ -8,7 +8,8 @@
     "secondary_muscles":[
       "hip flexors",
       "lower back"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0002",
@@ -18,7 +19,8 @@
     "equipment":"body weight",
     "secondary_muscles":[
       "obliques"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0003",
@@ -28,7 +30,8 @@
     "equipment":"body weight",
     "secondary_muscles":[
       "hip flexors"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0006",
@@ -38,7 +41,8 @@
     "equipment":"body weight",
     "secondary_muscles":[
       "obliques"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0007",
@@ -49,7 +53,8 @@
     "secondary_muscles":[
       "biceps",
       "rhomboids"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1368",
@@ -59,7 +64,8 @@
     "equipment":"body weight",
     "secondary_muscles":[
       "ankle stabilizers"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"3293",
@@ -70,7 +76,8 @@
     "secondary_muscles":[
       "biceps",
       "forearms"
-    ]
+    ],
+    "advanced":true
   },
   {
     "id":"3294",
@@ -82,7 +89,8 @@
       "triceps",
       "shoulders",
       "core"
-    ]
+    ],
+    "advanced":true
   },
   {
     "id":"2355",
@@ -93,7 +101,8 @@
     "secondary_muscles":[
       "shoulders",
       "back"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"2333",
@@ -104,7 +113,8 @@
     "secondary_muscles":[
       "shoulders",
       "back"
-    ]
+    ],
+    "advanced":true
   },
   {
     "id":"3214",
@@ -116,7 +126,8 @@
       "hamstrings",
       "quadriceps",
       "calves"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"3204",
@@ -127,7 +138,8 @@
     "secondary_muscles":[
       "hip flexors",
       "lower back"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0009",
@@ -138,7 +150,8 @@
     "secondary_muscles":[
       "triceps",
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0011",
@@ -148,7 +161,8 @@
     "equipment":"assisted",
     "secondary_muscles":[
       "hip flexors"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0010",
@@ -159,7 +173,8 @@
     "secondary_muscles":[
       "hip flexors",
       "lower back"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0012",
@@ -170,7 +185,8 @@
     "secondary_muscles":[
       "hip flexors",
       "obliques"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0013",
@@ -181,7 +197,8 @@
     "secondary_muscles":[
       "hip flexors",
       "quadriceps"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0014",
@@ -192,7 +209,8 @@
     "secondary_muscles":[
       "obliques",
       "lower back"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0015",
@@ -203,7 +221,8 @@
     "secondary_muscles":[
       "biceps",
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0016",
@@ -214,7 +233,8 @@
     "secondary_muscles":[
       "glutes",
       "lower back"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0017",
@@ -225,7 +245,8 @@
     "secondary_muscles":[
       "biceps",
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1758",
@@ -235,7 +256,8 @@
     "equipment":"assisted",
     "secondary_muscles":[
       "hip flexors"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1431",
@@ -246,7 +268,8 @@
     "secondary_muscles":[
       "biceps",
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1432",
@@ -257,7 +280,8 @@
     "secondary_muscles":[
       "biceps",
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0018",
@@ -267,7 +291,8 @@
     "equipment":"assisted",
     "secondary_muscles":[
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0019",
@@ -278,7 +303,8 @@
     "secondary_muscles":[
       "chest",
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"2364",
@@ -289,7 +315,8 @@
     "secondary_muscles":[
       "triceps",
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"3220",
@@ -301,7 +328,8 @@
       "quadriceps",
       "hamstrings",
       "calves"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"3672",
@@ -314,7 +342,8 @@
       "hamstrings",
       "glutes",
       "calves"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1314",
@@ -325,7 +354,8 @@
     "secondary_muscles":[
       "glutes",
       "hamstrings"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"3297",
@@ -337,7 +367,8 @@
       "biceps",
       "forearms",
       "core"
-    ]
+    ],
+    "advanced":true
   },
   {
     "id":"1473",
@@ -349,7 +380,8 @@
       "hamstrings",
       "glutes",
       "calves"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0020",
@@ -361,7 +393,8 @@
       "calves",
       "hamstrings",
       "glutes"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0968",
@@ -371,7 +404,8 @@
     "equipment":"band",
     "secondary_muscles":[
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0969",
@@ -381,7 +415,8 @@
     "equipment":"band",
     "secondary_muscles":[
       "hip flexors"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0970",
@@ -392,7 +427,8 @@
     "secondary_muscles":[
       "biceps",
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0971",
@@ -402,7 +438,8 @@
     "equipment":"band",
     "secondary_muscles":[
       "lower back"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1254",
@@ -413,7 +450,8 @@
     "secondary_muscles":[
       "triceps",
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0980",
@@ -424,7 +462,8 @@
     "secondary_muscles":[
       "hamstrings",
       "lower back"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0972",
@@ -435,7 +474,8 @@
     "secondary_muscles":[
       "hip flexors",
       "obliques"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0974",
@@ -446,7 +486,8 @@
     "secondary_muscles":[
       "biceps",
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0975",
@@ -457,7 +498,8 @@
     "secondary_muscles":[
       "chest",
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0976",
@@ -467,7 +509,8 @@
     "equipment":"band",
     "secondary_muscles":[
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"3117",
@@ -478,7 +521,8 @@
     "secondary_muscles":[
       "biceps",
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"3116",
@@ -490,7 +534,8 @@
       "biceps",
       "rhomboids",
       "rear deltoids"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0977",
@@ -501,7 +546,8 @@
     "secondary_muscles":[
       "traps",
       "upper back"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0978",
@@ -512,7 +558,8 @@
     "secondary_muscles":[
       "triceps",
       "upper back"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1408",
@@ -523,7 +570,8 @@
     "secondary_muscles":[
       "hamstrings",
       "quadriceps"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0979",
@@ -534,7 +582,8 @@
     "secondary_muscles":[
       "obliques",
       "glutes"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0981",
@@ -544,7 +593,8 @@
     "equipment":"band",
     "secondary_muscles":[
       "hip flexors"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0983",
@@ -555,7 +605,8 @@
     "secondary_muscles":[
       "biceps",
       "rhomboids"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0985",
@@ -565,7 +616,8 @@
     "equipment":"band",
     "secondary_muscles":[
       "obliques"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0984",
@@ -576,7 +628,8 @@
     "secondary_muscles":[
       "hamstrings",
       "quadriceps"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1002",
@@ -586,7 +639,8 @@
     "equipment":"band",
     "secondary_muscles":[
       "hip flexors"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0986",
@@ -597,7 +651,8 @@
     "secondary_muscles":[
       "forearms",
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0987",
@@ -608,7 +663,8 @@
     "secondary_muscles":[
       "glutes",
       "hamstrings"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0988",
@@ -619,7 +675,8 @@
     "secondary_muscles":[
       "biceps",
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0989",
@@ -630,7 +687,8 @@
     "secondary_muscles":[
       "shoulders",
       "triceps"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0990",
@@ -641,7 +699,8 @@
     "secondary_muscles":[
       "biceps",
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0991",
@@ -652,7 +711,8 @@
     "secondary_muscles":[
       "hamstrings",
       "lower back"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0992",
@@ -663,7 +723,8 @@
     "secondary_muscles":[
       "shoulders",
       "chest"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0993",
@@ -674,7 +735,8 @@
     "secondary_muscles":[
       "upper back",
       "trapezius"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0994",
@@ -684,7 +746,8 @@
     "equipment":"band",
     "secondary_muscles":[
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0996",
@@ -695,7 +758,8 @@
     "secondary_muscles":[
       "hamstrings",
       "quadriceps"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1011",
@@ -705,7 +769,8 @@
     "equipment":"band",
     "secondary_muscles":[
       "obliques"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0997",
@@ -716,7 +781,8 @@
     "secondary_muscles":[
       "triceps",
       "upper back"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1018",
@@ -726,7 +792,8 @@
     "equipment":"band",
     "secondary_muscles":[
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0998",
@@ -736,7 +803,8 @@
     "equipment":"band",
     "secondary_muscles":[
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0999",
@@ -747,7 +815,8 @@
     "secondary_muscles":[
       "ankles",
       "feet"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1000",
@@ -758,7 +827,8 @@
     "secondary_muscles":[
       "hamstrings",
       "glutes"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1001",
@@ -769,7 +839,8 @@
     "secondary_muscles":[
       "glutes",
       "hamstrings"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1004",
@@ -781,7 +852,8 @@
       "quadriceps",
       "hamstrings",
       "calves"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1003",
@@ -793,7 +865,8 @@
       "hamstrings",
       "quadriceps",
       "back"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1005",
@@ -803,7 +876,8 @@
     "equipment":"band",
     "secondary_muscles":[
       "obliques"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1022",
@@ -815,7 +889,8 @@
       "trapezius",
       "rhomboids",
       "biceps"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1007",
@@ -825,7 +900,8 @@
     "equipment":"band",
     "secondary_muscles":[
       "obliques"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1008",
@@ -837,7 +913,8 @@
       "quadriceps",
       "hamstrings",
       "calves"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1009",
@@ -848,7 +925,8 @@
     "secondary_muscles":[
       "hamstrings",
       "lower back"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1023",
@@ -859,7 +937,8 @@
     "secondary_muscles":[
       "hamstrings",
       "lower back"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1010",
@@ -870,7 +949,8 @@
     "secondary_muscles":[
       "hamstrings",
       "glutes"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1012",
@@ -881,7 +961,8 @@
     "secondary_muscles":[
       "triceps",
       "upper back"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1369",
@@ -892,7 +973,8 @@
     "secondary_muscles":[
       "ankles",
       "feet"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1013",
@@ -903,7 +985,8 @@
     "secondary_muscles":[
       "biceps",
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1014",
@@ -913,7 +996,8 @@
     "equipment":"band",
     "secondary_muscles":[
       "hip flexors"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1015",
@@ -924,7 +1008,8 @@
     "secondary_muscles":[
       "obliques",
       "glutes"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1016",
@@ -935,7 +1020,8 @@
     "secondary_muscles":[
       "biceps",
       "triceps"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1017",
@@ -946,7 +1032,8 @@
     "secondary_muscles":[
       "traps",
       "rhomboids"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0023",
@@ -956,7 +1043,8 @@
     "equipment":"barbell",
     "secondary_muscles":[
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0024",
@@ -968,7 +1056,8 @@
       "hamstrings",
       "glutes",
       "calves"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0025",
@@ -979,7 +1068,8 @@
     "secondary_muscles":[
       "triceps",
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0026",
@@ -991,7 +1081,8 @@
       "glutes",
       "hamstrings",
       "calves"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1316",
@@ -1002,7 +1093,8 @@
     "secondary_muscles":[
       "triceps",
       "chest"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0027",
@@ -1013,7 +1105,8 @@
     "secondary_muscles":[
       "biceps",
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"2407",
@@ -1023,7 +1116,8 @@
     "equipment":"barbell",
     "secondary_muscles":[
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0028",
@@ -1036,7 +1130,8 @@
       "glutes",
       "shoulders",
       "triceps"
-    ]
+    ],
+    "advanced":true
   },
   {
     "id":"0029",
@@ -1049,7 +1144,8 @@
       "hamstrings",
       "calves",
       "core"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0030",
@@ -1060,7 +1156,8 @@
     "secondary_muscles":[
       "chest",
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0031",
@@ -1070,7 +1167,8 @@
     "equipment":"barbell",
     "secondary_muscles":[
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0032",
@@ -1081,7 +1179,8 @@
     "secondary_muscles":[
       "hamstrings",
       "lower back"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0033",
@@ -1092,7 +1191,8 @@
     "secondary_muscles":[
       "triceps",
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0034",
@@ -1103,7 +1203,8 @@
     "secondary_muscles":[
       "triceps",
       "chest"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0035",
@@ -1114,7 +1215,8 @@
     "secondary_muscles":[
       "chest",
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1255",
@@ -1125,7 +1227,8 @@
     "secondary_muscles":[
       "triceps",
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0036",
@@ -1136,7 +1239,8 @@
     "secondary_muscles":[
       "triceps",
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0037",
@@ -1147,7 +1251,8 @@
     "secondary_muscles":[
       "triceps",
       "chest"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0038",
@@ -1157,7 +1262,8 @@
     "equipment":"barbell",
     "secondary_muscles":[
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1370",
@@ -1167,7 +1273,8 @@
     "equipment":"barbell",
     "secondary_muscles":[
       "hamstrings"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0039",
@@ -1180,7 +1287,8 @@
       "hamstrings",
       "calves",
       "core"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0041",
@@ -1191,7 +1299,8 @@
     "secondary_muscles":[
       "biceps",
       "triceps"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0040",
@@ -1202,7 +1311,8 @@
     "secondary_muscles":[
       "deltoids",
       "triceps"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0042",
@@ -1215,7 +1325,8 @@
       "hamstrings",
       "calves",
       "core"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0043",
@@ -1228,7 +1339,8 @@
       "hamstrings",
       "calves",
       "core"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1461",
@@ -1241,7 +1353,8 @@
       "hamstrings",
       "calves",
       "core"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1462",
@@ -1254,7 +1367,8 @@
       "hamstrings",
       "calves",
       "core"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1545",
@@ -1267,7 +1381,8 @@
       "hamstrings",
       "calves",
       "core"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1409",
@@ -1278,7 +1393,8 @@
     "secondary_muscles":[
       "hamstrings",
       "lower back"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"3562",
@@ -1289,7 +1405,8 @@
     "secondary_muscles":[
       "hamstrings",
       "core"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0044",
@@ -1299,7 +1416,8 @@
     "equipment":"barbell",
     "secondary_muscles":[
       "lower back"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0045",
@@ -1310,7 +1428,8 @@
     "secondary_muscles":[
       "shoulders",
       "triceps"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0046",
@@ -1322,7 +1441,8 @@
       "quadriceps",
       "hamstrings",
       "calves"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1436",
@@ -1335,7 +1455,8 @@
       "hamstrings",
       "calves",
       "core"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0047",
@@ -1346,7 +1467,8 @@
     "secondary_muscles":[
       "shoulders",
       "triceps"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1719",
@@ -1357,7 +1479,8 @@
     "secondary_muscles":[
       "chest",
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0048",
@@ -1368,7 +1491,8 @@
     "secondary_muscles":[
       "chest",
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0049",
@@ -1379,7 +1503,8 @@
     "secondary_muscles":[
       "biceps",
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0050",
@@ -1390,7 +1515,8 @@
     "secondary_muscles":[
       "deltoids",
       "trapezius"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0051",
@@ -1402,7 +1528,8 @@
       "quadriceps",
       "hamstrings",
       "calves"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0052",
@@ -1413,7 +1540,8 @@
     "secondary_muscles":[
       "chest",
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0053",
@@ -1425,7 +1553,8 @@
       "quadriceps",
       "hamstrings",
       "calves"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1410",
@@ -1437,7 +1566,8 @@
       "quadriceps",
       "hamstrings",
       "calves"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1435",
@@ -1449,7 +1579,8 @@
       "quadriceps",
       "hamstrings",
       "calves"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0054",
@@ -1461,7 +1592,8 @@
       "quadriceps",
       "hamstrings",
       "calves"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1720",
@@ -1471,7 +1603,8 @@
     "equipment":"barbell",
     "secondary_muscles":[
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0055",
@@ -1482,7 +1615,8 @@
     "secondary_muscles":[
       "chest",
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0056",
@@ -1492,7 +1626,8 @@
     "equipment":"barbell",
     "secondary_muscles":[
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0057",
@@ -1502,7 +1637,8 @@
     "equipment":"barbell",
     "secondary_muscles":[
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0058",
@@ -1513,7 +1649,8 @@
     "secondary_muscles":[
       "hamstrings",
       "quadriceps"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0059",
@@ -1523,7 +1660,8 @@
     "equipment":"barbell",
     "secondary_muscles":[
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0061",
@@ -1533,7 +1671,8 @@
     "equipment":"barbell",
     "secondary_muscles":[
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0060",
@@ -1543,7 +1682,8 @@
     "equipment":"barbell",
     "secondary_muscles":[
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0063",
@@ -1555,7 +1695,8 @@
       "quadriceps",
       "hamstrings",
       "calves"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0064",
@@ -1566,7 +1707,8 @@
     "secondary_muscles":[
       "biceps",
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0065",
@@ -1577,7 +1719,8 @@
     "secondary_muscles":[
       "chest",
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0066",
@@ -1589,7 +1732,8 @@
       "hamstrings",
       "quadriceps",
       "lower back"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0067",
@@ -1601,7 +1745,8 @@
       "traps",
       "forearms",
       "core"
-    ]
+    ],
+    "advanced":true
   },
   {
     "id":"0068",
@@ -1613,7 +1758,8 @@
       "glutes",
       "hamstrings",
       "calves"
-    ]
+    ],
+    "advanced":true
   },
   {
     "id":"0069",
@@ -1626,7 +1772,8 @@
       "hamstrings",
       "calves",
       "core"
-    ]
+    ],
+    "advanced":true
   },
   {
     "id":"1411",
@@ -1637,7 +1784,8 @@
     "secondary_muscles":[
       "biceps",
       "brachialis"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1412",
@@ -1648,7 +1796,8 @@
     "secondary_muscles":[
       "biceps",
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"3017",
@@ -1659,7 +1808,8 @@
     "secondary_muscles":[
       "biceps",
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1751",
@@ -1669,7 +1819,8 @@
     "equipment":"barbell",
     "secondary_muscles":[
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0070",
@@ -1679,7 +1830,8 @@
     "equipment":"barbell",
     "secondary_muscles":[
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0071",
@@ -1690,7 +1842,8 @@
     "secondary_muscles":[
       "shoulders",
       "chest"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0072",
@@ -1700,7 +1853,8 @@
     "equipment":"barbell",
     "secondary_muscles":[
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0073",
@@ -1711,7 +1865,8 @@
     "secondary_muscles":[
       "chest",
       "triceps"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0022",
@@ -1723,7 +1878,8 @@
       "triceps",
       "chest",
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0074",
@@ -1734,7 +1890,8 @@
     "secondary_muscles":[
       "hamstrings",
       "lower back"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0075",
@@ -1745,7 +1902,8 @@
     "secondary_muscles":[
       "traps",
       "rhomboids"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0076",
@@ -1757,7 +1915,8 @@
       "trapezius",
       "rhomboids",
       "biceps"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0078",
@@ -1769,7 +1928,8 @@
       "quadriceps",
       "hamstrings",
       "calves"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0077",
@@ -1781,7 +1941,8 @@
       "quadriceps",
       "hamstrings",
       "calves"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0079",
@@ -1792,7 +1953,8 @@
     "secondary_muscles":[
       "biceps",
       "brachialis"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"2187",
@@ -1803,7 +1965,8 @@
     "secondary_muscles":[
       "chest",
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0080",
@@ -1813,7 +1976,8 @@
     "equipment":"barbell",
     "secondary_muscles":[
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0118",
@@ -1824,7 +1988,8 @@
     "secondary_muscles":[
       "biceps",
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1256",
@@ -1835,7 +2000,8 @@
     "secondary_muscles":[
       "triceps",
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1257",
@@ -1846,7 +2012,8 @@
     "secondary_muscles":[
       "triceps",
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1317",
@@ -1857,7 +2024,8 @@
     "secondary_muscles":[
       "biceps",
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1721",
@@ -1867,7 +2035,8 @@
     "equipment":"barbell",
     "secondary_muscles":[
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0081",
@@ -1877,7 +2046,8 @@
     "equipment":"barbell",
     "secondary_muscles":[
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0082",
@@ -1888,7 +2058,8 @@
     "secondary_muscles":[
       "biceps",
       "brachialis"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0084",
@@ -1898,7 +2069,8 @@
     "equipment":"barbell",
     "secondary_muscles":[
       "lower back"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0083",
@@ -1909,7 +2081,8 @@
     "secondary_muscles":[
       "shoulders",
       "triceps"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0085",
@@ -1920,7 +2093,8 @@
     "secondary_muscles":[
       "hamstrings",
       "lower back"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0086",
@@ -1931,7 +2105,8 @@
     "secondary_muscles":[
       "triceps",
       "upper back"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0087",
@@ -1942,7 +2117,8 @@
     "secondary_muscles":[
       "triceps",
       "upper back"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0088",
@@ -1953,7 +2129,8 @@
     "secondary_muscles":[
       "hamstrings",
       "quadriceps"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1718",
@@ -1963,7 +2140,8 @@
     "equipment":"barbell",
     "secondary_muscles":[
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0089",
@@ -1973,7 +2151,8 @@
     "equipment":"barbell",
     "secondary_muscles":[
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0090",
@@ -1984,7 +2163,8 @@
     "secondary_muscles":[
       "hamstrings",
       "lower back"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0091",
@@ -1995,7 +2175,8 @@
     "secondary_muscles":[
       "triceps",
       "upper back"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0092",
@@ -2005,7 +2186,8 @@
     "equipment":"barbell",
     "secondary_muscles":[
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0094",
@@ -2016,7 +2198,8 @@
     "secondary_muscles":[
       "obliques",
       "lower back"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0095",
@@ -2026,7 +2209,8 @@
     "equipment":"barbell",
     "secondary_muscles":[
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0096",
@@ -2037,7 +2221,8 @@
     "secondary_muscles":[
       "obliques",
       "lower back"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0098",
@@ -2049,7 +2234,8 @@
       "glutes",
       "hamstrings",
       "calves"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0097",
@@ -2061,7 +2247,8 @@
       "glutes",
       "hamstrings",
       "calves"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1756",
@@ -2072,7 +2259,8 @@
     "secondary_muscles":[
       "hamstrings",
       "lower back"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0099",
@@ -2084,7 +2272,8 @@
       "glutes",
       "hamstrings",
       "calves"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"2799",
@@ -2094,7 +2283,8 @@
     "equipment":"barbell",
     "secondary_muscles":[
       "hip flexors"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"2800",
@@ -2105,7 +2295,8 @@
     "secondary_muscles":[
       "hip flexors",
       "quadriceps"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0100",
@@ -2116,7 +2307,8 @@
     "secondary_muscles":[
       "triceps",
       "core"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0101",
@@ -2128,7 +2320,8 @@
       "quadriceps",
       "hamstrings",
       "calves"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"2810",
@@ -2140,7 +2333,8 @@
       "glutes",
       "hamstrings",
       "calves"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0102",
@@ -2152,7 +2346,8 @@
       "glutes",
       "hamstrings",
       "calves"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"2798",
@@ -2164,7 +2359,8 @@
       "glutes",
       "hamstrings",
       "calves"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0103",
@@ -2175,7 +2371,8 @@
     "secondary_muscles":[
       "shoulders",
       "lower back"
-    ]
+    ],
+    "advanced":true
   },
   {
     "id":"0104",
@@ -2186,7 +2383,8 @@
     "secondary_muscles":[
       "biceps",
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0105",
@@ -2197,7 +2395,8 @@
     "secondary_muscles":[
       "triceps",
       "upper back"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1372",
@@ -2208,7 +2407,8 @@
     "secondary_muscles":[
       "hamstrings",
       "glutes"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0106",
@@ -2218,7 +2418,8 @@
     "equipment":"barbell",
     "secondary_muscles":[
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1456",
@@ -2229,7 +2430,8 @@
     "secondary_muscles":[
       "triceps",
       "upper back"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"2414",
@@ -2239,7 +2441,8 @@
     "equipment":"barbell",
     "secondary_muscles":[
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0107",
@@ -2250,7 +2453,8 @@
     "secondary_muscles":[
       "triceps",
       "upper back"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0108",
@@ -2261,7 +2465,8 @@
     "secondary_muscles":[
       "hamstrings",
       "glutes"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0109",
@@ -2271,7 +2476,8 @@
     "equipment":"barbell",
     "secondary_muscles":[
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0110",
@@ -2281,7 +2487,8 @@
     "equipment":"barbell",
     "secondary_muscles":[
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0111",
@@ -2292,7 +2499,8 @@
     "secondary_muscles":[
       "hamstrings",
       "quadriceps"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0112",
@@ -2303,7 +2511,8 @@
     "secondary_muscles":[
       "obliques",
       "lower back"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1629",
@@ -2313,7 +2522,8 @@
     "equipment":"barbell",
     "secondary_muscles":[
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1457",
@@ -2324,7 +2534,8 @@
     "secondary_muscles":[
       "triceps",
       "upper back"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0113",
@@ -2335,7 +2546,8 @@
     "secondary_muscles":[
       "forearms",
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0114",
@@ -2347,7 +2559,8 @@
       "quadriceps",
       "hamstrings",
       "calves"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0115",
@@ -2358,7 +2571,8 @@
     "secondary_muscles":[
       "hamstrings",
       "lower back"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0116",
@@ -2369,7 +2583,8 @@
     "secondary_muscles":[
       "glutes",
       "lower back"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0117",
@@ -2381,7 +2596,8 @@
       "hamstrings",
       "quadriceps",
       "lower back"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"3305",
@@ -2394,7 +2610,8 @@
       "glutes",
       "hamstrings",
       "core"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0120",
@@ -2405,7 +2622,8 @@
     "secondary_muscles":[
       "traps",
       "biceps"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0119",
@@ -2416,7 +2634,8 @@
     "secondary_muscles":[
       "traps",
       "biceps"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0121",
@@ -2427,7 +2646,8 @@
     "secondary_muscles":[
       "traps",
       "biceps"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0122",
@@ -2438,7 +2658,8 @@
     "secondary_muscles":[
       "shoulders",
       "triceps"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1258",
@@ -2449,7 +2670,8 @@
     "secondary_muscles":[
       "triceps",
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0124",
@@ -2461,7 +2683,8 @@
       "glutes",
       "hamstrings",
       "calves"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0123",
@@ -2472,7 +2695,8 @@
     "secondary_muscles":[
       "traps",
       "biceps"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0126",
@@ -2483,7 +2707,8 @@
     "secondary_muscles":[
       "biceps",
       "brachialis"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0125",
@@ -2494,7 +2719,8 @@
     "secondary_muscles":[
       "biceps",
       "brachialis"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0127",
@@ -2507,7 +2733,8 @@
       "hamstrings",
       "calves",
       "core"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"3212",
@@ -2518,18 +2745,8 @@
     "secondary_muscles":[
       "hamstrings",
       "calves"
-    ]
-  },
-  {
-    "id":"0128",
-    "name":"battling ropes",
-    "body_part":"shoulders",
-    "target":"delts",
-    "equipment":"rope",
-    "secondary_muscles":[
-      "forearms",
-      "core"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"3360",
@@ -2541,7 +2758,8 @@
       "core",
       "shoulders",
       "triceps"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0129",
@@ -2552,7 +2770,8 @@
     "secondary_muscles":[
       "chest",
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1399",
@@ -2563,7 +2782,8 @@
     "secondary_muscles":[
       "chest",
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0130",
@@ -2573,7 +2793,8 @@
     "equipment":"body weight",
     "secondary_muscles":[
       "hamstrings"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"3019",
@@ -2584,7 +2805,8 @@
     "secondary_muscles":[
       "biceps",
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"3639",
@@ -2595,7 +2817,8 @@
     "secondary_muscles":[
       "obliques",
       "hip flexors"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1770",
@@ -2605,7 +2828,8 @@
     "equipment":"body weight",
     "secondary_muscles":[
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0139",
@@ -2616,7 +2840,8 @@
     "secondary_muscles":[
       "forearms",
       "shoulders"
-    ]
+    ],
+    "advanced":true
   },
   {
     "id":"0140",
@@ -2627,7 +2852,8 @@
     "secondary_muscles":[
       "forearms",
       "shoulders"
-    ]
+    ],
+    "advanced":true
   },
   {
     "id":"0137",
@@ -2638,7 +2864,8 @@
     "secondary_muscles":[
       "chest",
       "shoulders"
-    ]
+    ],
+    "advanced":true
   },
   {
     "id":"3543",
@@ -2650,7 +2877,8 @@
       "quadriceps",
       "hamstrings",
       "calves"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"3544",
@@ -2661,7 +2889,8 @@
     "secondary_muscles":[
       "obliques",
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1771",
@@ -2672,7 +2901,8 @@
     "secondary_muscles":[
       "shoulders",
       "chest"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1769",
@@ -2682,7 +2912,8 @@
     "equipment":"body weight",
     "secondary_muscles":[
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"3168",
@@ -2693,7 +2924,8 @@
     "secondary_muscles":[
       "biceps",
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"3167",
@@ -2704,7 +2936,8 @@
     "secondary_muscles":[
       "biceps",
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1373",
@@ -2715,7 +2948,8 @@
     "secondary_muscles":[
       "ankles",
       "feet"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"3156",
@@ -2726,7 +2960,8 @@
     "secondary_muscles":[
       "biceps",
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"3158",
@@ -2737,7 +2972,8 @@
     "secondary_muscles":[
       "biceps",
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"3162",
@@ -2748,7 +2984,8 @@
     "secondary_muscles":[
       "biceps",
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"3161",
@@ -2759,7 +2996,8 @@
     "secondary_muscles":[
       "biceps",
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"3166",
@@ -2770,7 +3008,8 @@
     "secondary_muscles":[
       "biceps",
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"3165",
@@ -2781,7 +3020,8 @@
     "secondary_muscles":[
       "biceps",
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0138",
@@ -2792,7 +3032,8 @@
     "secondary_muscles":[
       "obliques",
       "hip flexors"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1374",
@@ -2804,7 +3045,8 @@
       "quadriceps",
       "hamstrings",
       "glutes"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"2466",
@@ -2818,7 +3060,8 @@
       "hamstrings",
       "shoulders",
       "triceps"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1160",
@@ -2832,7 +3075,8 @@
       "calves",
       "shoulders",
       "chest"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0870",
@@ -2843,7 +3087,8 @@
     "secondary_muscles":[
       "hip flexors",
       "lower back"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1494",
@@ -2854,7 +3099,8 @@
     "secondary_muscles":[
       "hamstrings",
       "groin"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0148",
@@ -2865,7 +3111,8 @@
     "secondary_muscles":[
       "triceps",
       "upper back"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0149",
@@ -2875,7 +3122,8 @@
     "equipment":"cable",
     "secondary_muscles":[
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"3235",
@@ -2886,7 +3134,8 @@
     "secondary_muscles":[
       "glutes",
       "calves"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0150",
@@ -2898,7 +3147,8 @@
       "biceps",
       "rhomboids",
       "rear deltoids"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0151",
@@ -2909,7 +3159,8 @@
     "secondary_muscles":[
       "triceps",
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1630",
@@ -2919,7 +3170,8 @@
     "equipment":"cable",
     "secondary_muscles":[
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1631",
@@ -2929,7 +3181,8 @@
     "equipment":"cable",
     "secondary_muscles":[
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0152",
@@ -2939,7 +3192,8 @@
     "equipment":"cable",
     "secondary_muscles":[
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0153",
@@ -2951,7 +3205,8 @@
       "biceps",
       "rhomboids",
       "rear deltoids"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0154",
@@ -2962,7 +3217,8 @@
     "secondary_muscles":[
       "rhomboids",
       "trapezius"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0155",
@@ -2973,7 +3229,8 @@
     "secondary_muscles":[
       "deltoids",
       "triceps"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0868",
@@ -2983,7 +3240,8 @@
     "equipment":"cable",
     "secondary_muscles":[
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0157",
@@ -2995,7 +3253,8 @@
       "hamstrings",
       "quadriceps",
       "lower back"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0158",
@@ -3006,7 +3265,8 @@
     "secondary_muscles":[
       "shoulders",
       "triceps"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1260",
@@ -3017,7 +3277,8 @@
     "secondary_muscles":[
       "triceps",
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1261",
@@ -3028,7 +3289,8 @@
     "secondary_muscles":[
       "triceps",
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0159",
@@ -3039,7 +3301,8 @@
     "secondary_muscles":[
       "biceps",
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1632",
@@ -3049,7 +3312,8 @@
     "equipment":"cable",
     "secondary_muscles":[
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0160",
@@ -3060,7 +3324,8 @@
     "secondary_muscles":[
       "biceps",
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0161",
@@ -3071,7 +3336,8 @@
     "secondary_muscles":[
       "triceps",
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0162",
@@ -3082,7 +3348,8 @@
     "secondary_muscles":[
       "triceps",
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0164",
@@ -3093,7 +3360,8 @@
     "secondary_muscles":[
       "trapezius",
       "biceps"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0165",
@@ -3103,7 +3371,8 @@
     "equipment":"cable",
     "secondary_muscles":[
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1722",
@@ -3113,7 +3382,8 @@
     "equipment":"cable",
     "secondary_muscles":[
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0167",
@@ -3124,7 +3394,8 @@
     "secondary_muscles":[
       "biceps",
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0168",
@@ -3135,7 +3406,8 @@
     "secondary_muscles":[
       "glutes",
       "quadriceps"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0169",
@@ -3146,7 +3418,8 @@
     "secondary_muscles":[
       "deltoids",
       "triceps"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1318",
@@ -3157,7 +3430,8 @@
     "secondary_muscles":[
       "biceps",
       "rear deltoids"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0171",
@@ -3168,7 +3442,8 @@
     "secondary_muscles":[
       "deltoids",
       "triceps"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0170",
@@ -3179,7 +3454,8 @@
     "secondary_muscles":[
       "deltoids",
       "triceps"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0172",
@@ -3190,7 +3466,8 @@
     "secondary_muscles":[
       "triceps",
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0173",
@@ -3200,7 +3477,8 @@
     "equipment":"cable",
     "secondary_muscles":[
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0174",
@@ -3211,7 +3489,8 @@
     "secondary_muscles":[
       "obliques",
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0860",
@@ -3221,7 +3500,8 @@
     "equipment":"cable",
     "secondary_muscles":[
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0175",
@@ -3231,7 +3511,8 @@
     "equipment":"cable",
     "secondary_muscles":[
       "obliques"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"3697",
@@ -3243,7 +3524,8 @@
       "trapezius",
       "rhomboids",
       "biceps"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0176",
@@ -3253,7 +3535,8 @@
     "equipment":"cable",
     "secondary_muscles":[
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"2330",
@@ -3265,7 +3548,8 @@
       "biceps",
       "rhomboids",
       "rear deltoids"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0177",
@@ -3276,7 +3560,8 @@
     "secondary_muscles":[
       "biceps",
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"2616",
@@ -3287,7 +3572,8 @@
     "secondary_muscles":[
       "biceps",
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0178",
@@ -3298,7 +3584,8 @@
     "secondary_muscles":[
       "traps",
       "triceps"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0179",
@@ -3309,7 +3596,8 @@
     "secondary_muscles":[
       "deltoids",
       "triceps"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0180",
@@ -3320,7 +3608,8 @@
     "secondary_muscles":[
       "biceps",
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1634",
@@ -3330,7 +3619,8 @@
     "equipment":"cable",
     "secondary_muscles":[
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0182",
@@ -3340,7 +3630,8 @@
     "equipment":"cable",
     "secondary_muscles":[
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0184",
@@ -3351,7 +3642,8 @@
     "secondary_muscles":[
       "triceps",
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0185",
@@ -3362,7 +3654,8 @@
     "secondary_muscles":[
       "deltoids",
       "triceps"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0186",
@@ -3372,7 +3665,8 @@
     "equipment":"cable",
     "secondary_muscles":[
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0188",
@@ -3383,7 +3677,8 @@
     "secondary_muscles":[
       "deltoids",
       "triceps"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0189",
@@ -3394,7 +3689,8 @@
     "secondary_muscles":[
       "biceps",
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0190",
@@ -3404,7 +3700,8 @@
     "equipment":"cable",
     "secondary_muscles":[
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1262",
@@ -3415,7 +3712,8 @@
     "secondary_muscles":[
       "shoulders",
       "triceps"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1263",
@@ -3426,7 +3724,8 @@
     "secondary_muscles":[
       "deltoids",
       "triceps"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1264",
@@ -3437,7 +3736,8 @@
     "secondary_muscles":[
       "deltoids",
       "triceps"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1265",
@@ -3448,7 +3748,8 @@
     "secondary_muscles":[
       "deltoids",
       "triceps"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1266",
@@ -3459,7 +3760,8 @@
     "secondary_muscles":[
       "shoulders",
       "triceps"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0191",
@@ -3470,7 +3772,8 @@
     "secondary_muscles":[
       "deltoids",
       "trapezius"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0192",
@@ -3481,7 +3784,8 @@
     "secondary_muscles":[
       "traps",
       "triceps"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1633",
@@ -3491,7 +3795,8 @@
     "equipment":"cable",
     "secondary_muscles":[
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1267",
@@ -3502,7 +3807,8 @@
     "secondary_muscles":[
       "shoulders",
       "triceps"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"3563",
@@ -3513,7 +3819,8 @@
     "secondary_muscles":[
       "biceps",
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1635",
@@ -3523,7 +3830,8 @@
     "equipment":"cable",
     "secondary_muscles":[
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0193",
@@ -3534,7 +3842,8 @@
     "secondary_muscles":[
       "biceps",
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1723",
@@ -3544,7 +3853,8 @@
     "equipment":"cable",
     "secondary_muscles":[
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1636",
@@ -3555,7 +3865,8 @@
     "secondary_muscles":[
       "forearms",
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1637",
@@ -3566,7 +3877,8 @@
     "secondary_muscles":[
       "forearms",
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0194",
@@ -3576,7 +3888,8 @@
     "equipment":"cable",
     "secondary_muscles":[
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1319",
@@ -3587,7 +3900,8 @@
     "secondary_muscles":[
       "biceps",
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0195",
@@ -3597,7 +3911,8 @@
     "equipment":"cable",
     "secondary_muscles":[
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1268",
@@ -3608,7 +3923,8 @@
     "secondary_muscles":[
       "shoulders",
       "triceps"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0196",
@@ -3619,7 +3935,8 @@
     "secondary_muscles":[
       "hamstrings",
       "lower back"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0198",
@@ -3630,7 +3947,8 @@
     "secondary_muscles":[
       "biceps",
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0197",
@@ -3641,7 +3959,8 @@
     "secondary_muscles":[
       "biceps",
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1638",
@@ -3651,7 +3970,8 @@
     "equipment":"cable",
     "secondary_muscles":[
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0201",
@@ -3661,7 +3981,8 @@
     "equipment":"cable",
     "secondary_muscles":[
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0199",
@@ -3672,7 +3993,8 @@
     "secondary_muscles":[
       "triceps",
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0200",
@@ -3682,7 +4004,8 @@
     "equipment":"cable",
     "secondary_muscles":[
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0202",
@@ -3694,7 +4017,8 @@
       "trapezius",
       "rhomboids",
       "biceps"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0203",
@@ -3706,7 +4030,8 @@
       "trapezius",
       "rhomboids",
       "biceps"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0204",
@@ -3717,7 +4042,8 @@
     "secondary_muscles":[
       "shoulders",
       "back"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0205",
@@ -3729,7 +4055,8 @@
       "biceps",
       "rhomboids",
       "rear deltoids"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0873",
@@ -3739,7 +4066,8 @@
     "equipment":"cable",
     "secondary_muscles":[
       "hip flexors"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0206",
@@ -3749,7 +4077,8 @@
     "equipment":"cable",
     "secondary_muscles":[
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"2406",
@@ -3759,7 +4088,8 @@
     "equipment":"cable",
     "secondary_muscles":[
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1413",
@@ -3769,7 +4099,8 @@
     "equipment":"cable",
     "secondary_muscles":[
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0209",
@@ -3779,7 +4110,8 @@
     "equipment":"cable",
     "secondary_muscles":[
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0210",
@@ -3790,7 +4122,8 @@
     "secondary_muscles":[
       "forearms",
       "wrists"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0207",
@@ -3800,7 +4133,8 @@
     "equipment":"cable",
     "secondary_muscles":[
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0208",
@@ -3811,7 +4145,8 @@
     "secondary_muscles":[
       "biceps",
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1320",
@@ -3822,7 +4157,8 @@
     "secondary_muscles":[
       "biceps",
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1321",
@@ -3833,7 +4169,8 @@
     "secondary_muscles":[
       "biceps",
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1322",
@@ -3844,7 +4181,8 @@
     "secondary_muscles":[
       "biceps",
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1639",
@@ -3854,7 +4192,8 @@
     "equipment":"cable",
     "secondary_muscles":[
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1724",
@@ -3864,7 +4203,8 @@
     "equipment":"cable",
     "secondary_muscles":[
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1725",
@@ -3874,7 +4214,8 @@
     "equipment":"cable",
     "secondary_muscles":[
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1726",
@@ -3884,7 +4225,8 @@
     "equipment":"cable",
     "secondary_muscles":[
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1640",
@@ -3894,7 +4236,8 @@
     "equipment":"cable",
     "secondary_muscles":[
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1323",
@@ -3905,7 +4248,8 @@
     "secondary_muscles":[
       "biceps",
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0211",
@@ -3916,7 +4260,8 @@
     "secondary_muscles":[
       "obliques",
       "lower back"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"2144",
@@ -3927,7 +4272,8 @@
     "secondary_muscles":[
       "shoulders",
       "triceps"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0212",
@@ -3937,7 +4283,8 @@
     "equipment":"cable",
     "secondary_muscles":[
       "obliques"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1641",
@@ -3947,7 +4294,8 @@
     "equipment":"cable",
     "secondary_muscles":[
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0213",
@@ -3959,7 +4307,8 @@
       "biceps",
       "rhomboids",
       "rear deltoids"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0214",
@@ -3970,7 +4319,8 @@
     "secondary_muscles":[
       "biceps",
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1642",
@@ -3980,7 +4330,8 @@
     "equipment":"cable",
     "secondary_muscles":[
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1643",
@@ -3991,7 +4342,8 @@
     "secondary_muscles":[
       "forearms",
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0215",
@@ -4002,7 +4354,8 @@
     "secondary_muscles":[
       "traps",
       "rhomboids"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0861",
@@ -4013,7 +4366,8 @@
     "secondary_muscles":[
       "biceps",
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0216",
@@ -4024,7 +4378,8 @@
     "secondary_muscles":[
       "rotator cuff",
       "triceps"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"2399",
@@ -4034,7 +4389,8 @@
     "equipment":"cable",
     "secondary_muscles":[
       "obliques"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0218",
@@ -4045,7 +4401,8 @@
     "secondary_muscles":[
       "biceps",
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0219",
@@ -4056,7 +4413,8 @@
     "secondary_muscles":[
       "triceps",
       "upper back"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0220",
@@ -4066,7 +4424,8 @@
     "equipment":"cable",
     "secondary_muscles":[
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0222",
@@ -4076,7 +4435,8 @@
     "equipment":"cable",
     "secondary_muscles":[
       "obliques"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0221",
@@ -4086,7 +4446,8 @@
     "equipment":"cable",
     "secondary_muscles":[
       "obliques"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0223",
@@ -4096,7 +4457,8 @@
     "equipment":"cable",
     "secondary_muscles":[
       "obliques"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1717",
@@ -4108,7 +4470,8 @@
       "biceps",
       "rhomboids",
       "rear deltoids"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1644",
@@ -4118,7 +4481,8 @@
     "equipment":"cable",
     "secondary_muscles":[
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0224",
@@ -4129,7 +4493,8 @@
     "secondary_muscles":[
       "biceps",
       "brachialis"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1375",
@@ -4140,7 +4505,8 @@
     "secondary_muscles":[
       "hamstrings",
       "glutes"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0225",
@@ -4152,7 +4518,8 @@
       "trapezius",
       "rhomboids",
       "rear deltoids"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0226",
@@ -4162,7 +4529,8 @@
     "equipment":"cable",
     "secondary_muscles":[
       "obliques"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0874",
@@ -4172,7 +4540,8 @@
     "equipment":"cable",
     "secondary_muscles":[
       "obliques"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0227",
@@ -4183,7 +4552,8 @@
     "secondary_muscles":[
       "deltoids",
       "triceps"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0228",
@@ -4194,7 +4564,8 @@
     "secondary_muscles":[
       "hamstrings",
       "quadriceps"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0229",
@@ -4204,7 +4575,8 @@
     "equipment":"cable",
     "secondary_muscles":[
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0230",
@@ -4215,7 +4587,8 @@
     "secondary_muscles":[
       "obliques",
       "lower back"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0231",
@@ -4225,7 +4598,8 @@
     "equipment":"cable",
     "secondary_muscles":[
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1376",
@@ -4236,7 +4610,8 @@
     "secondary_muscles":[
       "ankles",
       "feet"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0232",
@@ -4247,7 +4622,8 @@
     "secondary_muscles":[
       "forearms",
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0233",
@@ -4259,7 +4635,8 @@
       "trapezius",
       "rhomboids",
       "biceps"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1727",
@@ -4269,7 +4646,8 @@
     "equipment":"cable",
     "secondary_muscles":[
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0234",
@@ -4280,7 +4658,8 @@
     "secondary_muscles":[
       "biceps",
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0235",
@@ -4291,7 +4670,8 @@
     "secondary_muscles":[
       "rotator cuff",
       "trapezius"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0236",
@@ -4302,7 +4682,8 @@
     "secondary_muscles":[
       "biceps",
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1269",
@@ -4313,7 +4694,8 @@
     "secondary_muscles":[
       "deltoids",
       "triceps"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0238",
@@ -4324,7 +4706,8 @@
     "secondary_muscles":[
       "shoulders",
       "biceps"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0237",
@@ -4335,7 +4718,8 @@
     "secondary_muscles":[
       "biceps",
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0239",
@@ -4347,7 +4731,8 @@
       "biceps",
       "forearms",
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0240",
@@ -4358,7 +4743,8 @@
     "secondary_muscles":[
       "trapezius",
       "rhomboids"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"2464",
@@ -4370,7 +4756,8 @@
       "biceps",
       "rhomboids",
       "rear deltoids"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0241",
@@ -4380,7 +4767,8 @@
     "equipment":"cable",
     "secondary_muscles":[
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"2405",
@@ -4390,7 +4778,8 @@
     "equipment":"cable",
     "secondary_muscles":[
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0242",
@@ -4400,7 +4789,8 @@
     "equipment":"cable",
     "secondary_muscles":[
       "hip flexors"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0243",
@@ -4410,7 +4800,8 @@
     "equipment":"cable",
     "secondary_muscles":[
       "obliques"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0862",
@@ -4421,7 +4812,8 @@
     "secondary_muscles":[
       "obliques",
       "lower back"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0244",
@@ -4432,7 +4824,8 @@
     "secondary_muscles":[
       "shoulders",
       "biceps"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1645",
@@ -4442,7 +4835,8 @@
     "equipment":"cable",
     "secondary_muscles":[
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1728",
@@ -4452,7 +4846,8 @@
     "equipment":"cable",
     "secondary_muscles":[
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0245",
@@ -4463,7 +4858,8 @@
     "secondary_muscles":[
       "biceps",
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1270",
@@ -4474,7 +4870,8 @@
     "secondary_muscles":[
       "deltoids",
       "triceps"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1324",
@@ -4485,7 +4882,8 @@
     "secondary_muscles":[
       "biceps",
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0246",
@@ -4496,7 +4894,8 @@
     "secondary_muscles":[
       "traps",
       "biceps"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1325",
@@ -4508,7 +4907,8 @@
       "biceps",
       "rhomboids",
       "rear deltoids"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0247",
@@ -4519,7 +4919,8 @@
     "secondary_muscles":[
       "biceps",
       "brachialis"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0248",
@@ -4530,7 +4931,8 @@
     "secondary_muscles":[
       "biceps",
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"2963",
@@ -4540,7 +4942,8 @@
     "equipment":"body weight",
     "secondary_muscles":[
       "hip flexors"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0251",
@@ -4551,7 +4954,8 @@
     "secondary_muscles":[
       "triceps",
       "shoulders"
-    ]
+    ],
+    "advanced":true
   },
   {
     "id":"1430",
@@ -4562,7 +4966,8 @@
     "secondary_muscles":[
       "triceps",
       "shoulders"
-    ]
+    ],
+    "advanced":true
   },
   {
     "id":"2462",
@@ -4573,7 +4978,8 @@
     "secondary_muscles":[
       "triceps",
       "shoulders"
-    ]
+    ],
+    "advanced":true
   },
   {
     "id":"3216",
@@ -4584,7 +4990,8 @@
     "secondary_muscles":[
       "triceps",
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1326",
@@ -4595,7 +5002,8 @@
     "secondary_muscles":[
       "biceps",
       "forearms"
-    ]
+    ],
+    "advanced":true
   },
   {
     "id":"0253",
@@ -4606,7 +5014,8 @@
     "secondary_muscles":[
       "biceps",
       "forearms"
-    ]
+    ],
+    "advanced":true
   },
   {
     "id":"1273",
@@ -4617,7 +5026,8 @@
     "secondary_muscles":[
       "triceps",
       "shoulders"
-    ]
+    ],
+    "advanced":true
   },
   {
     "id":"0258",
@@ -4629,7 +5039,8 @@
       "triceps",
       "shoulders",
       "core"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1327",
@@ -4640,7 +5051,8 @@
     "secondary_muscles":[
       "biceps",
       "forearms"
-    ]
+    ],
+    "advanced":true
   },
   {
     "id":"0259",
@@ -4651,7 +5063,8 @@
     "secondary_muscles":[
       "chest",
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"2398",
@@ -4662,7 +5075,8 @@
     "secondary_muscles":[
       "chest",
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0260",
@@ -4673,7 +5087,8 @@
     "secondary_muscles":[
       "hip flexors",
       "lower back"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1468",
@@ -4684,7 +5099,8 @@
     "secondary_muscles":[
       "obliques",
       "hip flexors"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0262",
@@ -4694,7 +5110,8 @@
     "equipment":"body weight",
     "secondary_muscles":[
       "obliques"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0267",
@@ -4704,7 +5121,8 @@
     "equipment":"body weight",
     "secondary_muscles":[
       "hip flexors"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0271",
@@ -4714,7 +5132,8 @@
     "equipment":"stability ball",
     "secondary_muscles":[
       "hip flexors"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0272",
@@ -4724,7 +5143,8 @@
     "equipment":"stability ball",
     "secondary_muscles":[
       "hip flexors"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0274",
@@ -4734,7 +5154,8 @@
     "equipment":"body weight",
     "secondary_muscles":[
       "hip flexors"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"3016",
@@ -4744,7 +5165,8 @@
     "equipment":"body weight",
     "secondary_muscles":[
       "hip flexors"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"3769",
@@ -4756,7 +5178,8 @@
       "quadriceps",
       "hamstrings",
       "calves"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"2331",
@@ -4768,7 +5191,8 @@
       "quadriceps",
       "hamstrings",
       "glutes"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0276",
@@ -4779,7 +5203,8 @@
     "secondary_muscles":[
       "hip flexors",
       "lower back"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0277",
@@ -4789,7 +5214,8 @@
     "equipment":"body weight",
     "secondary_muscles":[
       "hip flexors"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0279",
@@ -4800,7 +5226,8 @@
     "secondary_muscles":[
       "triceps",
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0282",
@@ -4811,7 +5238,8 @@
     "secondary_muscles":[
       "hip flexors",
       "lower back"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1274",
@@ -4822,7 +5250,8 @@
     "secondary_muscles":[
       "triceps",
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0283",
@@ -4833,7 +5262,8 @@
     "secondary_muscles":[
       "chest",
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0284",
@@ -4844,7 +5274,8 @@
     "secondary_muscles":[
       "hamstrings",
       "glutes"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1275",
@@ -4855,7 +5286,8 @@
     "secondary_muscles":[
       "triceps",
       "shoulders"
-    ]
+    ],
+    "advanced":true
   },
   {
     "id":"0285",
@@ -4865,7 +5297,8 @@
     "equipment":"dumbbell",
     "secondary_muscles":[
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"2403",
@@ -4875,7 +5308,8 @@
     "equipment":"dumbbell",
     "secondary_muscles":[
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1646",
@@ -4885,7 +5319,8 @@
     "equipment":"dumbbell",
     "secondary_muscles":[
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1647",
@@ -4895,7 +5330,8 @@
     "equipment":"dumbbell",
     "secondary_muscles":[
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1648",
@@ -4905,7 +5341,8 @@
     "equipment":"dumbbell",
     "secondary_muscles":[
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0286",
@@ -4916,7 +5353,8 @@
     "secondary_muscles":[
       "triceps",
       "core"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1649",
@@ -4927,7 +5365,8 @@
     "secondary_muscles":[
       "forearms",
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1650",
@@ -4937,7 +5376,8 @@
     "equipment":"dumbbell",
     "secondary_muscles":[
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"2137",
@@ -4948,7 +5388,8 @@
     "secondary_muscles":[
       "triceps",
       "upper chest"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0287",
@@ -4959,7 +5400,8 @@
     "secondary_muscles":[
       "triceps",
       "upper chest"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0288",
@@ -4970,7 +5412,8 @@
     "secondary_muscles":[
       "triceps",
       "latissimus dorsi"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0289",
@@ -4981,7 +5424,8 @@
     "secondary_muscles":[
       "triceps",
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0290",
@@ -4992,7 +5436,8 @@
     "secondary_muscles":[
       "triceps",
       "chest"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0291",
@@ -5004,7 +5449,8 @@
       "quadriceps",
       "hamstrings",
       "calves"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0293",
@@ -5015,7 +5461,8 @@
     "secondary_muscles":[
       "biceps",
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1651",
@@ -5026,7 +5473,8 @@
     "secondary_muscles":[
       "forearms",
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1652",
@@ -5037,7 +5485,8 @@
     "secondary_muscles":[
       "forearms",
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1653",
@@ -5047,7 +5496,8 @@
     "equipment":"dumbbell",
     "secondary_muscles":[
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0294",
@@ -5057,7 +5507,8 @@
     "equipment":"dumbbell",
     "secondary_muscles":[
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"2401",
@@ -5067,7 +5518,8 @@
     "equipment":"dumbbell",
     "secondary_muscles":[
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1654",
@@ -5077,7 +5529,8 @@
     "equipment":"dumbbell",
     "secondary_muscles":[
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1655",
@@ -5087,7 +5540,8 @@
     "equipment":"dumbbell",
     "secondary_muscles":[
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1656",
@@ -5098,7 +5552,8 @@
     "secondary_muscles":[
       "forearms",
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1201",
@@ -5113,7 +5568,8 @@
       "shoulders",
       "triceps",
       "core"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0295",
@@ -5125,7 +5581,8 @@
       "hamstrings",
       "quadriceps",
       "calves"
-    ]
+    ],
+    "advanced":true
   },
   {
     "id":"1731",
@@ -5136,7 +5593,8 @@
     "secondary_muscles":[
       "chest",
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0296",
@@ -5147,7 +5605,8 @@
     "secondary_muscles":[
       "chest",
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0297",
@@ -5157,7 +5616,8 @@
     "equipment":"dumbbell",
     "secondary_muscles":[
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"3635",
@@ -5169,7 +5629,8 @@
       "quadriceps",
       "hamstrings",
       "calves"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0298",
@@ -5179,7 +5640,8 @@
     "equipment":"dumbbell",
     "secondary_muscles":[
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1657",
@@ -5189,7 +5651,8 @@
     "equipment":"dumbbell",
     "secondary_muscles":[
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0299",
@@ -5200,7 +5663,8 @@
     "secondary_muscles":[
       "triceps",
       "upper back"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"2136",
@@ -5211,7 +5675,8 @@
     "secondary_muscles":[
       "triceps",
       "upper back"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0300",
@@ -5222,7 +5687,8 @@
     "secondary_muscles":[
       "hamstrings",
       "lower back"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0301",
@@ -5233,7 +5699,8 @@
     "secondary_muscles":[
       "triceps",
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0302",
@@ -5243,7 +5710,8 @@
     "equipment":"dumbbell",
     "secondary_muscles":[
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0303",
@@ -5254,7 +5722,8 @@
     "secondary_muscles":[
       "triceps",
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1276",
@@ -5264,7 +5733,8 @@
     "equipment":"dumbbell",
     "secondary_muscles":[
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1617",
@@ -5275,7 +5745,8 @@
     "secondary_muscles":[
       "chest",
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0305",
@@ -5286,7 +5757,8 @@
     "secondary_muscles":[
       "shoulders",
       "rhomboids"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0304",
@@ -5297,7 +5769,8 @@
     "secondary_muscles":[
       "shoulders",
       "rhomboids"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0306",
@@ -5307,7 +5780,8 @@
     "equipment":"dumbbell",
     "secondary_muscles":[
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0307",
@@ -5318,7 +5792,8 @@
     "secondary_muscles":[
       "shoulders",
       "triceps"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1437",
@@ -5329,7 +5804,8 @@
     "secondary_muscles":[
       "wrist flexors",
       "wrist extensors"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0308",
@@ -5339,7 +5815,8 @@
     "equipment":"dumbbell",
     "secondary_muscles":[
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1277",
@@ -5350,7 +5827,8 @@
     "secondary_muscles":[
       "shoulders",
       "triceps"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1732",
@@ -5361,7 +5839,8 @@
     "secondary_muscles":[
       "shoulders",
       "core"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0310",
@@ -5372,7 +5851,8 @@
     "secondary_muscles":[
       "biceps",
       "trapezius"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0309",
@@ -5383,7 +5863,8 @@
     "secondary_muscles":[
       "trapezius",
       "biceps"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0311",
@@ -5394,7 +5875,8 @@
     "secondary_muscles":[
       "traps",
       "rotator cuff"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1760",
@@ -5406,7 +5888,8 @@
       "glutes",
       "hamstrings",
       "calves"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0313",
@@ -5416,7 +5899,8 @@
     "equipment":"dumbbell",
     "secondary_muscles":[
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1659",
@@ -5426,7 +5910,8 @@
     "equipment":"dumbbell",
     "secondary_muscles":[
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0312",
@@ -5436,7 +5921,8 @@
     "equipment":"dumbbell",
     "secondary_muscles":[
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"2402",
@@ -5446,7 +5932,8 @@
     "equipment":"dumbbell",
     "secondary_muscles":[
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1664",
@@ -5456,7 +5943,8 @@
     "equipment":"dumbbell",
     "secondary_muscles":[
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"3545",
@@ -5467,7 +5955,8 @@
     "secondary_muscles":[
       "shoulders",
       "triceps"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0314",
@@ -5478,7 +5967,8 @@
     "secondary_muscles":[
       "shoulders",
       "triceps"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0315",
@@ -5488,7 +5978,8 @@
     "equipment":"dumbbell",
     "secondary_muscles":[
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0316",
@@ -5499,7 +5990,8 @@
     "secondary_muscles":[
       "shoulders",
       "triceps"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0318",
@@ -5509,7 +6001,8 @@
     "equipment":"dumbbell",
     "secondary_muscles":[
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0317",
@@ -5519,7 +6012,8 @@
     "equipment":"dumbbell",
     "secondary_muscles":[
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0319",
@@ -5529,7 +6023,8 @@
     "equipment":"dumbbell",
     "secondary_muscles":[
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1278",
@@ -5539,7 +6034,8 @@
     "equipment":"dumbbell",
     "secondary_muscles":[
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0320",
@@ -5549,7 +6045,8 @@
     "equipment":"dumbbell",
     "secondary_muscles":[
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0321",
@@ -5560,7 +6057,8 @@
     "secondary_muscles":[
       "shoulders",
       "triceps"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1618",
@@ -5571,7 +6069,8 @@
     "secondary_muscles":[
       "chest",
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0322",
@@ -5581,7 +6080,8 @@
     "equipment":"dumbbell",
     "secondary_muscles":[
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1279",
@@ -5592,7 +6092,8 @@
     "secondary_muscles":[
       "deltoids",
       "triceps"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1280",
@@ -5602,7 +6103,8 @@
     "equipment":"dumbbell",
     "secondary_muscles":[
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1619",
@@ -5613,7 +6115,8 @@
     "secondary_muscles":[
       "shoulders",
       "chest"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1620",
@@ -5624,7 +6127,8 @@
     "secondary_muscles":[
       "shoulders",
       "chest"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0323",
@@ -5635,7 +6139,8 @@
     "secondary_muscles":[
       "trapezius",
       "triceps"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1281",
@@ -5646,7 +6151,8 @@
     "secondary_muscles":[
       "shoulders",
       "triceps"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1282",
@@ -5657,7 +6163,8 @@
     "secondary_muscles":[
       "shoulders",
       "triceps"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0324",
@@ -5668,7 +6175,8 @@
     "secondary_muscles":[
       "shoulders",
       "triceps"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1283",
@@ -5679,7 +6187,8 @@
     "secondary_muscles":[
       "shoulders",
       "triceps"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0325",
@@ -5690,7 +6199,8 @@
     "secondary_muscles":[
       "trapezius",
       "triceps"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0326",
@@ -5701,7 +6211,8 @@
     "secondary_muscles":[
       "traps",
       "rhomboids"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0327",
@@ -5712,7 +6223,8 @@
     "secondary_muscles":[
       "biceps",
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0328",
@@ -5723,7 +6235,8 @@
     "secondary_muscles":[
       "deltoids",
       "trapezius"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0329",
@@ -5733,7 +6246,8 @@
     "equipment":"dumbbell",
     "secondary_muscles":[
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"3542",
@@ -5744,7 +6258,8 @@
     "secondary_muscles":[
       "traps",
       "rhomboids"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0330",
@@ -5754,7 +6269,8 @@
     "equipment":"dumbbell",
     "secondary_muscles":[
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0331",
@@ -5765,7 +6281,8 @@
     "secondary_muscles":[
       "shoulders",
       "triceps"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1733",
@@ -5775,7 +6292,8 @@
     "equipment":"dumbbell",
     "secondary_muscles":[
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"3541",
@@ -5786,7 +6304,8 @@
     "secondary_muscles":[
       "shoulders",
       "rear deltoids"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0332",
@@ -5797,7 +6316,8 @@
     "secondary_muscles":[
       "triceps",
       "chest"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0333",
@@ -5807,7 +6327,8 @@
     "equipment":"dumbbell",
     "secondary_muscles":[
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1734",
@@ -5818,7 +6339,8 @@
     "secondary_muscles":[
       "shoulders",
       "back"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1660",
@@ -5828,7 +6350,8 @@
     "equipment":"dumbbell",
     "secondary_muscles":[
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0334",
@@ -5838,7 +6361,8 @@
     "equipment":"dumbbell",
     "secondary_muscles":[
       "traps"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0335",
@@ -5849,7 +6373,8 @@
     "secondary_muscles":[
       "trapezius",
       "biceps"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0336",
@@ -5861,7 +6386,8 @@
       "quadriceps",
       "hamstrings",
       "calves"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1658",
@@ -5872,7 +6398,8 @@
     "secondary_muscles":[
       "quadriceps",
       "hamstrings"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0337",
@@ -5882,7 +6409,8 @@
     "equipment":"dumbbell",
     "secondary_muscles":[
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1729",
@@ -5892,7 +6420,8 @@
     "equipment":"dumbbell",
     "secondary_muscles":[
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0338",
@@ -5903,7 +6432,8 @@
     "secondary_muscles":[
       "chest",
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0863",
@@ -5914,7 +6444,8 @@
     "secondary_muscles":[
       "rotator cuff",
       "triceps"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0339",
@@ -5924,7 +6455,8 @@
     "equipment":"dumbbell",
     "secondary_muscles":[
       "glutes"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0340",
@@ -5935,7 +6467,8 @@
     "secondary_muscles":[
       "triceps",
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"2470",
@@ -5946,7 +6479,8 @@
     "secondary_muscles":[
       "trapezius",
       "rhomboids"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0341",
@@ -5957,7 +6491,8 @@
     "secondary_muscles":[
       "trapezius",
       "rhomboids"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0343",
@@ -5968,7 +6503,8 @@
     "secondary_muscles":[
       "triceps",
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0342",
@@ -5979,7 +6515,8 @@
     "secondary_muscles":[
       "triceps",
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0344",
@@ -5989,7 +6526,8 @@
     "equipment":"dumbbell",
     "secondary_muscles":[
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0345",
@@ -6000,7 +6538,8 @@
     "secondary_muscles":[
       "traps",
       "rhomboids"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0346",
@@ -6010,7 +6549,8 @@
     "equipment":"dumbbell",
     "secondary_muscles":[
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0347",
@@ -6021,7 +6561,8 @@
     "secondary_muscles":[
       "biceps",
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"2705",
@@ -6032,7 +6573,8 @@
     "secondary_muscles":[
       "biceps",
       "triceps"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1284",
@@ -6044,7 +6586,8 @@
       "triceps",
       "shoulders",
       "back"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1328",
@@ -6055,7 +6598,8 @@
     "secondary_muscles":[
       "shoulders",
       "biceps"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0348",
@@ -6066,7 +6610,8 @@
     "secondary_muscles":[
       "traps",
       "rhomboids"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1735",
@@ -6076,7 +6621,8 @@
     "equipment":"dumbbell",
     "secondary_muscles":[
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0349",
@@ -6087,7 +6633,8 @@
     "secondary_muscles":[
       "biceps",
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"2706",
@@ -6098,7 +6645,8 @@
     "secondary_muscles":[
       "biceps",
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1661",
@@ -6108,7 +6656,8 @@
     "equipment":"dumbbell",
     "secondary_muscles":[
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0350",
@@ -6118,7 +6667,8 @@
     "equipment":"dumbbell",
     "secondary_muscles":[
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0351",
@@ -6128,7 +6678,8 @@
     "equipment":"dumbbell",
     "secondary_muscles":[
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1662",
@@ -6138,7 +6689,8 @@
     "equipment":"dumbbell",
     "secondary_muscles":[
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0352",
@@ -6149,7 +6701,8 @@
     "secondary_muscles":[
       "chest",
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1285",
@@ -6159,7 +6712,8 @@
     "equipment":"dumbbell",
     "secondary_muscles":[
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0292",
@@ -6170,7 +6724,8 @@
     "secondary_muscles":[
       "biceps",
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1286",
@@ -6181,7 +6736,8 @@
     "secondary_muscles":[
       "shoulders",
       "triceps"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0353",
@@ -6191,7 +6747,8 @@
     "equipment":"dumbbell",
     "secondary_muscles":[
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1287",
@@ -6202,7 +6759,8 @@
     "secondary_muscles":[
       "triceps",
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1288",
@@ -6213,7 +6771,8 @@
     "secondary_muscles":[
       "shoulders",
       "triceps"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1736",
@@ -6223,7 +6782,8 @@
     "equipment":"dumbbell",
     "secondary_muscles":[
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1663",
@@ -6233,7 +6793,8 @@
     "equipment":"dumbbell",
     "secondary_muscles":[
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1621",
@@ -6244,7 +6805,8 @@
     "secondary_muscles":[
       "shoulders",
       "chest"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1289",
@@ -6255,7 +6817,8 @@
     "secondary_muscles":[
       "shoulders",
       "triceps"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0354",
@@ -6265,7 +6828,8 @@
     "equipment":"dumbbell",
     "secondary_muscles":[
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0355",
@@ -6276,7 +6840,8 @@
     "secondary_muscles":[
       "trapezius",
       "triceps"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0356",
@@ -6287,7 +6852,8 @@
     "secondary_muscles":[
       "trapezius",
       "rotator cuff"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1290",
@@ -6299,7 +6865,8 @@
       "shoulders",
       "triceps",
       "core"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1665",
@@ -6309,7 +6876,8 @@
     "equipment":"dumbbell",
     "secondary_muscles":[
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1666",
@@ -6319,7 +6887,8 @@
     "equipment":"dumbbell",
     "secondary_muscles":[
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1291",
@@ -6331,7 +6900,8 @@
       "triceps",
       "latissimus dorsi",
       "rhomboids"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0358",
@@ -6341,7 +6911,8 @@
     "equipment":"dumbbell",
     "secondary_muscles":[
       "wrist extensors"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0359",
@@ -6352,7 +6923,8 @@
     "secondary_muscles":[
       "trapezius",
       "rhomboids"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1622",
@@ -6363,7 +6935,8 @@
     "secondary_muscles":[
       "triceps",
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1414",
@@ -6373,7 +6946,8 @@
     "equipment":"dumbbell",
     "secondary_muscles":[
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1667",
@@ -6383,7 +6957,8 @@
     "equipment":"dumbbell",
     "secondary_muscles":[
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1668",
@@ -6393,7 +6968,8 @@
     "equipment":"dumbbell",
     "secondary_muscles":[
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1669",
@@ -6403,7 +6979,8 @@
     "equipment":"dumbbell",
     "secondary_muscles":[
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1415",
@@ -6414,7 +6991,8 @@
     "secondary_muscles":[
       "biceps",
       "brachialis"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0361",
@@ -6425,7 +7003,8 @@
     "secondary_muscles":[
       "triceps",
       "upper back"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0360",
@@ -6436,7 +7015,8 @@
     "secondary_muscles":[
       "triceps",
       "upper back"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"3888",
@@ -6448,7 +7028,8 @@
       "hamstrings",
       "quadriceps",
       "core"
-    ]
+    ],
+    "advanced":true
   },
   {
     "id":"1670",
@@ -6458,7 +7039,8 @@
     "equipment":"dumbbell",
     "secondary_muscles":[
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1671",
@@ -6468,7 +7050,8 @@
     "equipment":"dumbbell",
     "secondary_muscles":[
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0362",
@@ -6478,7 +7061,8 @@
     "equipment":"dumbbell",
     "secondary_muscles":[
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0363",
@@ -6489,7 +7073,8 @@
     "secondary_muscles":[
       "traps",
       "biceps"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0364",
@@ -6500,7 +7085,8 @@
     "secondary_muscles":[
       "biceps",
       "brachialis"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1672",
@@ -6510,7 +7096,8 @@
     "equipment":"dumbbell",
     "secondary_muscles":[
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1292",
@@ -6521,7 +7108,8 @@
     "secondary_muscles":[
       "shoulders",
       "triceps"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0365",
@@ -6531,7 +7119,8 @@
     "equipment":"dumbbell",
     "secondary_muscles":[
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0366",
@@ -6541,7 +7130,8 @@
     "equipment":"dumbbell",
     "secondary_muscles":[
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1441",
@@ -6552,7 +7142,8 @@
     "secondary_muscles":[
       "biceps",
       "brachialis"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0367",
@@ -6563,7 +7154,8 @@
     "secondary_muscles":[
       "biceps",
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0368",
@@ -6574,7 +7166,8 @@
     "secondary_muscles":[
       "biceps",
       "brachialis"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0369",
@@ -6585,7 +7178,8 @@
     "secondary_muscles":[
       "biceps",
       "brachialis"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1329",
@@ -6596,7 +7190,8 @@
     "secondary_muscles":[
       "biceps",
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1623",
@@ -6607,7 +7202,8 @@
     "secondary_muscles":[
       "chest",
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0370",
@@ -6617,7 +7213,8 @@
     "equipment":"dumbbell",
     "secondary_muscles":[
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0371",
@@ -6629,7 +7226,8 @@
       "quadriceps",
       "hamstrings",
       "calves"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0372",
@@ -6639,7 +7237,8 @@
     "equipment":"dumbbell",
     "secondary_muscles":[
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1673",
@@ -6649,7 +7248,8 @@
     "equipment":"dumbbell",
     "secondary_muscles":[
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1293",
@@ -6660,7 +7260,8 @@
     "secondary_muscles":[
       "shoulders",
       "triceps"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0373",
@@ -6670,7 +7271,8 @@
     "equipment":"dumbbell",
     "secondary_muscles":[
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0374",
@@ -6680,7 +7282,8 @@
     "equipment":"dumbbell",
     "secondary_muscles":[
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1674",
@@ -6690,7 +7293,8 @@
     "equipment":"dumbbell",
     "secondary_muscles":[
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0375",
@@ -6701,7 +7305,8 @@
     "secondary_muscles":[
       "latissimus dorsi",
       "triceps"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1294",
@@ -6713,7 +7318,8 @@
       "triceps",
       "shoulders",
       "core"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1295",
@@ -6724,7 +7330,8 @@
     "secondary_muscles":[
       "triceps",
       "latissimus dorsi"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1700",
@@ -6735,7 +7342,8 @@
     "secondary_muscles":[
       "triceps",
       "core"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0376",
@@ -6746,7 +7354,8 @@
     "secondary_muscles":[
       "traps",
       "rhomboids"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"2292",
@@ -6757,7 +7366,8 @@
     "secondary_muscles":[
       "trapezius",
       "rhomboids"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0377",
@@ -6768,7 +7378,8 @@
     "secondary_muscles":[
       "trapezius",
       "rhomboids"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0378",
@@ -6779,7 +7390,8 @@
     "secondary_muscles":[
       "trapezius",
       "rhomboids"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0380",
@@ -6790,7 +7402,8 @@
     "secondary_muscles":[
       "traps",
       "rhomboids"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0379",
@@ -6801,7 +7414,8 @@
     "secondary_muscles":[
       "traps",
       "rhomboids"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0381",
@@ -6813,7 +7427,8 @@
       "quadriceps",
       "hamstrings",
       "calves"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0382",
@@ -6823,7 +7438,8 @@
     "equipment":"dumbbell",
     "secondary_muscles":[
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1624",
@@ -6834,7 +7450,8 @@
     "secondary_muscles":[
       "triceps",
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0383",
@@ -6845,7 +7462,8 @@
     "secondary_muscles":[
       "trapezius",
       "rhomboids"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1330",
@@ -6856,7 +7474,8 @@
     "secondary_muscles":[
       "biceps",
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1331",
@@ -6867,7 +7486,8 @@
     "secondary_muscles":[
       "biceps",
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"2327",
@@ -6878,7 +7498,8 @@
     "secondary_muscles":[
       "biceps",
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0384",
@@ -6888,7 +7509,8 @@
     "equipment":"dumbbell",
     "secondary_muscles":[
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1675",
@@ -6898,7 +7520,8 @@
     "equipment":"dumbbell",
     "secondary_muscles":[
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0385",
@@ -6909,7 +7532,8 @@
     "secondary_muscles":[
       "biceps",
       "brachialis"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1459",
@@ -6920,7 +7544,8 @@
     "secondary_muscles":[
       "hamstrings",
       "lower back"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0386",
@@ -6931,7 +7556,8 @@
     "secondary_muscles":[
       "trapezius",
       "rhomboids"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"2397",
@@ -6942,7 +7568,8 @@
     "secondary_muscles":[
       "triceps",
       "chest"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0387",
@@ -6953,7 +7580,8 @@
     "secondary_muscles":[
       "trapezius",
       "biceps"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1676",
@@ -6963,7 +7591,8 @@
     "equipment":"dumbbell",
     "secondary_muscles":[
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0388",
@@ -6974,7 +7603,8 @@
     "secondary_muscles":[
       "triceps",
       "chest"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"3546",
@@ -6985,7 +7615,8 @@
     "secondary_muscles":[
       "triceps",
       "upper back"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0389",
@@ -6995,7 +7626,8 @@
     "equipment":"dumbbell",
     "secondary_muscles":[
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"2317",
@@ -7006,7 +7638,8 @@
     "secondary_muscles":[
       "trapezius",
       "rhomboids"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1730",
@@ -7017,7 +7650,8 @@
     "secondary_muscles":[
       "shoulders",
       "back"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1737",
@@ -7028,7 +7662,8 @@
     "secondary_muscles":[
       "shoulders",
       "back"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1677",
@@ -7038,7 +7673,8 @@
     "equipment":"dumbbell",
     "secondary_muscles":[
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0390",
@@ -7048,7 +7684,8 @@
     "equipment":"dumbbell",
     "secondary_muscles":[
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"3547",
@@ -7058,7 +7695,8 @@
     "equipment":"dumbbell",
     "secondary_muscles":[
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1379",
@@ -7068,7 +7706,8 @@
     "equipment":"dumbbell",
     "secondary_muscles":[
       "hamstrings"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0391",
@@ -7078,7 +7717,8 @@
     "equipment":"dumbbell",
     "secondary_muscles":[
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0392",
@@ -7089,7 +7729,8 @@
     "secondary_muscles":[
       "trapezius",
       "biceps"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1678",
@@ -7099,7 +7740,8 @@
     "equipment":"dumbbell",
     "secondary_muscles":[
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0393",
@@ -7109,7 +7751,8 @@
     "equipment":"dumbbell",
     "secondary_muscles":[
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0394",
@@ -7119,7 +7762,8 @@
     "equipment":"dumbbell",
     "secondary_muscles":[
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0396",
@@ -7130,7 +7774,8 @@
     "secondary_muscles":[
       "traps",
       "upper back"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0395",
@@ -7141,7 +7786,8 @@
     "secondary_muscles":[
       "traps",
       "triceps"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0397",
@@ -7151,7 +7797,8 @@
     "equipment":"dumbbell",
     "secondary_muscles":[
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1679",
@@ -7162,7 +7809,8 @@
     "secondary_muscles":[
       "forearms",
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0398",
@@ -7172,7 +7820,8 @@
     "equipment":"dumbbell",
     "secondary_muscles":[
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0399",
@@ -7183,7 +7832,8 @@
     "secondary_muscles":[
       "shoulders",
       "biceps"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0400",
@@ -7194,7 +7844,8 @@
     "secondary_muscles":[
       "hamstrings",
       "glutes"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1380",
@@ -7205,7 +7856,8 @@
     "secondary_muscles":[
       "hamstrings",
       "glutes"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1381",
@@ -7216,7 +7868,8 @@
     "secondary_muscles":[
       "hamstrings",
       "glutes"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0401",
@@ -7227,7 +7880,8 @@
     "secondary_muscles":[
       "biceps",
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0402",
@@ -7237,7 +7891,8 @@
     "equipment":"dumbbell",
     "secondary_muscles":[
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0403",
@@ -7247,7 +7902,8 @@
     "equipment":"dumbbell",
     "secondary_muscles":[
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1738",
@@ -7257,7 +7913,8 @@
     "equipment":"dumbbell",
     "secondary_muscles":[
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0405",
@@ -7268,7 +7925,8 @@
     "secondary_muscles":[
       "triceps",
       "upper back"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0404",
@@ -7279,7 +7937,8 @@
     "secondary_muscles":[
       "triceps",
       "upper back"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"2188",
@@ -7289,7 +7948,8 @@
     "equipment":"dumbbell",
     "secondary_muscles":[
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0406",
@@ -7299,7 +7959,8 @@
     "equipment":"dumbbell",
     "secondary_muscles":[
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0407",
@@ -7309,7 +7970,8 @@
     "equipment":"dumbbell",
     "secondary_muscles":[
       "obliques"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0408",
@@ -7320,7 +7982,8 @@
     "secondary_muscles":[
       "trapezius",
       "rhomboids"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"3664",
@@ -7331,7 +7994,8 @@
     "secondary_muscles":[
       "shoulders",
       "core"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"3548",
@@ -7342,7 +8006,8 @@
     "secondary_muscles":[
       "traps",
       "core"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0409",
@@ -7352,7 +8017,8 @@
     "equipment":"dumbbell",
     "secondary_muscles":[
       "ankles"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1757",
@@ -7363,7 +8029,8 @@
     "secondary_muscles":[
       "hamstrings",
       "lower back"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"2805",
@@ -7374,7 +8041,8 @@
     "secondary_muscles":[
       "hamstrings",
       "lower back"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0410",
@@ -7386,7 +8054,8 @@
       "glutes",
       "hamstrings",
       "calves"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0411",
@@ -7398,7 +8067,8 @@
       "quadriceps",
       "hamstrings",
       "calves"
-    ]
+    ],
+    "advanced":true
   },
   {
     "id":"0413",
@@ -7410,7 +8080,8 @@
       "quadriceps",
       "hamstrings",
       "calves"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"3560",
@@ -7421,7 +8092,8 @@
     "secondary_muscles":[
       "forearms",
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0414",
@@ -7432,7 +8104,8 @@
     "secondary_muscles":[
       "triceps",
       "core"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0415",
@@ -7443,7 +8116,8 @@
     "secondary_muscles":[
       "traps",
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1739",
@@ -7453,7 +8127,8 @@
     "equipment":"dumbbell",
     "secondary_muscles":[
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"2143",
@@ -7464,7 +8139,8 @@
     "secondary_muscles":[
       "triceps",
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1740",
@@ -7475,7 +8151,8 @@
     "secondary_muscles":[
       "shoulders",
       "back"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1741",
@@ -7486,7 +8163,8 @@
     "secondary_muscles":[
       "shoulders",
       "back"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0416",
@@ -7496,7 +8174,8 @@
     "equipment":"dumbbell",
     "secondary_muscles":[
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0417",
@@ -7506,7 +8185,8 @@
     "equipment":"dumbbell",
     "secondary_muscles":[
       "ankles"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0418",
@@ -7516,7 +8196,8 @@
     "equipment":"dumbbell",
     "secondary_muscles":[
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0419",
@@ -7527,7 +8208,8 @@
     "secondary_muscles":[
       "trapezius",
       "biceps"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"2321",
@@ -7537,7 +8219,8 @@
     "equipment":"dumbbell",
     "secondary_muscles":[
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0420",
@@ -7547,7 +8230,8 @@
     "equipment":"dumbbell",
     "secondary_muscles":[
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0421",
@@ -7557,7 +8241,8 @@
     "equipment":"dumbbell",
     "secondary_muscles":[
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0422",
@@ -7567,7 +8252,8 @@
     "equipment":"dumbbell",
     "secondary_muscles":[
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1680",
@@ -7577,7 +8263,8 @@
     "equipment":"dumbbell",
     "secondary_muscles":[
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0423",
@@ -7587,7 +8274,8 @@
     "equipment":"dumbbell",
     "secondary_muscles":[
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0424",
@@ -7598,7 +8286,8 @@
     "secondary_muscles":[
       "triceps",
       "core"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0425",
@@ -7608,7 +8297,8 @@
     "equipment":"dumbbell",
     "secondary_muscles":[
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0426",
@@ -7619,7 +8309,8 @@
     "secondary_muscles":[
       "triceps",
       "upper back"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0427",
@@ -7630,7 +8321,8 @@
     "secondary_muscles":[
       "triceps",
       "chest"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0428",
@@ -7640,7 +8332,8 @@
     "equipment":"dumbbell",
     "secondary_muscles":[
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0429",
@@ -7650,7 +8343,8 @@
     "equipment":"dumbbell",
     "secondary_muscles":[
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0430",
@@ -7660,7 +8354,8 @@
     "equipment":"dumbbell",
     "secondary_muscles":[
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"2293",
@@ -7670,7 +8365,8 @@
     "equipment":"dumbbell",
     "secondary_muscles":[
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1684",
@@ -7682,7 +8378,8 @@
       "quadriceps",
       "glutes",
       "hamstrings"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0431",
@@ -7694,7 +8391,8 @@
       "quadriceps",
       "hamstrings",
       "calves"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"2796",
@@ -7706,7 +8404,8 @@
       "glutes",
       "hamstrings",
       "calves"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"2812",
@@ -7718,7 +8417,8 @@
       "glutes",
       "hamstrings",
       "calves"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0432",
@@ -7729,7 +8429,8 @@
     "secondary_muscles":[
       "hamstrings",
       "lower back"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0433",
@@ -7740,7 +8441,8 @@
     "secondary_muscles":[
       "latissimus dorsi",
       "triceps"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0434",
@@ -7751,7 +8453,8 @@
     "secondary_muscles":[
       "hamstrings",
       "lower back"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"2808",
@@ -7763,7 +8466,8 @@
       "hamstrings",
       "quadriceps",
       "core"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"2803",
@@ -7775,7 +8479,8 @@
       "glutes",
       "hamstrings",
       "calves"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0436",
@@ -7785,7 +8490,8 @@
     "equipment":"dumbbell",
     "secondary_muscles":[
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1742",
@@ -7795,7 +8501,8 @@
     "equipment":"dumbbell",
     "secondary_muscles":[
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1743",
@@ -7806,7 +8513,8 @@
     "secondary_muscles":[
       "chest",
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0437",
@@ -7817,7 +8525,8 @@
     "secondary_muscles":[
       "traps",
       "biceps"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1765",
@@ -7828,7 +8537,8 @@
     "secondary_muscles":[
       "traps",
       "biceps"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0864",
@@ -7839,7 +8549,8 @@
     "secondary_muscles":[
       "rotator cuff",
       "trapezius"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"5201",
@@ -7850,7 +8561,8 @@
     "secondary_muscles":[
       "forearms",
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0438",
@@ -7861,7 +8573,8 @@
     "secondary_muscles":[
       "triceps",
       "chest"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0439",
@@ -7871,7 +8584,8 @@
     "equipment":"dumbbell",
     "secondary_muscles":[
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"2294",
@@ -7881,7 +8595,8 @@
     "equipment":"dumbbell",
     "secondary_muscles":[
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"2189",
@@ -7891,7 +8606,8 @@
     "equipment":"dumbbell",
     "secondary_muscles":[
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"3287",
@@ -7902,7 +8618,8 @@
     "secondary_muscles":[
       "chest",
       "shoulders"
-    ]
+    ],
+    "advanced":true
   },
   {
     "id":"1772",
@@ -7913,7 +8630,8 @@
     "secondary_muscles":[
       "triceps",
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0443",
@@ -7923,7 +8641,8 @@
     "equipment":"body weight",
     "secondary_muscles":[
       "obliques"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"3292",
@@ -7934,7 +8653,8 @@
     "secondary_muscles":[
       "shoulders",
       "trapezius"
-    ]
+    ],
+    "advanced":true
   },
   {
     "id":"1332",
@@ -7945,7 +8665,8 @@
     "secondary_muscles":[
       "shoulders",
       "core"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1333",
@@ -7956,7 +8677,8 @@
     "secondary_muscles":[
       "glutes",
       "hamstrings"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1334",
@@ -7967,7 +8689,8 @@
     "secondary_muscles":[
       "glutes",
       "hamstrings"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1335",
@@ -7978,7 +8701,8 @@
     "secondary_muscles":[
       "glutes",
       "hamstrings"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1336",
@@ -7989,7 +8713,8 @@
     "secondary_muscles":[
       "glutes",
       "hamstrings"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1744",
@@ -8000,7 +8725,8 @@
     "secondary_muscles":[
       "chest",
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1338",
@@ -8011,7 +8737,8 @@
     "secondary_muscles":[
       "shoulders",
       "chest"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1382",
@@ -8022,7 +8749,8 @@
     "secondary_muscles":[
       "hamstrings",
       "quadriceps"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"3241",
@@ -8033,7 +8761,8 @@
     "secondary_muscles":[
       "hamstrings",
       "quadriceps"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"3240",
@@ -8044,7 +8773,8 @@
     "secondary_muscles":[
       "quadriceps",
       "hamstrings"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1416",
@@ -8056,7 +8786,8 @@
       "hamstrings",
       "quadriceps",
       "core"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1417",
@@ -8067,7 +8798,8 @@
     "secondary_muscles":[
       "hamstrings",
       "calves"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1296",
@@ -8079,7 +8811,8 @@
       "shoulders",
       "triceps",
       "core"
-    ]
+    ],
+    "advanced":true
   },
   {
     "id":"1343",
@@ -8090,7 +8823,8 @@
     "secondary_muscles":[
       "abdominals",
       "glutes"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1746",
@@ -8100,7 +8834,8 @@
     "equipment":"dumbbell",
     "secondary_muscles":[
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1747",
@@ -8110,7 +8845,8 @@
     "equipment":"ez barbell",
     "secondary_muscles":[
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"3010",
@@ -8121,7 +8857,8 @@
     "secondary_muscles":[
       "triceps",
       "chest"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1748",
@@ -8131,7 +8868,8 @@
     "equipment":"ez barbell",
     "secondary_muscles":[
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1344",
@@ -8142,7 +8880,8 @@
     "secondary_muscles":[
       "biceps",
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1682",
@@ -8152,7 +8891,8 @@
     "equipment":"ez barbell",
     "secondary_muscles":[
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1749",
@@ -8162,7 +8902,8 @@
     "equipment":"ez barbell",
     "secondary_muscles":[
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0445",
@@ -8173,7 +8914,8 @@
     "secondary_muscles":[
       "triceps",
       "chest"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1627",
@@ -8183,7 +8925,8 @@
     "equipment":"ez barbell",
     "secondary_muscles":[
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0446",
@@ -8193,7 +8936,8 @@
     "equipment":"ez barbell",
     "secondary_muscles":[
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0447",
@@ -8203,7 +8947,8 @@
     "equipment":"ez barbell",
     "secondary_muscles":[
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0448",
@@ -8214,7 +8959,8 @@
     "secondary_muscles":[
       "chest",
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"2186",
@@ -8224,7 +8970,8 @@
     "equipment":"ez barbell",
     "secondary_muscles":[
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0449",
@@ -8234,7 +8981,8 @@
     "equipment":"ez barbell",
     "secondary_muscles":[
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0450",
@@ -8245,7 +8993,8 @@
     "secondary_muscles":[
       "chest",
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0451",
@@ -8255,7 +9004,8 @@
     "equipment":"ez barbell",
     "secondary_muscles":[
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0452",
@@ -8265,7 +9015,8 @@
     "equipment":"ez barbell",
     "secondary_muscles":[
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1458",
@@ -8275,7 +9026,8 @@
     "equipment":"ez barbell",
     "secondary_muscles":[
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0453",
@@ -8285,7 +9037,8 @@
     "equipment":"ez barbell",
     "secondary_muscles":[
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0454",
@@ -8295,7 +9048,8 @@
     "equipment":"ez barbell",
     "secondary_muscles":[
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"2404",
@@ -8305,7 +9059,8 @@
     "equipment":"ez barbell",
     "secondary_muscles":[
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"2432",
@@ -8316,7 +9071,8 @@
     "secondary_muscles":[
       "chest",
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"2741",
@@ -8326,7 +9082,8 @@
     "equipment":"ez barbell",
     "secondary_muscles":[
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"2133",
@@ -8338,7 +9095,8 @@
       "calves",
       "forearms",
       "core"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0455",
@@ -8349,7 +9107,8 @@
     "secondary_muscles":[
       "wrist flexors",
       "grip muscles"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"3303",
@@ -8360,7 +9119,8 @@
     "secondary_muscles":[
       "obliques",
       "shoulders"
-    ]
+    ],
+    "advanced":true
   },
   {
     "id":"0456",
@@ -8370,7 +9130,8 @@
     "equipment":"body weight",
     "secondary_muscles":[
       "hip flexors"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0457",
@@ -8381,7 +9142,8 @@
     "secondary_muscles":[
       "hip flexors",
       "quadriceps"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0458",
@@ -8392,7 +9154,8 @@
     "secondary_muscles":[
       "deltoids",
       "triceps"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0459",
@@ -8403,7 +9166,8 @@
     "secondary_muscles":[
       "hip flexors",
       "lower abs"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1472",
@@ -8415,7 +9179,8 @@
       "calves",
       "hamstrings",
       "glutes"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"3470",
@@ -8427,7 +9192,8 @@
       "quadriceps",
       "hamstrings",
       "calves"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"3194",
@@ -8439,7 +9205,8 @@
       "quadriceps",
       "hamstrings",
       "calves"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"2429",
@@ -8449,7 +9216,8 @@
     "equipment":"body weight",
     "secondary_muscles":[
       "hip flexors"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"3301",
@@ -8461,7 +9229,8 @@
       "shoulders",
       "chest",
       "triceps"
-    ]
+    ],
+    "advanced":true
   },
   {
     "id":"3296",
@@ -8473,7 +9242,8 @@
       "lats",
       "shoulders",
       "forearms"
-    ]
+    ],
+    "advanced":true
   },
   {
     "id":"3295",
@@ -8484,7 +9254,8 @@
     "secondary_muscles":[
       "core",
       "shoulders"
-    ]
+    ],
+    "advanced":true
   },
   {
     "id":"0464",
@@ -8495,7 +9266,8 @@
     "secondary_muscles":[
       "obliques",
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"3315",
@@ -8506,7 +9278,8 @@
     "secondary_muscles":[
       "shoulders",
       "chest"
-    ]
+    ],
+    "advanced":true
   },
   {
     "id":"3299",
@@ -8518,7 +9291,8 @@
       "shoulders",
       "chest",
       "triceps"
-    ]
+    ],
+    "advanced":true
   },
   {
     "id":"3327",
@@ -8530,7 +9304,8 @@
       "shoulders",
       "triceps",
       "core"
-    ]
+    ],
+    "advanced":true
   },
   {
     "id":"0466",
@@ -8542,7 +9317,8 @@
       "biceps",
       "rhomboids",
       "rear deltoids"
-    ]
+    ],
+    "advanced":true
   },
   {
     "id":"3561",
@@ -8553,7 +9329,8 @@
     "secondary_muscles":[
       "hamstrings",
       "quadriceps"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"3523",
@@ -8564,7 +9341,8 @@
     "secondary_muscles":[
       "hamstrings",
       "core"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"3193",
@@ -8575,7 +9353,8 @@
     "secondary_muscles":[
       "glutes",
       "lower back"
-    ]
+    ],
+    "advanced":true
   },
   {
     "id":"0467",
@@ -8586,7 +9365,8 @@
     "secondary_muscles":[
       "forearms",
       "biceps"
-    ]
+    ],
+    "advanced":true
   },
   {
     "id":"0469",
@@ -8597,7 +9377,8 @@
     "secondary_muscles":[
       "hip flexors",
       "inner thighs"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1383",
@@ -8608,7 +9389,8 @@
     "secondary_muscles":[
       "hamstrings",
       "glutes"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1384",
@@ -8619,7 +9401,8 @@
     "secondary_muscles":[
       "hamstrings",
       "glutes"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"3221",
@@ -8631,7 +9414,8 @@
       "quadriceps",
       "hamstrings",
       "glutes"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"3202",
@@ -8641,18 +9425,8 @@
     "equipment":"body weight",
     "secondary_muscles":[
       "hip flexors"
-    ]
-  },
-  {
-    "id":"2139",
-    "name":"hands bike",
-    "body_part":"chest",
-    "target":"pectorals",
-    "equipment":"upper body ergometer",
-    "secondary_muscles":[
-      "triceps",
-      "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"3218",
@@ -8664,7 +9438,8 @@
       "hamstrings",
       "quadriceps",
       "calves"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"3215",
@@ -8676,7 +9451,8 @@
       "hamstrings",
       "quadriceps",
       "calves"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"3302",
@@ -8687,7 +9463,8 @@
     "secondary_muscles":[
       "shoulders",
       "core"
-    ]
+    ],
+    "advanced":true
   },
   {
     "id":"0471",
@@ -8699,7 +9476,8 @@
       "shoulders",
       "chest",
       "core"
-    ]
+    ],
+    "advanced":true
   },
   {
     "id":"1764",
@@ -8710,7 +9488,8 @@
     "secondary_muscles":[
       "hip flexors",
       "lower back"
-    ]
+    ],
+    "advanced":true
   },
   {
     "id":"0472",
@@ -8720,7 +9499,8 @@
     "equipment":"body weight",
     "secondary_muscles":[
       "hip flexors"
-    ]
+    ],
+    "advanced":true
   },
   {
     "id":"1761",
@@ -8730,7 +9510,8 @@
     "equipment":"body weight",
     "secondary_muscles":[
       "obliques"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0473",
@@ -8741,7 +9522,8 @@
     "secondary_muscles":[
       "hip flexors",
       "shoulders"
-    ]
+    ],
+    "advanced":true
   },
   {
     "id":"0474",
@@ -8751,7 +9533,8 @@
     "equipment":"body weight",
     "secondary_muscles":[
       "hip flexors"
-    ]
+    ],
+    "advanced":true
   },
   {
     "id":"0475",
@@ -8761,7 +9544,8 @@
     "equipment":"body weight",
     "secondary_muscles":[
       "hip flexors"
-    ]
+    ],
+    "advanced":true
   },
   {
     "id":"0476",
@@ -8772,7 +9556,8 @@
     "secondary_muscles":[
       "obliques",
       "hip flexors"
-    ]
+    ],
+    "advanced":true
   },
   {
     "id":"3636",
@@ -8785,7 +9570,8 @@
       "hamstrings",
       "glutes",
       "calves"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0484",
@@ -8796,7 +9582,8 @@
     "secondary_muscles":[
       "glutes",
       "hamstrings"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1418",
@@ -8807,7 +9594,8 @@
     "secondary_muscles":[
       "hamstrings",
       "quadriceps"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"3234",
@@ -8817,7 +9605,8 @@
     "equipment":"dumbbell",
     "secondary_muscles":[
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0489",
@@ -8828,7 +9617,8 @@
     "secondary_muscles":[
       "glutes",
       "hamstrings"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0488",
@@ -8839,7 +9629,8 @@
     "secondary_muscles":[
       "glutes",
       "hamstrings"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"3289",
@@ -8850,7 +9641,8 @@
     "secondary_muscles":[
       "chest",
       "shoulders"
-    ]
+    ],
+    "advanced":true
   },
   {
     "id":"1471",
@@ -8861,7 +9653,8 @@
     "secondary_muscles":[
       "shoulders",
       "hamstrings"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"3698",
@@ -8872,7 +9665,8 @@
     "secondary_muscles":[
       "shoulders",
       "hamstrings"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0490",
@@ -8883,7 +9677,8 @@
     "secondary_muscles":[
       "chest",
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0491",
@@ -8893,7 +9688,8 @@
     "equipment":"body weight",
     "secondary_muscles":[
       "hip flexors"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0492",
@@ -8905,7 +9701,8 @@
       "triceps",
       "shoulders",
       "core"
-    ]
+    ],
+    "advanced":true
   },
   {
     "id":"0493",
@@ -8916,7 +9713,8 @@
     "secondary_muscles":[
       "triceps",
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"3785",
@@ -8927,7 +9725,8 @@
     "secondary_muscles":[
       "triceps",
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0494",
@@ -8938,7 +9737,8 @@
     "secondary_muscles":[
       "triceps",
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"3011",
@@ -8949,7 +9749,8 @@
     "secondary_muscles":[
       "triceps",
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0495",
@@ -8959,7 +9760,8 @@
     "equipment":"body weight",
     "secondary_muscles":[
       "obliques"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0496",
@@ -8970,7 +9772,8 @@
     "secondary_muscles":[
       "glutes",
       "calves"
-    ]
+    ],
+    "advanced":true
   },
   {
     "id":"2400",
@@ -8981,7 +9784,8 @@
     "secondary_muscles":[
       "glutes",
       "calves"
-    ]
+    ],
+    "advanced":true
   },
   {
     "id":"0499",
@@ -8992,7 +9796,8 @@
     "secondary_muscles":[
       "biceps",
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"2300",
@@ -9003,7 +9808,8 @@
     "secondary_muscles":[
       "biceps",
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"2298",
@@ -9014,7 +9820,8 @@
     "secondary_muscles":[
       "biceps",
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0497",
@@ -9025,7 +9832,8 @@
     "secondary_muscles":[
       "biceps",
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0498",
@@ -9036,7 +9844,8 @@
     "secondary_muscles":[
       "biceps",
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1297",
@@ -9047,7 +9856,8 @@
     "secondary_muscles":[
       "triceps",
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0500",
@@ -9059,7 +9869,8 @@
       "shoulders",
       "triceps",
       "core"
-    ]
+    ],
+    "advanced":true
   },
   {
     "id":"0501",
@@ -9074,7 +9885,8 @@
       "shoulders",
       "triceps",
       "core"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"3224",
@@ -9085,7 +9897,8 @@
     "secondary_muscles":[
       "quadriceps",
       "calves"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0507",
@@ -9095,7 +9908,8 @@
     "equipment":"body weight",
     "secondary_muscles":[
       "hip flexors"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0508",
@@ -9106,20 +9920,8 @@
     "secondary_muscles":[
       "hip flexors",
       "lower back"
-    ]
-  },
-  {
-    "id":"2612",
-    "name":"jump rope",
-    "body_part":"cardio",
-    "target":"cardiovascular system",
-    "equipment":"rope",
-    "secondary_muscles":[
-      "calves",
-      "quadriceps",
-      "hamstrings",
-      "glutes"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0514",
@@ -9131,7 +9933,8 @@
       "quadriceps",
       "hamstrings",
       "calves"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0513",
@@ -9143,7 +9946,8 @@
       "quadriceps",
       "hamstrings",
       "calves"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0517",
@@ -9154,7 +9958,8 @@
     "secondary_muscles":[
       "obliques",
       "shoulders"
-    ]
+    ],
+    "advanced":true
   },
   {
     "id":"0518",
@@ -9166,7 +9971,8 @@
       "shoulders",
       "traps",
       "core"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0520",
@@ -9177,7 +9983,8 @@
     "secondary_muscles":[
       "triceps",
       "core"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0519",
@@ -9188,7 +9995,8 @@
     "secondary_muscles":[
       "shoulders",
       "triceps"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0521",
@@ -9199,7 +10007,8 @@
     "secondary_muscles":[
       "core",
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0522",
@@ -9210,7 +10019,8 @@
     "secondary_muscles":[
       "biceps",
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0523",
@@ -9221,7 +10031,8 @@
     "secondary_muscles":[
       "triceps",
       "upper back"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0524",
@@ -9233,7 +10044,8 @@
       "shoulders",
       "triceps",
       "obliques"
-    ]
+    ],
+    "advanced":true
   },
   {
     "id":"0525",
@@ -9244,7 +10056,8 @@
     "secondary_muscles":[
       "forearms",
       "shoulders"
-    ]
+    ],
+    "advanced":true
   },
   {
     "id":"0526",
@@ -9255,7 +10068,8 @@
     "secondary_muscles":[
       "forearms",
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0527",
@@ -9266,7 +10080,8 @@
     "secondary_muscles":[
       "triceps",
       "core"
-    ]
+    ],
+    "advanced":true
   },
   {
     "id":"0528",
@@ -9277,7 +10092,8 @@
     "secondary_muscles":[
       "triceps",
       "core"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0529",
@@ -9289,7 +10105,8 @@
       "trapezius",
       "forearms",
       "core"
-    ]
+    ],
+    "advanced":true
   },
   {
     "id":"0530",
@@ -9300,7 +10117,8 @@
     "secondary_muscles":[
       "shoulders",
       "hamstrings"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0531",
@@ -9311,7 +10129,8 @@
     "secondary_muscles":[
       "triceps",
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0532",
@@ -9322,7 +10141,8 @@
     "secondary_muscles":[
       "shoulders",
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0533",
@@ -9334,7 +10154,8 @@
       "quadriceps",
       "hamstrings",
       "calves"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0534",
@@ -9346,7 +10167,8 @@
       "quadriceps",
       "hamstrings",
       "calves"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0535",
@@ -9358,7 +10180,8 @@
       "glutes",
       "quadriceps",
       "calves"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0536",
@@ -9370,7 +10193,8 @@
       "quadriceps",
       "hamstrings",
       "calves"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0537",
@@ -9381,7 +10205,8 @@
     "secondary_muscles":[
       "triceps",
       "core"
-    ]
+    ],
+    "advanced":true
   },
   {
     "id":"1298",
@@ -9392,7 +10217,8 @@
     "secondary_muscles":[
       "triceps",
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0538",
@@ -9403,7 +10229,8 @@
     "secondary_muscles":[
       "triceps",
       "core"
-    ]
+    ],
+    "advanced":true
   },
   {
     "id":"0539",
@@ -9414,7 +10241,8 @@
     "secondary_muscles":[
       "triceps",
       "core"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0540",
@@ -9425,7 +10253,8 @@
     "secondary_muscles":[
       "triceps",
       "core"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0541",
@@ -9436,7 +10265,8 @@
     "secondary_muscles":[
       "biceps",
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0542",
@@ -9448,7 +10278,8 @@
       "trapezius",
       "forearms",
       "core"
-    ]
+    ],
+    "advanced":true
   },
   {
     "id":"0543",
@@ -9459,7 +10290,8 @@
     "secondary_muscles":[
       "triceps",
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0544",
@@ -9471,7 +10303,8 @@
       "quadriceps",
       "hamstrings",
       "calves"
-    ]
+    ],
+    "advanced":true
   },
   {
     "id":"0545",
@@ -9483,7 +10316,8 @@
       "triceps",
       "shoulders",
       "core"
-    ]
+    ],
+    "advanced":true
   },
   {
     "id":"0546",
@@ -9494,7 +10328,8 @@
     "secondary_muscles":[
       "triceps",
       "core"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1438",
@@ -9505,7 +10340,8 @@
     "secondary_muscles":[
       "triceps",
       "upper back"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0547",
@@ -9516,7 +10352,8 @@
     "secondary_muscles":[
       "triceps",
       "core"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0548",
@@ -9528,7 +10365,8 @@
       "shoulders",
       "glutes",
       "hamstrings"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0549",
@@ -9539,7 +10377,8 @@
     "secondary_muscles":[
       "hamstrings",
       "core"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0550",
@@ -9551,7 +10390,8 @@
       "quadriceps",
       "glutes",
       "core"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0551",
@@ -9563,7 +10403,8 @@
       "quadriceps",
       "hamstrings",
       "core"
-    ]
+    ],
+    "advanced":true
   },
   {
     "id":"0552",
@@ -9574,7 +10415,8 @@
     "secondary_muscles":[
       "traps",
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0553",
@@ -9585,7 +10427,8 @@
     "secondary_muscles":[
       "triceps",
       "upper back"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1345",
@@ -9596,7 +10439,8 @@
     "secondary_muscles":[
       "biceps",
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0554",
@@ -9607,7 +10451,8 @@
     "secondary_muscles":[
       "obliques",
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0555",
@@ -9618,7 +10463,8 @@
     "secondary_muscles":[
       "quadriceps",
       "glutes"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0558",
@@ -9631,7 +10477,8 @@
       "triceps",
       "shoulders",
       "core"
-    ]
+    ],
+    "advanced":true
   },
   {
     "id":"3640",
@@ -9641,7 +10488,8 @@
     "equipment":"body weight",
     "secondary_muscles":[
       "hip flexors"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1420",
@@ -9653,7 +10501,8 @@
       "quadriceps",
       "hamstrings",
       "calves"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"3239",
@@ -9664,7 +10513,8 @@
     "secondary_muscles":[
       "shoulders",
       "triceps"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"3211",
@@ -9675,7 +10525,8 @@
     "secondary_muscles":[
       "triceps",
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"3288",
@@ -9686,7 +10537,8 @@
     "secondary_muscles":[
       "triceps",
       "shoulders"
-    ]
+    ],
+    "advanced":true
   },
   {
     "id":"3418",
@@ -9697,7 +10549,8 @@
     "secondary_muscles":[
       "biceps",
       "forearms"
-    ]
+    ],
+    "advanced":true
   },
   {
     "id":"3419",
@@ -9707,7 +10560,8 @@
     "equipment":"body weight",
     "secondary_muscles":[
       "hip flexors"
-    ]
+    ],
+    "advanced":true
   },
   {
     "id":"0562",
@@ -9718,7 +10572,8 @@
     "secondary_muscles":[
       "obliques",
       "quadriceps"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"3237",
@@ -9729,7 +10584,8 @@
     "secondary_muscles":[
       "traps",
       "upper back"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"3300",
@@ -9741,7 +10597,8 @@
       "shoulders",
       "chest",
       "triceps"
-    ]
+    ],
+    "advanced":true
   },
   {
     "id":"2271",
@@ -9753,7 +10610,8 @@
       "biceps",
       "triceps",
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0570",
@@ -9764,7 +10622,8 @@
     "secondary_muscles":[
       "hip flexors",
       "lower back"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"2287",
@@ -9775,7 +10634,8 @@
     "secondary_muscles":[
       "hamstrings",
       "glutes"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0571",
@@ -9786,7 +10646,8 @@
     "secondary_muscles":[
       "biceps",
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0572",
@@ -9797,7 +10658,8 @@
     "secondary_muscles":[
       "biceps",
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0573",
@@ -9808,7 +10670,8 @@
     "secondary_muscles":[
       "glutes",
       "hamstrings"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0574",
@@ -9819,7 +10682,8 @@
     "secondary_muscles":[
       "biceps",
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"3200",
@@ -9830,7 +10694,8 @@
     "secondary_muscles":[
       "biceps",
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0575",
@@ -9840,7 +10705,8 @@
     "equipment":"leverage machine",
     "secondary_muscles":[
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"2289",
@@ -9850,7 +10716,8 @@
     "equipment":"leverage machine",
     "secondary_muscles":[
       "hamstrings"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0577",
@@ -9861,7 +10728,8 @@
     "secondary_muscles":[
       "triceps",
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0578",
@@ -9872,7 +10740,8 @@
     "secondary_muscles":[
       "hamstrings",
       "quadriceps"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1300",
@@ -9883,7 +10752,8 @@
     "secondary_muscles":[
       "triceps",
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1253",
@@ -9894,7 +10764,8 @@
     "secondary_muscles":[
       "hamstrings",
       "glutes"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0579",
@@ -9906,7 +10777,8 @@
       "biceps",
       "rhomboids",
       "rear deltoids"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0580",
@@ -9917,7 +10789,8 @@
     "secondary_muscles":[
       "shoulders",
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1439",
@@ -9928,7 +10801,8 @@
     "secondary_muscles":[
       "shoulders",
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"2288",
@@ -9939,7 +10813,8 @@
     "secondary_muscles":[
       "biceps",
       "triceps"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1615",
@@ -9949,7 +10824,8 @@
     "equipment":"leverage machine",
     "secondary_muscles":[
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0581",
@@ -9960,7 +10836,8 @@
     "secondary_muscles":[
       "biceps",
       "rear deltoids"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"2286",
@@ -9970,7 +10847,8 @@
     "equipment":"leverage machine",
     "secondary_muscles":[
       "hamstrings"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"2611",
@@ -9982,7 +10860,8 @@
       "quadriceps",
       "hamstrings",
       "calves"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1299",
@@ -9993,7 +10872,8 @@
     "secondary_muscles":[
       "shoulders",
       "triceps"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1479",
@@ -10004,7 +10884,8 @@
     "secondary_muscles":[
       "triceps",
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0582",
@@ -10014,7 +10895,8 @@
     "equipment":"leverage machine",
     "secondary_muscles":[
       "glutes"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0583",
@@ -10025,7 +10907,8 @@
     "secondary_muscles":[
       "obliques",
       "lower back"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0584",
@@ -10036,7 +10919,8 @@
     "secondary_muscles":[
       "traps",
       "upper back"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0585",
@@ -10046,7 +10930,8 @@
     "equipment":"leverage machine",
     "secondary_muscles":[
       "hamstrings"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0586",
@@ -10056,7 +10941,8 @@
     "equipment":"leverage machine",
     "secondary_muscles":[
       "calves"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"3195",
@@ -10066,7 +10952,8 @@
     "equipment":"leverage machine",
     "secondary_muscles":[
       "glutes"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0587",
@@ -10077,7 +10964,8 @@
     "secondary_muscles":[
       "triceps",
       "upper chest"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0588",
@@ -10088,7 +10976,8 @@
     "secondary_muscles":[
       "biceps",
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0589",
@@ -10099,7 +10988,8 @@
     "secondary_muscles":[
       "biceps",
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1356",
@@ -10110,7 +11000,8 @@
     "secondary_muscles":[
       "biceps",
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1347",
@@ -10122,7 +11013,8 @@
       "biceps",
       "rhomboids",
       "rear deltoids"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0590",
@@ -10133,7 +11025,8 @@
     "secondary_muscles":[
       "triceps",
       "upper back"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0591",
@@ -10144,7 +11037,8 @@
     "secondary_muscles":[
       "chest",
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0592",
@@ -10154,7 +11048,8 @@
     "equipment":"leverage machine",
     "secondary_muscles":[
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1614",
@@ -10164,7 +11059,8 @@
     "equipment":"leverage machine",
     "secondary_muscles":[
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"2285",
@@ -10175,7 +11071,8 @@
     "secondary_muscles":[
       "triceps",
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"2736",
@@ -10187,7 +11084,8 @@
       "biceps",
       "rhomboids",
       "rear deltoids"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1616",
@@ -10197,7 +11095,8 @@
     "equipment":"leverage machine",
     "secondary_muscles":[
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1348",
@@ -10208,7 +11107,8 @@
     "secondary_muscles":[
       "biceps",
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0593",
@@ -10219,7 +11119,8 @@
     "secondary_muscles":[
       "hamstrings",
       "lower back"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1349",
@@ -10230,7 +11131,8 @@
     "secondary_muscles":[
       "biceps",
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"2315",
@@ -10241,7 +11143,8 @@
     "secondary_muscles":[
       "soleus",
       "ankle stabilizers"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"2335",
@@ -10252,7 +11155,8 @@
     "secondary_muscles":[
       "soleus",
       "hamstrings"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0594",
@@ -10263,7 +11167,8 @@
     "secondary_muscles":[
       "soleus",
       "ankle stabilizers"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1452",
@@ -10273,7 +11178,8 @@
     "equipment":"leverage machine",
     "secondary_muscles":[
       "obliques"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0595",
@@ -10283,7 +11189,8 @@
     "equipment":"leverage machine",
     "secondary_muscles":[
       "obliques"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"3760",
@@ -10294,7 +11201,8 @@
     "secondary_muscles":[
       "obliques",
       "hip flexors"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1451",
@@ -10305,7 +11213,8 @@
     "secondary_muscles":[
       "chest",
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0596",
@@ -10316,7 +11225,8 @@
     "secondary_muscles":[
       "deltoids",
       "trapezius"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"3759",
@@ -10327,7 +11237,8 @@
     "secondary_muscles":[
       "hamstrings",
       "lower back"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0597",
@@ -10338,7 +11249,8 @@
     "secondary_muscles":[
       "glutes",
       "hamstrings"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0598",
@@ -10349,7 +11261,8 @@
     "secondary_muscles":[
       "hamstrings",
       "glutes"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0599",
@@ -10359,7 +11272,8 @@
     "equipment":"leverage machine",
     "secondary_muscles":[
       "calves"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0600",
@@ -10369,7 +11283,8 @@
     "equipment":"leverage machine",
     "secondary_muscles":[
       "hip flexors"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0602",
@@ -10380,7 +11295,8 @@
     "secondary_muscles":[
       "trapezius",
       "rhomboids"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0601",
@@ -10391,7 +11307,8 @@
     "secondary_muscles":[
       "trapezius",
       "rhomboids"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1350",
@@ -10402,7 +11319,8 @@
     "secondary_muscles":[
       "biceps",
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1385",
@@ -10414,7 +11332,8 @@
       "quadriceps",
       "hamstrings",
       "glutes"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0603",
@@ -10425,7 +11344,8 @@
     "secondary_muscles":[
       "triceps",
       "chest"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0869",
@@ -10436,7 +11356,8 @@
     "secondary_muscles":[
       "triceps",
       "chest"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"2318",
@@ -10447,7 +11368,8 @@
     "secondary_muscles":[
       "triceps",
       "chest"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0604",
@@ -10457,7 +11379,8 @@
     "equipment":"leverage machine",
     "secondary_muscles":[
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0605",
@@ -10468,7 +11391,8 @@
     "secondary_muscles":[
       "soleus",
       "ankle stabilizers"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"3758",
@@ -10479,7 +11403,8 @@
     "secondary_muscles":[
       "shoulders",
       "triceps"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0606",
@@ -10490,7 +11415,8 @@
     "secondary_muscles":[
       "biceps",
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1351",
@@ -10501,7 +11427,8 @@
     "secondary_muscles":[
       "biceps",
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0607",
@@ -10511,7 +11438,8 @@
     "equipment":"leverage machine",
     "secondary_muscles":[
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1313",
@@ -10522,19 +11450,8 @@
     "secondary_muscles":[
       "biceps",
       "forearms"
-    ]
-  },
-  {
-    "id":"0609",
-    "name":"london bridge",
-    "body_part":"back",
-    "target":"upper back",
-    "equipment":"rope",
-    "secondary_muscles":[
-      "shoulders",
-      "biceps",
-      "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"3013",
@@ -10545,7 +11462,8 @@
     "secondary_muscles":[
       "hamstrings",
       "core"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1352",
@@ -10556,7 +11474,8 @@
     "secondary_muscles":[
       "glutes",
       "hamstrings"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"3582",
@@ -10568,7 +11487,8 @@
       "quadriceps",
       "hamstrings",
       "calves"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1688",
@@ -10580,7 +11500,8 @@
       "quadriceps",
       "glutes",
       "hamstrings"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"2312",
@@ -10591,7 +11512,8 @@
     "secondary_muscles":[
       "hip flexors",
       "lower back"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0620",
@@ -10601,7 +11523,8 @@
     "equipment":"body weight",
     "secondary_muscles":[
       "hip flexors"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0865",
@@ -10611,7 +11534,8 @@
     "equipment":"body weight",
     "secondary_muscles":[
       "hip flexors"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1301",
@@ -10622,7 +11546,8 @@
     "secondary_muscles":[
       "triceps",
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0624",
@@ -10634,7 +11559,8 @@
       "quadriceps",
       "hamstrings",
       "calves"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1353",
@@ -10645,7 +11571,8 @@
     "secondary_muscles":[
       "shoulders",
       "core"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1302",
@@ -10656,7 +11583,8 @@
     "secondary_muscles":[
       "shoulders",
       "triceps"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1303",
@@ -10667,7 +11595,8 @@
     "secondary_muscles":[
       "shoulders",
       "triceps"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1304",
@@ -10678,7 +11607,8 @@
     "secondary_muscles":[
       "triceps",
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1305",
@@ -10689,7 +11619,8 @@
     "secondary_muscles":[
       "triceps",
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1312",
@@ -10701,7 +11632,8 @@
       "triceps",
       "shoulders",
       "core"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1701",
@@ -10712,7 +11644,8 @@
     "secondary_muscles":[
       "chest",
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1354",
@@ -10723,7 +11656,8 @@
     "secondary_muscles":[
       "shoulders",
       "core"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1750",
@@ -10734,7 +11668,8 @@
     "secondary_muscles":[
       "chest",
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0627",
@@ -10745,7 +11680,8 @@
     "secondary_muscles":[
       "biceps",
       "forearms"
-    ]
+    ],
+    "advanced":true
   },
   {
     "id":"3217",
@@ -10757,7 +11693,8 @@
       "triceps",
       "shoulders",
       "core"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1421",
@@ -10769,7 +11706,8 @@
       "triceps",
       "chest",
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0628",
@@ -10780,7 +11718,8 @@
     "secondary_muscles":[
       "hamstrings",
       "quadriceps"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0630",
@@ -10792,7 +11731,8 @@
       "core",
       "shoulders",
       "triceps"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0631",
@@ -10805,7 +11745,8 @@
       "triceps",
       "shoulders",
       "chest"
-    ]
+    ],
+    "advanced":true
   },
   {
     "id":"1401",
@@ -10817,7 +11758,8 @@
       "biceps",
       "triceps",
       "forearms"
-    ]
+    ],
+    "advanced":true
   },
   {
     "id":"2328",
@@ -10828,7 +11770,8 @@
     "secondary_muscles":[
       "chest",
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0634",
@@ -10838,7 +11781,8 @@
     "equipment":"body weight",
     "secondary_muscles":[
       "hip flexors"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1495",
@@ -10848,7 +11792,8 @@
     "equipment":"body weight",
     "secondary_muscles":[
       "obliques"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0635",
@@ -10858,7 +11803,8 @@
     "equipment":"body weight",
     "secondary_muscles":[
       "obliques"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0636",
@@ -10868,7 +11814,8 @@
     "equipment":"olympic barbell",
     "secondary_muscles":[
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0637",
@@ -10878,7 +11825,8 @@
     "equipment":"olympic barbell",
     "secondary_muscles":[
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1355",
@@ -10889,7 +11837,8 @@
     "secondary_muscles":[
       "shoulders",
       "triceps"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0638",
@@ -10900,7 +11849,8 @@
     "secondary_muscles":[
       "biceps",
       "forearms"
-    ]
+    ],
+    "advanced":true
   },
   {
     "id":"0639",
@@ -10911,7 +11861,8 @@
     "secondary_muscles":[
       "chest",
       "shoulders"
-    ]
+    ],
+    "advanced":true
   },
   {
     "id":"0640",
@@ -10922,7 +11873,8 @@
     "secondary_muscles":[
       "shoulders",
       "back"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1773",
@@ -10933,7 +11885,8 @@
     "secondary_muscles":[
       "biceps",
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1386",
@@ -10944,7 +11897,8 @@
     "secondary_muscles":[
       "hamstrings",
       "glutes"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1387",
@@ -10955,7 +11909,8 @@
     "secondary_muscles":[
       "ankles",
       "feet"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1476",
@@ -10967,7 +11922,8 @@
       "quadriceps",
       "hamstrings",
       "calves"
-    ]
+    ],
+    "advanced":true
   },
   {
     "id":"0641",
@@ -10978,7 +11934,8 @@
     "secondary_muscles":[
       "hip flexors",
       "lower back"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0642",
@@ -10990,7 +11947,8 @@
       "quadriceps",
       "hamstrings",
       "calves"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"3147",
@@ -11000,7 +11958,8 @@
     "equipment":"body weight",
     "secondary_muscles":[
       "lower back"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1422",
@@ -11011,7 +11970,8 @@
     "secondary_muscles":[
       "hamstrings",
       "core"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"3662",
@@ -11023,7 +11983,8 @@
       "core",
       "shoulders",
       "triceps"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1306",
@@ -11035,7 +11996,8 @@
       "triceps",
       "shoulders",
       "core"
-    ]
+    ],
+    "advanced":true
   },
   {
     "id":"1687",
@@ -11048,7 +12010,8 @@
       "hamstrings",
       "quadriceps",
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"3119",
@@ -11059,7 +12022,8 @@
     "secondary_muscles":[
       "quadriceps",
       "glutes"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"3132",
@@ -11071,7 +12035,8 @@
       "quadriceps",
       "hamstrings",
       "calves"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0648",
@@ -11083,7 +12048,8 @@
       "glutes",
       "quadriceps",
       "calves"
-    ]
+    ],
+    "advanced":true
   },
   {
     "id":"3665",
@@ -11095,7 +12061,8 @@
       "shoulders",
       "triceps",
       "glutes"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"3203",
@@ -11105,7 +12072,8 @@
     "equipment":"body weight",
     "secondary_muscles":[
       "hip flexors"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1707",
@@ -11116,7 +12084,8 @@
     "secondary_muscles":[
       "obliques",
       "lower back"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0651",
@@ -11127,7 +12096,8 @@
     "secondary_muscles":[
       "biceps",
       "forearms"
-    ]
+    ],
+    "advanced":true
   },
   {
     "id":"0650",
@@ -11137,7 +12107,8 @@
     "equipment":"stability ball",
     "secondary_muscles":[
       "hip flexors"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0652",
@@ -11148,7 +12119,8 @@
     "secondary_muscles":[
       "biceps",
       "forearms"
-    ]
+    ],
+    "advanced":true
   },
   {
     "id":"1689",
@@ -11159,7 +12131,8 @@
     "secondary_muscles":[
       "triceps",
       "deltoids"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"3638",
@@ -11171,7 +12144,8 @@
       "quadriceps",
       "hamstrings",
       "calves"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1307",
@@ -11183,7 +12157,8 @@
       "triceps",
       "shoulders",
       "core"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0662",
@@ -11195,7 +12170,8 @@
       "triceps",
       "deltoids",
       "core"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0653",
@@ -11207,7 +12183,8 @@
       "triceps",
       "shoulders",
       "core"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0655",
@@ -11219,7 +12196,8 @@
       "triceps",
       "shoulders",
       "core"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0659",
@@ -11230,7 +12208,8 @@
     "secondary_muscles":[
       "triceps",
       "deltoids"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0658",
@@ -11241,7 +12220,8 @@
     "secondary_muscles":[
       "triceps",
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0660",
@@ -11252,7 +12232,8 @@
     "secondary_muscles":[
       "chest",
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0661",
@@ -11265,7 +12246,8 @@
       "hamstrings",
       "calves",
       "core"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0663",
@@ -11277,7 +12259,8 @@
       "triceps",
       "shoulders",
       "core"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1467",
@@ -11288,7 +12271,8 @@
     "secondary_muscles":[
       "chest",
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"3145",
@@ -11299,7 +12283,8 @@
     "secondary_muscles":[
       "triceps",
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0664",
@@ -11311,7 +12296,8 @@
       "shoulders",
       "chest",
       "triceps"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"3533",
@@ -11322,7 +12308,8 @@
     "secondary_muscles":[
       "hamstrings",
       "glutes"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"3201",
@@ -11332,7 +12319,8 @@
     "equipment":"body weight",
     "secondary_muscles":[
       "hip flexors"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"3552",
@@ -11343,7 +12331,8 @@
     "secondary_muscles":[
       "calves",
       "hamstrings"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0666",
@@ -11355,7 +12344,8 @@
       "triceps",
       "shoulders",
       "core"
-    ]
+    ],
+    "advanced":true
   },
   {
     "id":"0668",
@@ -11366,7 +12356,8 @@
     "secondary_muscles":[
       "hamstrings",
       "lower back"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0670",
@@ -11377,18 +12368,8 @@
     "secondary_muscles":[
       "biceps",
       "forearms"
-    ]
-  },
-  {
-    "id":"1582",
-    "name":"reclining big toe pose with rope",
-    "body_part":"upper legs",
-    "target":"hamstrings",
-    "equipment":"rope",
-    "secondary_muscles":[
-      "calves",
-      "glutes"
-    ]
+    ],
+    "advanced":true
   },
   {
     "id":"3236",
@@ -11399,7 +12380,8 @@
     "secondary_muscles":[
       "hamstrings",
       "quadriceps"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"3007",
@@ -11409,7 +12391,8 @@
     "equipment":"resistance band",
     "secondary_muscles":[
       "hamstrings"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"3123",
@@ -11419,7 +12402,8 @@
     "equipment":"resistance band",
     "secondary_muscles":[
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"3124",
@@ -11430,7 +12414,8 @@
     "secondary_muscles":[
       "shoulders",
       "triceps"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"3006",
@@ -11441,7 +12426,8 @@
     "secondary_muscles":[
       "glutes",
       "hamstrings"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"3122",
@@ -11452,7 +12438,8 @@
     "secondary_muscles":[
       "triceps",
       "upper back"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"3144",
@@ -11463,7 +12450,8 @@
     "secondary_muscles":[
       "biceps",
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0872",
@@ -11473,7 +12461,8 @@
     "equipment":"body weight",
     "secondary_muscles":[
       "hip flexors"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0672",
@@ -11484,7 +12473,8 @@
     "secondary_muscles":[
       "chest",
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0673",
@@ -11495,7 +12485,8 @@
     "secondary_muscles":[
       "biceps",
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0674",
@@ -11506,7 +12497,8 @@
     "secondary_muscles":[
       "biceps",
       "forearms"
-    ]
+    ],
+    "advanced":true
   },
   {
     "id":"0675",
@@ -11517,7 +12509,8 @@
     "secondary_muscles":[
       "hamstrings",
       "lower back"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1423",
@@ -11528,7 +12521,8 @@
     "secondary_muscles":[
       "hamstrings",
       "lower back"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"3663",
@@ -11540,7 +12534,8 @@
       "glutes",
       "hamstrings",
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0677",
@@ -11551,7 +12546,8 @@
     "secondary_muscles":[
       "chest",
       "shoulders"
-    ]
+    ],
+    "advanced":true
   },
   {
     "id":"0678",
@@ -11562,7 +12558,8 @@
     "secondary_muscles":[
       "biceps",
       "forearms"
-    ]
+    ],
+    "advanced":true
   },
   {
     "id":"2204",
@@ -11574,7 +12571,8 @@
       "shoulders",
       "triceps",
       "core"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"2206",
@@ -11584,7 +12582,8 @@
     "equipment":"roller",
     "secondary_muscles":[
       "hip flexors"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"2203",
@@ -11595,7 +12594,8 @@
     "secondary_muscles":[
       "deltoids",
       "triceps"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"2209",
@@ -11606,19 +12606,8 @@
     "secondary_muscles":[
       "deltoids",
       "triceps"
-    ]
-  },
-  {
-    "id":"0680",
-    "name":"rope climb",
-    "body_part":"back",
-    "target":"upper back",
-    "equipment":"rope",
-    "secondary_muscles":[
-      "forearms",
-      "biceps",
-      "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0685",
@@ -11630,7 +12619,8 @@
       "quadriceps",
       "hamstrings",
       "calves"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0684",
@@ -11642,7 +12632,8 @@
       "quadriceps",
       "hamstrings",
       "calves"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0687",
@@ -11652,7 +12643,8 @@
     "equipment":"body weight",
     "secondary_muscles":[
       "obliques"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"3012",
@@ -11663,7 +12655,8 @@
     "secondary_muscles":[
       "rhomboids",
       "deltoids"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"3021",
@@ -11674,7 +12667,8 @@
     "secondary_muscles":[
       "triceps",
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0688",
@@ -11686,7 +12680,8 @@
       "biceps",
       "rhomboids",
       "rear deltoids"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"3219",
@@ -11698,7 +12693,8 @@
       "quadriceps",
       "hamstrings",
       "calves"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0689",
@@ -11708,7 +12704,8 @@
     "equipment":"body weight",
     "secondary_muscles":[
       "hip flexors"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0691",
@@ -11718,7 +12715,8 @@
     "equipment":"body weight",
     "secondary_muscles":[
       "obliques"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1587",
@@ -11729,7 +12727,8 @@
     "secondary_muscles":[
       "quadriceps",
       "calves"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0697",
@@ -11740,7 +12739,8 @@
     "secondary_muscles":[
       "glutes",
       "calves"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0696",
@@ -11751,7 +12751,8 @@
     "secondary_muscles":[
       "glutes",
       "calves"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"3222",
@@ -11763,7 +12764,8 @@
       "quadriceps",
       "hamstrings",
       "calves"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"3656",
@@ -11775,7 +12777,8 @@
       "quadriceps",
       "hamstrings",
       "calves"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1763",
@@ -11786,7 +12789,8 @@
     "secondary_muscles":[
       "biceps",
       "forearms"
-    ]
+    ],
+    "advanced":true
   },
   {
     "id":"3699",
@@ -11797,7 +12801,8 @@
     "secondary_muscles":[
       "shoulders",
       "triceps"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0699",
@@ -11808,7 +12813,8 @@
     "secondary_muscles":[
       "triceps",
       "core"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1774",
@@ -11819,7 +12825,8 @@
     "secondary_muscles":[
       "glutes",
       "obliques"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0705",
@@ -11830,7 +12837,8 @@
     "secondary_muscles":[
       "obliques",
       "glutes"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0709",
@@ -11841,7 +12849,8 @@
     "secondary_muscles":[
       "obliques",
       "hip flexors"
-    ]
+    ],
+    "advanced":true
   },
   {
     "id":"0710",
@@ -11852,7 +12861,8 @@
     "secondary_muscles":[
       "glutes",
       "quadriceps"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"3667",
@@ -11863,7 +12873,8 @@
     "secondary_muscles":[
       "glutes",
       "hamstrings"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1775",
@@ -11874,7 +12885,8 @@
     "secondary_muscles":[
       "obliques",
       "glutes"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0717",
@@ -11886,7 +12898,8 @@
       "shoulders",
       "chest",
       "core"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0720",
@@ -11897,7 +12910,8 @@
     "secondary_muscles":[
       "biceps",
       "forearms"
-    ]
+    ],
+    "advanced":true
   },
   {
     "id":"3213",
@@ -11908,7 +12922,8 @@
     "secondary_muscles":[
       "obliques",
       "hip flexors"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0725",
@@ -11920,7 +12935,8 @@
       "triceps",
       "shoulders",
       "core"
-    ]
+    ],
+    "advanced":true
   },
   {
     "id":"0727",
@@ -11931,7 +12947,8 @@
     "secondary_muscles":[
       "ankles",
       "feet"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0730",
@@ -11942,7 +12959,8 @@
     "secondary_muscles":[
       "glutes",
       "quadriceps"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1759",
@@ -11954,7 +12972,8 @@
       "quadriceps",
       "hamstrings",
       "calves"
-    ]
+    ],
+    "advanced":true
   },
   {
     "id":"1489",
@@ -11965,7 +12984,8 @@
     "secondary_muscles":[
       "calves",
       "glutes"
-    ]
+    ],
+    "advanced":true
   },
   {
     "id":"0735",
@@ -11975,7 +12995,8 @@
     "equipment":"body weight",
     "secondary_muscles":[
       "hip flexors"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"3679",
@@ -11985,7 +13006,8 @@
     "equipment":"body weight",
     "secondary_muscles":[
       "hip flexors"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"3361",
@@ -11998,18 +13020,8 @@
       "hamstrings",
       "glutes",
       "calves"
-    ]
-  },
-  {
-    "id":"2142",
-    "name":"ski ergometer",
-    "body_part":"upper arms",
-    "target":"triceps",
-    "equipment":"skierg machine",
-    "secondary_muscles":[
-      "shoulders",
-      "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"3671",
@@ -12022,7 +13034,8 @@
       "hamstrings",
       "glutes",
       "calves"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"3304",
@@ -12033,7 +13046,8 @@
     "secondary_muscles":[
       "shoulders",
       "core"
-    ]
+    ],
+    "advanced":true
   },
   {
     "id":"1425",
@@ -12045,7 +13059,8 @@
       "quadriceps",
       "hamstrings",
       "calves"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0738",
@@ -12055,7 +13070,8 @@
     "equipment":"sled machine",
     "secondary_muscles":[
       "hamstrings"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0739",
@@ -12067,7 +13083,8 @@
       "quadriceps",
       "hamstrings",
       "calves"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1464",
@@ -12079,7 +13096,8 @@
       "quadriceps",
       "hamstrings",
       "calves"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1463",
@@ -12091,7 +13109,8 @@
       "quadriceps",
       "hamstrings",
       "calves"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0740",
@@ -12103,7 +13122,8 @@
       "quadriceps",
       "hamstrings",
       "calves"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1391",
@@ -12114,7 +13134,8 @@
     "secondary_muscles":[
       "hamstrings",
       "quadriceps"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0741",
@@ -12126,7 +13147,8 @@
       "quadriceps",
       "hamstrings",
       "calves"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0742",
@@ -12137,7 +13159,8 @@
     "secondary_muscles":[
       "hamstrings",
       "glutes"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0743",
@@ -12149,7 +13172,8 @@
       "quadriceps",
       "hamstrings",
       "calves"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"2334",
@@ -12160,7 +13184,8 @@
     "secondary_muscles":[
       "hamstrings",
       "glutes"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0744",
@@ -12172,7 +13197,8 @@
       "quadriceps",
       "hamstrings",
       "calves"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1392",
@@ -12183,18 +13209,8 @@
     "secondary_muscles":[
       "hamstrings",
       "glutes"
-    ]
-  },
-  {
-    "id":"1496",
-    "name":"sledge hammer",
-    "body_part":"waist",
-    "target":"abs",
-    "equipment":"hammer",
-    "secondary_muscles":[
-      "forearms",
-      "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0746",
@@ -12204,7 +13220,8 @@
     "equipment":"smith machine",
     "secondary_muscles":[
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0747",
@@ -12215,7 +13232,8 @@
     "secondary_muscles":[
       "triceps",
       "upper back"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0748",
@@ -12226,7 +13244,8 @@
     "secondary_muscles":[
       "triceps",
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0749",
@@ -12237,7 +13256,8 @@
     "secondary_muscles":[
       "hamstrings",
       "lower back"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1359",
@@ -12248,7 +13268,8 @@
     "secondary_muscles":[
       "biceps",
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0750",
@@ -12260,7 +13281,8 @@
       "glutes",
       "hamstrings",
       "calves"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0751",
@@ -12271,7 +13293,8 @@
     "secondary_muscles":[
       "chest",
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0752",
@@ -12283,7 +13306,8 @@
       "hamstrings",
       "quadriceps",
       "lower back"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0753",
@@ -12294,7 +13318,8 @@
     "secondary_muscles":[
       "triceps",
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0754",
@@ -12305,7 +13330,8 @@
     "secondary_muscles":[
       "triceps",
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1433",
@@ -12318,7 +13344,8 @@
       "hamstrings",
       "calves",
       "core"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"3281",
@@ -12330,7 +13357,8 @@
       "quadriceps",
       "hamstrings",
       "calves"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0755",
@@ -12342,7 +13370,8 @@
       "quadriceps",
       "hamstrings",
       "calves"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0756",
@@ -12353,7 +13382,8 @@
     "secondary_muscles":[
       "glutes",
       "hamstrings"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0757",
@@ -12364,7 +13394,8 @@
     "secondary_muscles":[
       "shoulders",
       "triceps"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0758",
@@ -12375,7 +13406,8 @@
     "secondary_muscles":[
       "triceps",
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0759",
@@ -12386,7 +13418,8 @@
     "secondary_muscles":[
       "deltoids",
       "trapezius"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0760",
@@ -12398,7 +13431,8 @@
       "quadriceps",
       "hamstrings",
       "calves"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1434",
@@ -12410,7 +13444,8 @@
       "quadriceps",
       "hamstrings",
       "calves"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1683",
@@ -12420,7 +13455,8 @@
     "equipment":"smith machine",
     "secondary_muscles":[
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1625",
@@ -12431,7 +13467,8 @@
     "secondary_muscles":[
       "chest",
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1752",
@@ -12441,7 +13478,8 @@
     "equipment":"smith machine",
     "secondary_muscles":[
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1626",
@@ -12452,7 +13490,8 @@
     "secondary_muscles":[
       "triceps",
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0761",
@@ -12463,7 +13502,8 @@
     "secondary_muscles":[
       "biceps",
       "rear deltoids"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1360",
@@ -12474,7 +13514,8 @@
     "secondary_muscles":[
       "biceps",
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1393",
@@ -12485,7 +13526,8 @@
     "secondary_muscles":[
       "hamstrings",
       "glutes"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0762",
@@ -12497,7 +13539,8 @@
       "trapezius",
       "rhomboids",
       "biceps"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0763",
@@ -12507,7 +13550,8 @@
     "equipment":"smith machine",
     "secondary_muscles":[
       "hamstrings"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1361",
@@ -12518,7 +13562,8 @@
     "secondary_muscles":[
       "biceps",
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0764",
@@ -12529,7 +13574,8 @@
     "secondary_muscles":[
       "triceps",
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1395",
@@ -12539,7 +13585,8 @@
     "equipment":"smith machine",
     "secondary_muscles":[
       "hamstrings"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0765",
@@ -12550,7 +13597,8 @@
     "secondary_muscles":[
       "triceps",
       "upper back"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1426",
@@ -12561,7 +13609,8 @@
     "secondary_muscles":[
       "biceps",
       "brachialis"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0766",
@@ -12572,7 +13621,8 @@
     "secondary_muscles":[
       "triceps",
       "upper back"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0767",
@@ -12582,7 +13632,8 @@
     "equipment":"smith machine",
     "secondary_muscles":[
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0768",
@@ -12593,7 +13644,8 @@
     "secondary_muscles":[
       "glutes",
       "hamstrings"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0769",
@@ -12605,7 +13657,8 @@
       "quadriceps",
       "hamstrings",
       "calves"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0770",
@@ -12617,7 +13670,8 @@
       "quadriceps",
       "hamstrings",
       "calves"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0771",
@@ -12628,7 +13682,8 @@
     "secondary_muscles":[
       "biceps",
       "triceps"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0772",
@@ -12639,7 +13694,8 @@
     "secondary_muscles":[
       "triceps",
       "upper back"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0773",
@@ -12650,7 +13706,8 @@
     "secondary_muscles":[
       "hamstrings",
       "glutes"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0774",
@@ -12661,7 +13718,8 @@
     "secondary_muscles":[
       "triceps",
       "upper back"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"3142",
@@ -12673,7 +13731,8 @@
       "quadriceps",
       "hamstrings",
       "calves"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1396",
@@ -12684,7 +13743,8 @@
     "secondary_muscles":[
       "ankles",
       "shins"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0775",
@@ -12695,7 +13755,8 @@
     "secondary_muscles":[
       "traps",
       "biceps"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1308",
@@ -12706,7 +13767,8 @@
     "secondary_muscles":[
       "triceps",
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1309",
@@ -12717,7 +13779,8 @@
     "secondary_muscles":[
       "triceps",
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0776",
@@ -12729,7 +13792,8 @@
       "hamstrings",
       "glutes",
       "calves"
-    ]
+    ],
+    "advanced":true
   },
   {
     "id":"0777",
@@ -12740,7 +13804,8 @@
     "secondary_muscles":[
       "obliques",
       "lower back"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1362",
@@ -12751,7 +13816,8 @@
     "secondary_muscles":[
       "glutes",
       "hamstrings"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0778",
@@ -12763,7 +13829,8 @@
       "core",
       "chest",
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"2329",
@@ -12774,7 +13841,8 @@
     "secondary_muscles":[
       "obliques",
       "lower back"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"2368",
@@ -12786,7 +13854,8 @@
       "glutes",
       "hamstrings",
       "calves"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0786",
@@ -12799,7 +13868,8 @@
       "hamstrings",
       "calves",
       "core"
-    ]
+    ],
+    "advanced":true
   },
   {
     "id":"1705",
@@ -12811,7 +13881,8 @@
       "glutes",
       "hamstrings",
       "calves"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1685",
@@ -12823,7 +13894,8 @@
       "glutes",
       "hamstrings",
       "core"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1686",
@@ -12835,7 +13907,8 @@
       "glutes",
       "hamstrings",
       "core"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"2297",
@@ -12845,7 +13918,8 @@
     "equipment":"stability ball",
     "secondary_muscles":[
       "hip flexors"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"3291",
@@ -12856,7 +13930,8 @@
     "secondary_muscles":[
       "shoulders",
       "core"
-    ]
+    ],
+    "advanced":true
   },
   {
     "id":"3669",
@@ -12868,7 +13943,8 @@
       "shoulders",
       "biceps",
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0788",
@@ -12879,7 +13955,8 @@
     "secondary_muscles":[
       "triceps",
       "upper back"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1490",
@@ -12890,7 +13967,8 @@
     "secondary_muscles":[
       "ankles",
       "feet"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1397",
@@ -12901,7 +13979,8 @@
     "secondary_muscles":[
       "hamstrings",
       "glutes"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1364",
@@ -12911,7 +13990,8 @@
     "equipment":"body weight",
     "secondary_muscles":[
       "abdominals"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0795",
@@ -12921,7 +14001,8 @@
     "equipment":"body weight",
     "secondary_muscles":[
       "glutes"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0796",
@@ -12932,7 +14013,8 @@
     "secondary_muscles":[
       "lower back",
       "shoulders"
-    ]
+    ],
+    "advanced":true
   },
   {
     "id":"3223",
@@ -12944,19 +14026,8 @@
       "quadriceps",
       "hamstrings",
       "calves"
-    ]
-  },
-  {
-    "id":"2138",
-    "name":"stationary bike run v. 3",
-    "body_part":"cardio",
-    "target":"cardiovascular system",
-    "equipment":"stationary bike",
-    "secondary_muscles":[
-      "quadriceps",
-      "hamstrings",
-      "calves"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0798",
@@ -12968,7 +14039,8 @@
       "quadriceps",
       "hamstrings",
       "calves"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"3314",
@@ -12979,7 +14051,8 @@
     "secondary_muscles":[
       "shoulders",
       "chest"
-    ]
+    ],
+    "advanced":true
   },
   {
     "id":"3298",
@@ -12991,7 +14064,8 @@
       "shoulders",
       "triceps",
       "chest"
-    ]
+    ],
+    "advanced":true
   },
   {
     "id":"1427",
@@ -13002,7 +14076,8 @@
     "secondary_muscles":[
       "glutes",
       "hamstrings"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0803",
@@ -13013,7 +14088,8 @@
     "secondary_muscles":[
       "core",
       "shoulders"
-    ]
+    ],
+    "advanced":true
   },
   {
     "id":"0805",
@@ -13024,7 +14100,8 @@
     "secondary_muscles":[
       "obliques",
       "hip flexors"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0806",
@@ -13036,7 +14113,8 @@
       "triceps",
       "shoulders",
       "core"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0807",
@@ -13046,7 +14124,8 @@
     "equipment":"body weight",
     "secondary_muscles":[
       "hip flexors"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0808",
@@ -13057,7 +14136,8 @@
     "secondary_muscles":[
       "biceps",
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0809",
@@ -13069,7 +14149,8 @@
       "glutes",
       "hamstrings",
       "calves"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"3433",
@@ -13081,7 +14162,8 @@
       "hamstrings",
       "quadriceps",
       "calves"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"3318",
@@ -13092,7 +14174,8 @@
     "secondary_muscles":[
       "shoulders",
       "core"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1753",
@@ -13103,19 +14186,8 @@
     "secondary_muscles":[
       "chest",
       "shoulders"
-    ]
-  },
-  {
-    "id":"2459",
-    "name":"tire flip",
-    "body_part":"upper legs",
-    "target":"glutes",
-    "equipment":"tire",
-    "secondary_muscles":[
-      "hamstrings",
-      "quadriceps",
-      "core"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0811",
@@ -13127,7 +14199,8 @@
       "hamstrings",
       "quadriceps",
       "lower back"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0814",
@@ -13138,7 +14211,8 @@
     "secondary_muscles":[
       "chest",
       "shoulders"
-    ]
+    ],
+    "advanced":true
   },
   {
     "id":"0812",
@@ -13149,7 +14223,8 @@
     "secondary_muscles":[
       "chest",
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0813",
@@ -13160,7 +14235,8 @@
     "secondary_muscles":[
       "chest",
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0815",
@@ -13171,7 +14247,8 @@
     "secondary_muscles":[
       "chest",
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0816",
@@ -13181,7 +14258,8 @@
     "equipment":"body weight",
     "secondary_muscles":[
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0871",
@@ -13191,7 +14269,8 @@
     "equipment":"body weight",
     "secondary_muscles":[
       "hip flexors"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0818",
@@ -13203,7 +14282,8 @@
       "biceps",
       "rhomboids",
       "rear deltoids"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1466",
@@ -13214,7 +14294,8 @@
     "secondary_muscles":[
       "obliques",
       "hamstrings"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"2802",
@@ -13225,7 +14306,8 @@
     "secondary_muscles":[
       "obliques",
       "hip flexors"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"2801",
@@ -13236,7 +14318,8 @@
     "secondary_muscles":[
       "obliques",
       "hip flexors"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"3231",
@@ -13247,7 +14330,8 @@
     "secondary_muscles":[
       "hamstrings",
       "glutes"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1366",
@@ -13258,7 +14342,8 @@
     "secondary_muscles":[
       "shoulders",
       "chest"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"3420",
@@ -13268,7 +14353,8 @@
     "equipment":"body weight",
     "secondary_muscles":[
       "hip flexors"
-    ]
+    ],
+    "advanced":true
   },
   {
     "id":"0826",
@@ -13278,20 +14364,8 @@
     "equipment":"body weight",
     "secondary_muscles":[
       "hip flexors"
-    ]
-  },
-  {
-    "id":"2141",
-    "name":"walk elliptical cross trainer",
-    "body_part":"cardio",
-    "target":"cardiovascular system",
-    "equipment":"elliptical machine",
-    "secondary_muscles":[
-      "quadriceps",
-      "hamstrings",
-      "glutes",
-      "calves"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"3655",
@@ -13304,7 +14378,8 @@
       "hamstrings",
       "glutes",
       "calves"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1460",
@@ -13316,7 +14391,8 @@
       "quadriceps",
       "hamstrings",
       "calves"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"3666",
@@ -13328,20 +14404,8 @@
       "quadriceps",
       "hamstrings",
       "calves"
-    ]
-  },
-  {
-    "id":"2311",
-    "name":"walking on stepmill",
-    "body_part":"cardio",
-    "target":"cardiovascular system",
-    "equipment":"stepmill machine",
-    "secondary_muscles":[
-      "quadriceps",
-      "hamstrings",
-      "glutes",
-      "calves"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0830",
@@ -13352,7 +14416,8 @@
     "secondary_muscles":[
       "chest",
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"2987",
@@ -13363,7 +14428,8 @@
     "secondary_muscles":[
       "biceps",
       "forearms"
-    ]
+    ],
+    "advanced":true
   },
   {
     "id":"3643",
@@ -13375,7 +14441,8 @@
       "quadriceps",
       "hamstrings",
       "calves"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0832",
@@ -13385,7 +14452,8 @@
     "equipment":"weighted",
     "secondary_muscles":[
       "obliques"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"3670",
@@ -13396,7 +14464,8 @@
     "secondary_muscles":[
       "hip flexors",
       "lower back"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0833",
@@ -13407,7 +14476,8 @@
     "secondary_muscles":[
       "hamstrings",
       "glutes"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1310",
@@ -13418,7 +14488,8 @@
     "secondary_muscles":[
       "triceps",
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"2135",
@@ -13429,7 +14500,8 @@
     "secondary_muscles":[
       "shoulders",
       "lower back"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0834",
@@ -13440,7 +14512,8 @@
     "secondary_muscles":[
       "biceps",
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0866",
@@ -13451,7 +14524,8 @@
     "secondary_muscles":[
       "hip flexors",
       "lower back"
-    ]
+    ],
+    "advanced":true
   },
   {
     "id":"0835",
@@ -13462,7 +14536,8 @@
     "secondary_muscles":[
       "glutes",
       "hamstrings"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"3641",
@@ -13473,7 +14548,8 @@
     "secondary_muscles":[
       "triceps",
       "core"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"3644",
@@ -13485,7 +14561,8 @@
       "quadriceps",
       "hamstrings",
       "calves"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"3286",
@@ -13498,7 +14575,8 @@
       "triceps",
       "shoulders",
       "chest"
-    ]
+    ],
+    "advanced":true
   },
   {
     "id":"3312",
@@ -13511,7 +14589,8 @@
       "triceps",
       "shoulders",
       "forearms"
-    ]
+    ],
+    "advanced":true
   },
   {
     "id":"3290",
@@ -13522,7 +14601,8 @@
     "secondary_muscles":[
       "biceps",
       "forearms"
-    ]
+    ],
+    "advanced":true
   },
   {
     "id":"0840",
@@ -13533,7 +14613,8 @@
     "secondary_muscles":[
       "obliques",
       "lower back"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0841",
@@ -13544,7 +14625,8 @@
     "secondary_muscles":[
       "biceps",
       "forearms"
-    ]
+    ],
+    "advanced":true
   },
   {
     "id":"0844",
@@ -13555,7 +14637,8 @@
     "secondary_muscles":[
       "triceps",
       "upper back"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0846",
@@ -13566,7 +14649,8 @@
     "secondary_muscles":[
       "obliques",
       "lower back"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0845",
@@ -13577,7 +14661,8 @@
     "secondary_muscles":[
       "obliques",
       "hip flexors"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"2371",
@@ -13588,7 +14673,8 @@
     "secondary_muscles":[
       "obliques",
       "lower back"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0847",
@@ -13598,7 +14684,8 @@
     "equipment":"medicine ball",
     "secondary_muscles":[
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0849",
@@ -13609,7 +14696,8 @@
     "secondary_muscles":[
       "obliques",
       "lower back"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0850",
@@ -13620,7 +14708,8 @@
     "secondary_muscles":[
       "obliques",
       "lower back"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0851",
@@ -13632,7 +14721,8 @@
       "glutes",
       "hamstrings",
       "calves"
-    ]
+    ],
+    "advanced":true
   },
   {
     "id":"0852",
@@ -13644,7 +14734,8 @@
       "quadriceps",
       "hamstrings",
       "calves"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0853",
@@ -13654,7 +14745,8 @@
     "equipment":"weighted",
     "secondary_muscles":[
       "forearms"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0854",
@@ -13665,7 +14757,8 @@
     "secondary_muscles":[
       "biceps",
       "triceps"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"3313",
@@ -13676,7 +14769,8 @@
     "secondary_muscles":[
       "triceps",
       "shoulders"
-    ]
+    ],
+    "advanced":true
   },
   {
     "id":"0856",
@@ -13687,7 +14781,8 @@
     "secondary_muscles":[
       "shoulders",
       "triceps"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1754",
@@ -13698,7 +14793,8 @@
     "secondary_muscles":[
       "chest",
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1755",
@@ -13709,7 +14805,8 @@
     "secondary_muscles":[
       "chest",
       "shoulders"
-    ]
+    ],
+    "advanced":true
   },
   {
     "id":"1767",
@@ -13720,7 +14817,8 @@
     "secondary_muscles":[
       "chest",
       "shoulders"
-    ]
+    ],
+    "advanced":true
   },
   {
     "id":"0857",
@@ -13730,7 +14828,8 @@
     "equipment":"wheel roller",
     "secondary_muscles":[
       "lower back"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"3637",
@@ -13742,7 +14841,8 @@
       "quadriceps",
       "hamstrings",
       "calves"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1429",
@@ -13753,7 +14853,8 @@
     "secondary_muscles":[
       "biceps",
       "forearms"
-    ]
+    ],
+    "advanced":true
   },
   {
     "id":"1367",
@@ -13764,7 +14865,8 @@
     "secondary_muscles":[
       "biceps",
       "forearms"
-    ]
+    ],
+    "advanced":true
   },
   {
     "id":"1311",
@@ -13775,7 +14877,8 @@
     "secondary_muscles":[
       "triceps",
       "shoulders"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"2363",
@@ -13786,7 +14889,8 @@
     "secondary_muscles":[
       "triceps",
       "shoulders"
-    ]
+    ],
+    "advanced":true
   },
   {
     "id":"0858",
@@ -13798,7 +14902,8 @@
       "quadriceps",
       "hamstrings",
       "calves"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"1428",
@@ -13809,7 +14914,8 @@
     "secondary_muscles":[
       "hands",
       "wrists"
-    ]
+    ],
+    "advanced":false
   },
   {
     "id":"0859",
@@ -13820,6 +14926,7 @@
     "secondary_muscles":[
       "biceps",
       "triceps"
-    ]
+    ],
+    "advanced":false
   }
 ]
