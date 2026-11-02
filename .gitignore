@@ -1,11 +1,13 @@
 # macOS
 .DS_Store
 CLAUDE.md
+steps.md
 
 # Python
 __pycache__/
 *.pyc
 .ipynb_checkpoints/
+.pytest_cache/
 
 # Secrets (API keys, tokens)
 .env
