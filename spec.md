@@ -13,7 +13,7 @@ A sentence like *"chest workout, medium difficulty, free weights, 5 exercises"*,
 | **Difficulty** | `easy`, `medium`, `hard` |
 | **Number of exercises** | 3–6; if missing, use **4** |
 
-Exercises with any other equipment (rope, tire, stationary bike, …: 12 in the catalog) are never used.
+Exercises with any other equipment (rope, tire, hammer, …: 8 exercises) are never used.
 
 ## 2. The answer
 ```json
