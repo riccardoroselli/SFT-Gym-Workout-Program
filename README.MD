@@ -1,0 +1,3 @@
+# 🏋🏻‍♂️ GymLeader: Supervised Fine-Tuning of Qwen3.5-4B to create personalized Gym Workout Plans
+
+WIP ...

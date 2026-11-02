@@ -1,0 +1,21 @@
+# macOS
+.DS_Store
+
+# Python
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# Secrets (API keys, tokens)
+.env
+
+# Raw dataset: downloaded, not ours (keep the folder, ignore its contents)
+data/raw/*
+!data/raw/.gitkeep
+
+# Model weights and training outputs: too big for git
+outputs/
+models/
+*.safetensors
+*.gguf
+*.bin
