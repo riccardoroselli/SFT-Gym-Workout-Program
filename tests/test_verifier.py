@@ -88,6 +88,15 @@ def test_json_in_fences_parses_but_not_strict():
     assert r["reward"] == 0.9  # full content, no format bonus
 
 
+def test_valid_json_wrong_shape_is_not_strict():
+    wrapped = json.dumps({"workout_plan": {"exercises": json.loads(answer(CHEST_NAMES))["workout"]}})
+    r = verify(CHEST_FW_MEDIUM, wrapped)
+    assert r["parse_ok"] is False and r["strict_format"] is False and r["reward"] == 0.0
+    extra_key = json.dumps({**json.loads(answer(CHEST_NAMES)), "tips": "warm up first"})
+    r = verify(CHEST_FW_MEDIUM, extra_key)
+    assert r["parse_ok"] is True and r["strict_format"] is False and not r["all_correct"]
+
+
 def test_error_for_impossible_request_is_correct():
     assert not is_feasible(IMPOSSIBLE)
     r = verify(IMPOSSIBLE, '{"error": "Not enough forearm band exercises."}')

@@ -104,7 +104,10 @@ def verify(request, output_text):
 
     is_workout = obj is not None and isinstance(obj.get("workout"), list) and "error" not in obj
     is_error = obj is not None and isinstance(obj.get("error"), str) and "workout" not in obj
-    result = {"parse_ok": is_workout or is_error, "strict_format": strict}
+    parse_ok = is_workout or is_error
+    # strict: the whole text is one JSON object in the spec's shape, with no extra top-level keys
+    strict = strict and parse_ok and set(obj) in ({"workout"}, {"error"})
+    result = {"parse_ok": parse_ok, "strict_format": strict}
     result.update(_check_workout(obj["workout"], body, group, difficulty, n) if is_workout
                   else dict.fromkeys(WORKOUT_CHECKS))  # None: not a workout answer
     result["error_correct"] = None if feasible else (is_error and obj["error"].strip() != "")
