@@ -49,3 +49,6 @@ The message says in plain words what was asked and how many exercises matched.
 ```json
 {"error": "Only 2 forearms exercises use bands, but 3 were requested."}
 ```
+
+## Known limitations
+- **Impossible requests come from only 5 body part × equipment pairs:** forearms + bands (2 exercises), forearms + bodyweight (2), shoulders + bodyweight (1), and calves + bands and chest + bands (3 each, so they fail from 4 exercises up). The model can learn these pairs by heart instead of learning to count matching exercises, so its error behaviour may not transfer if the catalog changes.
