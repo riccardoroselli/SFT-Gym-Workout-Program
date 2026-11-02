@@ -319,33 +319,6 @@
     "advanced":false
   },
   {
-    "id":"3220",
-    "name":"astride jumps (male)",
-    "body_part":"cardio",
-    "target":"cardiovascular system",
-    "equipment":"body weight",
-    "secondary_muscles":[
-      "quadriceps",
-      "hamstrings",
-      "calves"
-    ],
-    "advanced":false
-  },
-  {
-    "id":"3672",
-    "name":"back and forth step",
-    "body_part":"cardio",
-    "target":"cardiovascular system",
-    "equipment":"body weight",
-    "secondary_muscles":[
-      "quadriceps",
-      "hamstrings",
-      "glutes",
-      "calves"
-    ],
-    "advanced":false
-  },
-  {
     "id":"1314",
     "name":"back extension on exercise ball",
     "body_part":"back",
@@ -2749,19 +2722,6 @@
     "advanced":false
   },
   {
-    "id":"3360",
-    "name":"bear crawl",
-    "body_part":"cardio",
-    "target":"cardiovascular system",
-    "equipment":"body weight",
-    "secondary_muscles":[
-      "core",
-      "shoulders",
-      "triceps"
-    ],
-    "advanced":false
-  },
-  {
     "id":"0129",
     "name":"bench dip (knees bent)",
     "body_part":"upper arms",
@@ -3060,21 +3020,6 @@
       "hamstrings",
       "shoulders",
       "triceps"
-    ],
-    "advanced":false
-  },
-  {
-    "id":"1160",
-    "name":"burpee",
-    "body_part":"cardio",
-    "target":"cardiovascular system",
-    "equipment":"body weight",
-    "secondary_muscles":[
-      "quadriceps",
-      "hamstrings",
-      "calves",
-      "shoulders",
-      "chest"
     ],
     "advanced":false
   },
@@ -5182,19 +5127,6 @@
     "advanced":false
   },
   {
-    "id":"2331",
-    "name":"cycle cross trainer",
-    "body_part":"cardio",
-    "target":"cardiovascular system",
-    "equipment":"leverage machine",
-    "secondary_muscles":[
-      "quadriceps",
-      "hamstrings",
-      "glutes"
-    ],
-    "advanced":false
-  },
-  {
     "id":"0276",
     "name":"dead bug",
     "body_part":"waist",
@@ -5552,22 +5484,6 @@
     "secondary_muscles":[
       "forearms",
       "shoulders"
-    ],
-    "advanced":false
-  },
-  {
-    "id":"1201",
-    "name":"dumbbell burpee",
-    "body_part":"cardio",
-    "target":"cardiovascular system",
-    "equipment":"dumbbell",
-    "secondary_muscles":[
-      "quadriceps",
-      "hamstrings",
-      "calves",
-      "shoulders",
-      "triceps",
-      "core"
     ],
     "advanced":false
   },
@@ -9405,19 +9321,6 @@
     "advanced":false
   },
   {
-    "id":"3221",
-    "name":"half knee bends (male)",
-    "body_part":"cardio",
-    "target":"cardiovascular system",
-    "equipment":"body weight",
-    "secondary_muscles":[
-      "quadriceps",
-      "hamstrings",
-      "glutes"
-    ],
-    "advanced":false
-  },
-  {
     "id":"3202",
     "name":"half sit-up (male)",
     "body_part":"waist",
@@ -9558,20 +9461,6 @@
       "hip flexors"
     ],
     "advanced":true
-  },
-  {
-    "id":"3636",
-    "name":"high knee against wall",
-    "body_part":"cardio",
-    "target":"cardiovascular system",
-    "equipment":"body weight",
-    "secondary_muscles":[
-      "quadriceps",
-      "hamstrings",
-      "glutes",
-      "calves"
-    ],
-    "advanced":false
   },
   {
     "id":"0484",
@@ -9871,34 +9760,6 @@
       "core"
     ],
     "advanced":true
-  },
-  {
-    "id":"0501",
-    "name":"jack burpee",
-    "body_part":"cardio",
-    "target":"cardiovascular system",
-    "equipment":"body weight",
-    "secondary_muscles":[
-      "quadriceps",
-      "hamstrings",
-      "calves",
-      "shoulders",
-      "triceps",
-      "core"
-    ],
-    "advanced":false
-  },
-  {
-    "id":"3224",
-    "name":"jack jump (male)",
-    "body_part":"cardio",
-    "target":"cardiovascular system",
-    "equipment":"body weight",
-    "secondary_muscles":[
-      "quadriceps",
-      "calves"
-    ],
-    "advanced":false
   },
   {
     "id":"0507",
@@ -11722,19 +11583,6 @@
     "advanced":false
   },
   {
-    "id":"0630",
-    "name":"mountain climber",
-    "body_part":"cardio",
-    "target":"cardiovascular system",
-    "equipment":"body weight",
-    "secondary_muscles":[
-      "core",
-      "shoulders",
-      "triceps"
-    ],
-    "advanced":false
-  },
-  {
     "id":"0631",
     "name":"muscle up",
     "body_part":"back",
@@ -12131,19 +11979,6 @@
     "secondary_muscles":[
       "triceps",
       "deltoids"
-    ],
-    "advanced":false
-  },
-  {
-    "id":"3638",
-    "name":"push to run",
-    "body_part":"cardio",
-    "target":"cardiovascular system",
-    "equipment":"body weight",
-    "secondary_muscles":[
-      "quadriceps",
-      "hamstrings",
-      "calves"
     ],
     "advanced":false
   },
@@ -12610,32 +12445,6 @@
     "advanced":false
   },
   {
-    "id":"0685",
-    "name":"run",
-    "body_part":"cardio",
-    "target":"cardiovascular system",
-    "equipment":"body weight",
-    "secondary_muscles":[
-      "quadriceps",
-      "hamstrings",
-      "calves"
-    ],
-    "advanced":false
-  },
-  {
-    "id":"0684",
-    "name":"run (equipment)",
-    "body_part":"cardio",
-    "target":"cardiovascular system",
-    "equipment":"body weight",
-    "secondary_muscles":[
-      "quadriceps",
-      "hamstrings",
-      "calves"
-    ],
-    "advanced":false
-  },
-  {
     "id":"0687",
     "name":"russian twist",
     "body_part":"waist",
@@ -12680,19 +12489,6 @@
       "biceps",
       "rhomboids",
       "rear deltoids"
-    ],
-    "advanced":false
-  },
-  {
-    "id":"3219",
-    "name":"scissor jumps (male)",
-    "body_part":"cardio",
-    "target":"cardiovascular system",
-    "equipment":"body weight",
-    "secondary_muscles":[
-      "quadriceps",
-      "hamstrings",
-      "calves"
     ],
     "advanced":false
   },
@@ -12750,32 +12546,6 @@
     "equipment":"body weight",
     "secondary_muscles":[
       "glutes",
-      "calves"
-    ],
-    "advanced":false
-  },
-  {
-    "id":"3222",
-    "name":"semi squat jump (male)",
-    "body_part":"cardio",
-    "target":"cardiovascular system",
-    "equipment":"body weight",
-    "secondary_muscles":[
-      "quadriceps",
-      "hamstrings",
-      "calves"
-    ],
-    "advanced":false
-  },
-  {
-    "id":"3656",
-    "name":"short stride run",
-    "body_part":"cardio",
-    "target":"cardiovascular system",
-    "equipment":"body weight",
-    "secondary_muscles":[
-      "quadriceps",
-      "hamstrings",
       "calves"
     ],
     "advanced":false
@@ -13006,34 +12776,6 @@
     "equipment":"body weight",
     "secondary_muscles":[
       "hip flexors"
-    ],
-    "advanced":false
-  },
-  {
-    "id":"3361",
-    "name":"skater hops",
-    "body_part":"cardio",
-    "target":"cardiovascular system",
-    "equipment":"body weight",
-    "secondary_muscles":[
-      "quadriceps",
-      "hamstrings",
-      "glutes",
-      "calves"
-    ],
-    "advanced":false
-  },
-  {
-    "id":"3671",
-    "name":"ski step",
-    "body_part":"cardio",
-    "target":"cardiovascular system",
-    "equipment":"body weight",
-    "secondary_muscles":[
-      "quadriceps",
-      "hamstrings",
-      "glutes",
-      "calves"
     ],
     "advanced":false
   },
@@ -14017,32 +13759,6 @@
     "advanced":true
   },
   {
-    "id":"3223",
-    "name":"star jump (male)",
-    "body_part":"cardio",
-    "target":"cardiovascular system",
-    "equipment":"body weight",
-    "secondary_muscles":[
-      "quadriceps",
-      "hamstrings",
-      "calves"
-    ],
-    "advanced":false
-  },
-  {
-    "id":"0798",
-    "name":"stationary bike walk",
-    "body_part":"cardio",
-    "target":"cardiovascular system",
-    "equipment":"leverage machine",
-    "secondary_muscles":[
-      "quadriceps",
-      "hamstrings",
-      "calves"
-    ],
-    "advanced":false
-  },
-  {
     "id":"3314",
     "name":"straddle maltese",
     "body_part":"waist",
@@ -14162,18 +13878,6 @@
       "hamstrings",
       "quadriceps",
       "calves"
-    ],
-    "advanced":false
-  },
-  {
-    "id":"3318",
-    "name":"swing 360",
-    "body_part":"cardio",
-    "target":"cardiovascular system",
-    "equipment":"body weight",
-    "secondary_muscles":[
-      "shoulders",
-      "core"
     ],
     "advanced":false
   },
@@ -14368,38 +14072,11 @@
     "advanced":false
   },
   {
-    "id":"3655",
-    "name":"walking high knees lunge",
-    "body_part":"cardio",
-    "target":"cardiovascular system",
-    "equipment":"body weight",
-    "secondary_muscles":[
-      "quadriceps",
-      "hamstrings",
-      "glutes",
-      "calves"
-    ],
-    "advanced":false
-  },
-  {
     "id":"1460",
     "name":"walking lunge",
     "body_part":"upper legs",
     "target":"glutes",
     "equipment":"body weight",
-    "secondary_muscles":[
-      "quadriceps",
-      "hamstrings",
-      "calves"
-    ],
-    "advanced":false
-  },
-  {
-    "id":"3666",
-    "name":"walking on incline treadmill",
-    "body_part":"cardio",
-    "target":"cardiovascular system",
-    "equipment":"leverage machine",
     "secondary_muscles":[
       "quadriceps",
       "hamstrings",
@@ -14828,19 +14505,6 @@
     "equipment":"wheel roller",
     "secondary_muscles":[
       "lower back"
-    ],
-    "advanced":false
-  },
-  {
-    "id":"3637",
-    "name":"wheel run",
-    "body_part":"cardio",
-    "target":"cardiovascular system",
-    "equipment":"body weight",
-    "secondary_muscles":[
-      "quadriceps",
-      "hamstrings",
-      "calves"
     ],
     "advanced":false
   },
