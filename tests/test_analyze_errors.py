@@ -1,7 +1,7 @@
 """Tests for src/analyze_errors.py helpers."""
 import json
 
-from analyze_errors import closest, first_failed
+from analyze_errors import closest, duplicates, first_failed, strip_variant
 from verifier import verify
 
 CHEST = {"body_part": "chest", "equipment_group": "free weights", "difficulty": "medium", "n_exercises": 4, "feasible": True}
@@ -26,3 +26,17 @@ def test_closest_kinds():
     assert closest("Barbell  Bench Press")[:2] == ("case/spacing", "barbell bench press")
     assert closest("dumbbell flyes")[:2] == ("near-miss", "dumbbell fly")
     assert closest("super chest blaster 3000")[0] == "invented"
+
+
+def test_duplicates_exact():
+    assert duplicates(NAMES) == (0, False)
+    assert duplicates(["a", "a", "a", "b"]) == (2, False)  # 2 extra copies, not 3
+
+
+def test_duplicates_near():
+    assert strip_variant("Dumbbell Rear Fly v. 2") == "dumbbell rear fly"
+    assert duplicates(["dumbbell rear fly", "dumbbell rear fly v. 2"]) == (0, True)
+    assert duplicates(["push-up (male)", "push-up (female)"]) == (0, True)
+    assert duplicates(["dumbbell incline fly", "dumbbell incline fly on exercise ball",
+                       "dumbbell incline fly on exercise ball"]) == (1, True)
+    assert duplicates(["dumbbell fly", "dumbbell incline fly"]) == (0, False)  # different exercises
