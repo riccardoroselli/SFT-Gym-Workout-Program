@@ -42,6 +42,11 @@ def few_shot_turns(k):
     return [m for i in FEW_SHOT_IDS[:k] for m in train[i]["messages"] if m["role"] != "system"]
 
 
+def build_prompt(tokenizer, messages):
+    """Chat messages -> prompt text, thinking off. The SFT notebook imports this so training matches eval."""
+    return tokenizer.apply_chat_template(messages, add_generation_prompt=True, tokenize=False, enable_thinking=False)
+
+
 def generate(run, model_name, adapter_path, k, limit=None):
     from mlx_lm import load, stream_generate  # imported here so `score` works without mlx
     from mlx.utils import tree_flatten
@@ -59,8 +64,7 @@ def generate(run, model_name, adapter_path, k, limit=None):
     with out_path.open("w") as f:
         for i, ex in enumerate(test, 1):
             system, user = ex["messages"][0], ex["messages"][1]  # drop the reference answer
-            prompt = tokenizer.apply_chat_template([system, *shots, user], add_generation_prompt=True,
-                                                   tokenize=False, enable_thinking=False)
+            prompt = build_prompt(tokenizer, [system, *shots, user])
             pieces = list(stream_generate(model, tokenizer, prompt, max_tokens=MAX_NEW_TOKENS, sampler=greedy))
             text = "".join(r.text for r in pieces)
             truncated = pieces[-1].finish_reason == "length"  # stopped by the token limit, not by the model
