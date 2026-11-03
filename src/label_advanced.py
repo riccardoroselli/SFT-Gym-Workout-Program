@@ -1,4 +1,4 @@
-"""Review the advanced flags (see spec.md section 3).
+"""Review the advanced flags (see docs/spec.md section 3).
 
 Workout difficulty comes from sets/reps. The only exercise rule: advanced skills
 (moves a beginner can't do at any rep count) are allowed only in hard workouts.

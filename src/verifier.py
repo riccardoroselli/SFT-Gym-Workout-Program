@@ -1,4 +1,4 @@
-"""Score a model answer against the task contract in spec.md.
+"""Score a model answer against the task contract in docs/spec.md.
 
     from verifier import verify, is_feasible
     request = {"body_part": "chest", "equipment_group": "free weights", "difficulty": "medium", "n_exercises": 4}

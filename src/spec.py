@@ -1,4 +1,4 @@
-"""Task contract values from spec.md, shared by every script. Change them here, nowhere else."""
+"""Task contract values from docs/spec.md, shared by every script. Change them here, nowhere else."""
 
 # Section 1: equipment groups. Exercises with any other equipment are excluded.
 EQUIPMENT_GROUPS = {

@@ -5,9 +5,9 @@ from pathlib import Path
 
 from verifier import is_feasible, verify
 
-SPEC = (Path(__file__).resolve().parent.parent / "spec.md").read_text()
+SPEC = (Path(__file__).resolve().parent.parent / "docs" / "spec.md").read_text()
 
-# A valid medium chest free-weights workout (the spec.md example names).
+# A valid medium chest free-weights workout (the docs/spec.md example names).
 CHEST_FW_MEDIUM = {"body_part": "chest", "equipment_group": "free weights", "difficulty": "medium", "n_exercises": 4}
 CHEST_NAMES = ["barbell bench press", "dumbbell bench press", "barbell incline bench press", "barbell decline bench press"]
 IMPOSSIBLE = {"body_part": "forearms", "equipment_group": "bands", "difficulty": "easy", "n_exercises": 3}
@@ -110,7 +110,7 @@ def test_error_for_possible_request_is_wrong():
     assert not r["all_correct"] and r["reward"] == 0.1  # only the format bonus
 
 
-# The two examples written in spec.md, read from the file so the tests follow the spec.
+# The two examples written in docs/spec.md, read from the file so the tests follow the spec.
 def spec_json_block(containing):
     blocks = re.findall(r"```json\n(.*?)```", SPEC, re.DOTALL)
     return next(b for b in blocks if containing in b)
