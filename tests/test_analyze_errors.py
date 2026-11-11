@@ -1,7 +1,8 @@
 """Tests for src/analyze_errors.py helpers."""
 import json
 
-from analyze_errors import closest, duplicates, first_failed, strip_variant
+from analyze_errors import closest, duplicates, first_failed
+from spec import base_name
 from verifier import verify
 
 CHEST = {"body_part": "chest", "equipment_group": "free weights", "difficulty": "medium", "n_exercises": 4, "feasible": True}
@@ -29,14 +30,15 @@ def test_closest_kinds():
 
 
 def test_duplicates_exact():
-    assert duplicates(NAMES) == (0, False)
-    assert duplicates(["a", "a", "a", "b"]) == (2, False)  # 2 extra copies, not 3
+    assert duplicates(NAMES) == (0, False, False)
+    assert duplicates(["a", "a", "a", "b"]) == (2, False, False)  # 2 extra copies, not 3
 
 
 def test_duplicates_near():
-    assert strip_variant("Dumbbell Rear Fly v. 2") == "dumbbell rear fly"
-    assert duplicates(["dumbbell rear fly", "dumbbell rear fly v. 2"]) == (0, True)
-    assert duplicates(["push-up (male)", "push-up (female)"]) == (0, True)
+    assert base_name("Dumbbell Rear Fly v. 2") == "dumbbell rear fly"
+    assert duplicates(["dumbbell rear fly", "dumbbell rear fly v. 2"]) == (0, True, False)
+    assert duplicates(["push-up (male)", "push-up (female)"]) == (0, True, False)
+    # "on exercise ball" is a different exercise: reported only as a diagnostic
     assert duplicates(["dumbbell incline fly", "dumbbell incline fly on exercise ball",
-                       "dumbbell incline fly on exercise ball"]) == (1, True)
-    assert duplicates(["dumbbell fly", "dumbbell incline fly"]) == (0, False)  # different exercises
+                       "dumbbell incline fly on exercise ball"]) == (1, False, True)
+    assert duplicates(["dumbbell fly", "dumbbell incline fly"]) == (0, False, False)  # different exercises

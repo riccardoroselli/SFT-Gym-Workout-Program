@@ -1,4 +1,5 @@
 """Task contract values from docs/spec.md, shared by every script. Change them here, nowhere else."""
+import re
 
 # Section 1: equipment groups. Exercises with any other equipment are excluded.
 EQUIPMENT_GROUPS = {
@@ -31,3 +32,12 @@ SETS_REPS = {
 
 # Section 3: difficulties whose workouts may include exercises with "advanced": true.
 ADVANCED_ALLOWED = {"hard"}
+
+# Section 2: names that differ only by these markers are the same exercise ("dumbbell front raise v. 2").
+# "on exercise ball" is not a marker: it's a different exercise.
+VARIANT_MARKER = re.compile(r"\bv\.\s*\d+|\((?:male|female)\)")
+
+
+def base_name(name):
+    """'Dumbbell Front Raise v. 2' -> 'dumbbell front raise'. Two names with the same base name are the same exercise."""
+    return " ".join(VARIANT_MARKER.sub(" ", name.lower()).split())

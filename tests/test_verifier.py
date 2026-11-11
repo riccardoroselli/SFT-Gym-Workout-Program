@@ -5,7 +5,8 @@ from pathlib import Path
 
 from verifier import is_feasible, verify
 
-SPEC = (Path(__file__).resolve().parent.parent / "docs" / "spec.md").read_text()
+ROOT = Path(__file__).resolve().parent.parent
+SPEC = (ROOT / "docs" / "spec.md").read_text()
 
 # A valid medium chest free-weights workout (the docs/spec.md example names).
 CHEST_FW_MEDIUM = {"body_part": "chest", "equipment_group": "free weights", "difficulty": "medium", "n_exercises": 4}
@@ -45,6 +46,41 @@ def test_duplicate_exercise():
     r = verify(CHEST_FW_MEDIUM, answer(CHEST_NAMES[:3] + [CHEST_NAMES[0]]))
     assert r["no_duplicates"] is False
     assert not r["all_correct"]
+
+
+SHOULDERS_FW_MEDIUM = {"body_part": "shoulders", "equipment_group": "free weights", "difficulty": "medium", "n_exercises": 4}
+VARIANT_PAIR = ["dumbbell front raise", "dumbbell front raise v. 2", "dumbbell cuban press", "barbell upright row"]
+
+
+def test_catalog_variant_pair_is_a_duplicate():
+    r = verify(SHOULDERS_FW_MEDIUM, answer(VARIANT_PAIR))
+    assert r["names_exist"] == 1.0 and r["no_duplicates"] is False
+    assert not r["all_correct"]
+
+
+def test_invented_male_variant_is_a_duplicate():
+    r = verify(CHEST_FW_MEDIUM, answer(CHEST_NAMES[:3] + ["barbell bench press (male)"]))  # not in the catalog
+    assert r["no_duplicates"] is False
+
+
+def test_on_exercise_ball_is_a_different_exercise():
+    names = CHEST_NAMES[:2] + ["dumbbell incline fly", "dumbbell incline fly on exercise ball"]
+    r = verify(CHEST_FW_MEDIUM, answer(names))
+    assert r["no_duplicates"] is True and r["all_correct"]
+
+
+def test_variants_distinct_accepts_a_variant_pair():
+    r = verify(SHOULDERS_FW_MEDIUM, answer(VARIANT_PAIR), variants_distinct=True)  # make_dataset.py's self-check
+    assert r["no_duplicates"] is True and r["all_correct"]
+    exact = verify(SHOULDERS_FW_MEDIUM, answer(VARIANT_PAIR[:3] + VARIANT_PAIR[:1]), variants_distinct=True)
+    assert exact["no_duplicates"] is False  # exact repeats still fail
+
+
+def test_is_feasible_matches_data_v1():
+    for split in ("train", "val", "test"):
+        for line in (ROOT / "data/processed" / f"{split}.jsonl").read_text().splitlines():
+            meta = json.loads(line)["meta"]
+            assert is_feasible(meta) == meta["feasible"], (split, meta)
 
 
 def test_wrong_count():

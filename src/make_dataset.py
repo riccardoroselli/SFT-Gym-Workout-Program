@@ -154,7 +154,8 @@ if __name__ == "__main__":
     # self-checks: every answer passes the verifier; test combos and test templates never appear in train/val
     for name, rows in splits.items():
         for row in rows:
-            r = verify(row["meta"], row["messages"][2]["content"])
+            # variants_distinct: data-v1 predates the "same exercise" rule (19 train answers have a variant pair)
+            r = verify(row["meta"], row["messages"][2]["content"], variants_distinct=True)
             assert r["all_correct"], (name, row, r)
     seen = {key(r["meta"]) for s in ("train", "val") for r in splits[s]}
     assert not seen & {key(r["meta"]) for r in splits["test"]}, "test combo leaked into train/val"

@@ -44,6 +44,7 @@ Every word `src/make_dataset.py` uses in requests, and what it means. Body parts
 ```
 - `name` is copied **exactly** from `catalog.json`, and the exercise must match the body part and equipment group.
 - No exercise appears twice. The list has exactly the requested number of exercises.
+- **The same exercise** = two names that match after lowercasing and removing "v. N" (any number), "(male)" and "(female)": `dumbbell front raise` and `dumbbell front raise v. 2` are one exercise and can't both be listed. "on exercise ball" is a different exercise: `dumbbell incline fly` and `dumbbell incline fly on exercise ball` can be listed together.
 - Sets and reps depend only on the workout difficulty: **easy** 2 × "12-15", **medium** 3 × "8-12", **hard** 4 × "5-8".
 
 ## 3. Difficulty rule
@@ -52,7 +53,7 @@ Difficulty is decided by **sets and reps** (section 2), not by the exercises. Th
 - **hard** workouts → any exercise that matches body part and equipment, advanced ones included.
 
 ## 4. Impossible requests
-If not enough exercises match (body part + equipment, and no advanced ones unless the workout is hard), answer with an error instead of inventing or repeating exercises:
+If not enough different exercises match (body part + equipment, and no advanced ones unless the workout is hard; variants of the same exercise count once), answer with an error instead of inventing or repeating exercises:
 ```json
 {"error": "..."}
 ```
@@ -75,3 +76,4 @@ The message says in plain words what was asked and how many exercises matched.
 
 ## Known limitations
 - **Impossible requests come from only 5 body part × equipment pairs:** forearms + bands (2 exercises), forearms + bodyweight (2), shoulders + bodyweight (1), and calves + bands and chest + bands (3 each, so they fail from 4 exercises up). The model can learn these pairs by heart instead of learning to count matching exercises, so its error behaviour may not transfer if the catalog changes.
+- **data-v1 predates the "same exercise" rule:** 19 train answers (0 val, 0 test) list a variant pair, e.g. `jump squat` with `jump squat v. 2`, so they fail `no_duplicates` under today's verifier. `make_dataset.py`'s self-check accepts them (`verify(..., variants_distinct=True)`) so the frozen files still regenerate byte-identical. Feasibility is unchanged: no request combination flips.

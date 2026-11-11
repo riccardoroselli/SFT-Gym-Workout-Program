@@ -8,7 +8,7 @@ import json
 import re
 from pathlib import Path
 
-from spec import ADVANCED_ALLOWED, BODY_PARTS, EQUIPMENT_GROUPS, GROUP_OF, SETS_REPS
+from spec import ADVANCED_ALLOWED, BODY_PARTS, EQUIPMENT_GROUPS, GROUP_OF, SETS_REPS, base_name
 
 ROOT = Path(__file__).resolve().parent.parent
 CATALOG = {e["name"]: e for e in json.loads((ROOT / "data/processed/catalog.json").read_text())}
@@ -53,8 +53,8 @@ def matching_exercises(request):
 
 
 def is_feasible(request):
-    """True if the catalog has at least n matching exercises."""
-    return len(matching_exercises(request)) >= _normalize(request)[3]
+    """True if the catalog has at least n different matching exercises (variants count once)."""
+    return len({base_name(nm) for nm in matching_exercises(request)}) >= _normalize(request)[3]
 
 
 def _parse(text):
@@ -77,27 +77,31 @@ def _parse(text):
     return (obj if isinstance(obj, dict) else None), False
 
 
-def _check_workout(items, body, group, difficulty, n):
+def _check_workout(items, body, group, difficulty, n, variants_distinct):
     """Workout checks; fractions are over all listed items, an empty list fails everything."""
     if not items:
         return {"names_exist": 0.0, "body_part_ok": 0.0, "equipment_ok": 0.0,
                 "count_ok": False, "no_duplicates": False, "sets_reps_ok": False, "advanced_ok": False}
     names = [it.get("name") if isinstance(it, dict) else None for it in items]
     found = [CATALOG.get(nm) if isinstance(nm, str) else None for nm in names]
+    keys = [base_name(nm) if isinstance(nm, str) and not variants_distinct else str(nm) for nm in names]
     sets, reps = SETS_REPS[difficulty]
     return {
         "names_exist": sum(e is not None for e in found) / len(items),
         "body_part_ok": sum(e is not None and e["body_part"] == body for e in found) / len(items),
         "equipment_ok": sum(e is not None and _group_ok(e, group) for e in found) / len(items),
         "count_ok": len(items) == n,
-        "no_duplicates": len(set(map(str, names))) == len(names),
+        "no_duplicates": len(set(keys)) == len(names),
         "sets_reps_ok": all(isinstance(it, dict) and type(it.get("sets")) is int and it["sets"] == sets
                             and it.get("reps") == reps for it in items),
         "advanced_ok": difficulty in ADVANCED_ALLOWED or not any(e is not None and e["advanced"] for e in found),
     }
 
 
-def verify(request, output_text):
+def verify(request, output_text, *, variants_distinct=False):
+    """variants_distinct=True: "x" and "x v. 2" are not duplicates (only exact repeats are).
+    Only for make_dataset.py's self-check: data-v1 was generated before the "same exercise" rule,
+    and 19 train answers (0 val, 0 test) contain a variant pair. Everything else uses the default."""
     body, group, difficulty, n = _normalize(request)
     feasible = is_feasible(request)
     obj, strict = _parse(output_text)
@@ -108,7 +112,7 @@ def verify(request, output_text):
     # strict: the whole text is one JSON object in the spec's shape, with no extra top-level keys
     strict = strict and parse_ok and set(obj) in ({"workout"}, {"error"})
     result = {"parse_ok": parse_ok, "strict_format": strict}
-    result.update(_check_workout(obj["workout"], body, group, difficulty, n) if is_workout
+    result.update(_check_workout(obj["workout"], body, group, difficulty, n, variants_distinct) if is_workout
                   else dict.fromkeys(WORKOUT_CHECKS))  # None: not a workout answer
     result["error_correct"] = None if feasible else (is_error and obj["error"].strip() != "")
 

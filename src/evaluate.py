@@ -100,14 +100,15 @@ def score(run, outputs_dir=OUTPUTS, results_dir=RESULTS):
 
 
 def update_table(path, summary):
-    """One row per run: re-scoring a run replaces its row."""
+    """One row per run: re-scoring a run replaces its row. Text lines under the table stay under it."""
     cols = ["run", "n", *FIELDS]
     header = ["| " + " | ".join(cols) + " |", "|" + "---|" * len(cols)]
-    rows = [line for line in path.read_text().splitlines()[2:]] if path.exists() else []
-    rows = [line for line in rows if not line.startswith(f"| {summary['run']} |")]
+    lines = path.read_text().splitlines()[2:] if path.exists() else []
+    rows = [line for line in lines if line.startswith("|") and not line.startswith(f"| {summary['run']} |")]
+    notes = [line for line in lines if not line.startswith("|")]
     cells = ["-" if summary[c] is None else str(summary[c]) for c in cols]
     rows.append("| " + " | ".join(cells) + " |")
-    path.write_text("\n".join(header + rows) + "\n")
+    path.write_text("\n".join(header + rows + notes) + "\n")
 
 
 if __name__ == "__main__":

@@ -7,7 +7,7 @@
 3. names not in the catalog: case/spacing only, near-miss, invented (with examples)
 4. body part / equipment right, using the closest catalog name for names not in the catalog
 5. most common body-part mix-ups among exact catalog names
-6. duplicates: exact repeats, and near-duplicates (equal once "v. 2", "(male)", ... are removed)
+6. duplicates (same base name, spec.base_name): exact repeats and variant pairs; "on exercise ball" pairs as a diagnostic
 7. variety: valid names used per (body part, equipment) pair, against the catalog pool
 8. impossible requests: refused or answered with a workout, per combo
 9. all_correct split by difficulty, equipment group, number of exercises, test template
@@ -15,11 +15,10 @@
 import argparse
 import collections
 import difflib
-import re
 
 from evaluate import OUTPUTS, read_jsonl
 from make_dataset import TEST_TEMPLATES
-from spec import SETS_REPS
+from spec import SETS_REPS, base_name
 from verifier import CATALOG, _group_ok, _normalize, _parse, matching_exercises, verify
 
 NEAR_MISS = 0.85  # difflib ratio; names just below it are often the right exercise with extra words
@@ -60,19 +59,16 @@ def items_of(output):
     return [it for it in items if isinstance(it, dict)] if isinstance(items, list) else []
 
 
-SUFFIX = re.compile(r"\s*(v\.\s*\d+|\((?:male|female)\)|on exercise ball)\s*", re.I)
 TEMPLATE_PREFIXES = [t.split("{")[0] for t, _ in TEST_TEMPLATES]  # "What's a good ", "Hit my ", ...
 
 
-def strip_variant(name):
-    """'dumbbell rear fly v. 2' -> 'dumbbell rear fly'; removes every variant suffix, lowercases."""
-    return " ".join(SUFFIX.sub(" ", name).lower().split())
-
-
 def duplicates(names):
-    """-> (extra exact copies, True if two different names are equal after strip_variant)."""
+    """-> (extra exact copies, True if two different names share a base name (a variant pair),
+    True if two base names differ only by "on exercise ball": a diagnostic, not a duplicate)."""
     distinct = set(names)
-    return len(names) - len(distinct), len({strip_variant(n) for n in distinct}) < len(distinct)
+    bases = {base_name(n) for n in distinct}
+    no_ball = {" ".join(b.replace("on exercise ball", "").split()) for b in bases}
+    return len(names) - len(distinct), len(bases) < len(distinct), len(no_ball) < len(bases)
 
 
 def template_of(request):
@@ -144,7 +140,7 @@ def analyze(run):
 
     print("\n6. duplicates (workout answers only)")
     dups = [duplicates(ns) for _, ns in workouts]
-    with_exact = [extra for extra, _ in dups if extra]
+    with_exact = [extra for extra, _, _ in dups if extra]
     repeated = collections.Counter()
     for _, ns in workouts:
         repeated.update({n: k - 1 for n, k in collections.Counter(ns).items() if k > 1})
@@ -153,8 +149,10 @@ def analyze(run):
           + (f", {sum(with_exact) / len(with_exact):.2f} extra copies on average" if with_exact else ""))
     for name, k in repeated.most_common(5):
         print(f"      {k:3} extra  {name}")
-    print(f"   with a near-duplicate:   {share(sum(near for _, near in dups))}")
-    print(f"   with either:             {share(sum(bool(extra) or near for extra, near in dups))}")
+    print(f"   with a variant pair:     {share(sum(variant for _, variant, _ in dups))}  (e.g. \"x\" + \"x v. 2\")")
+    print(f"   with either (duplicate): {share(sum(bool(extra) or variant for extra, variant, _ in dups))}")
+    print(f"   diagnostic only, not a duplicate: with an \"on exercise ball\" pair: "
+          f"{share(sum(ball for _, _, ball in dups))}")
 
     print("\n7. variety: distinct valid names used per (body part, equipment) pair, feasible requests")
     used = collections.defaultdict(set)

@@ -7,7 +7,7 @@ Breakdowns below come from `python src/analyze_errors.py --run base_fewshot3`.
 | run | n | parse_ok | strict_format | names_exist | body_part_ok | equipment_ok | count_ok | no_duplicates | sets_reps_ok | advanced_ok | error_correct | all_correct | reward | has_think | truncated |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
 | base_zeroshot | 300 | 0.0 | 0.0 | - | - | - | - | - | - | - | 0.0 | 0.0 | 0.0 | 0.0 | 0.14 |
-| base_fewshot3 | 300 | 0.9967 | 0.9967 | 0.1611 | 0.0915 | 0.1451 | 0.8829 | 0.9732 | 0.0167 | 1.0 | 0.0 | 0.0 | 0.4174 | 0.0 | 0.0 |
+| base_fewshot3 | 300 | 0.9967 | 0.9967 | 0.1611 | 0.0915 | 0.1451 | 0.8829 | 0.9431 | 0.0167 | 1.0 | 0.0 | 0.0 | 0.4147 | 0.0 | 0.0 |
 
 First failed check in `base_fewshot3`, in the order parse, names, body part, equipment, count, duplicates, sets/reps, advanced, error handling. **Impossible requests are counted under error handling**, whatever else is wrong, because the error answer is the only thing the verifier scores on them:
 names 279 · error handling 16 · body part 4 · parse 1 · passed 0.
@@ -28,4 +28,4 @@ names 279 · error handling 16 · body part 4 · parse 1 · passed 0.
 
 4. **0 of 16 impossible requests get an error answer.** The model always makes up a workout, even though one of the 3 examples is an error answer.
 
-5. **The ~0.42 reward is mostly "free".** It comes from the 10% format bonus, the right count (88%), no duplicates (97%) and `advanced_ok` (1.0, helped by the fact that an invented name can never be flagged advanced). `all_correct` is 0 for every answer. The reward measures format copying, not correct workouts: SFT has to teach the catalog names, the sets/reps mapping and the error answer.
+5. **The ~0.41 reward is mostly "free".** It comes from the 10% format bonus, the right count (88%), no duplicates (94%; 3% of answers repeat a name exactly, another 3% list a variant pair like `x` + `x v. 2`) and `advanced_ok` (1.0, helped by the fact that an invented name can never be flagged advanced). `all_correct` is 0 for every answer. The reward measures format copying, not correct workouts: SFT has to teach the catalog names, the sets/reps mapping and the error answer.

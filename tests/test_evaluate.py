@@ -27,3 +27,11 @@ def test_score_summary_and_table(tmp_path):
     score("fake", outputs_dir=tmp_path, results_dir=tmp_path)  # re-score: row replaced, not added
     table = (tmp_path / "results.md").read_text().splitlines()
     assert len(table) == 3 and table[2].startswith("| fake |")
+
+    with open(tmp_path / "results.md", "a") as f:
+        f.write("\nA note under the table.\n")
+    write_outputs(tmp_path / "other.jsonl", [GOOD], [False])
+    score("other", outputs_dir=tmp_path, results_dir=tmp_path)  # a new row goes inside the table, the note stays last
+    table = (tmp_path / "results.md").read_text().splitlines()
+    assert table[2].startswith("| fake |") and table[3].startswith("| other |")
+    assert table[4:] == ["", "A note under the table."]
