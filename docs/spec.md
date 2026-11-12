@@ -71,7 +71,7 @@ The message says in plain words what was asked and how many exercises matched.
 ```
 **Error**: *"forearms workout, easy, bands, 3 exercises"* (the catalog has only 2 forearm exercises with bands)
 ```json
-{"error": "Only 2 forearms exercises use bands, but 3 were requested."}
+{"error": "Only 2 forearms exercises match bands at easy difficulty, but 3 were requested."}
 ```
 
 ## Known limitations

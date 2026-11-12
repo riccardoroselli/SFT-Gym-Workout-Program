@@ -34,6 +34,8 @@ All three test-only templates score about the same (0.22–0.26), so unseen phra
 
 ## What GRPO should target
 
+*Outcome: see [`grpo_notes.md`](grpo_notes.md): all_correct 0.24 → 0.55, duplicates 59% → 34%, refusals 4 → 6 of 16.*
+
 - **Duplicates and refusals.** These are behaviour, not knowledge: the model knows several valid exercises for most pairs and knows the error format, but doesn't choose them. The verifier already rewards `no_duplicates` and `error_correct` directly, so GRPO can push on them. Variant pairs (`v. 2`, `(male)`, `(female)`) now count as duplicates (Step 14.0), so the invented `v. N` padding is penalised; "on exercise ball" stays a different exercise.
 - **Names, partly.** Wrong names are partly a knowledge problem: RL can only push toward names the model already produces sometimes; it can't teach a catalog name the model never samples. GRPO may raise names_exist, but the stronger fix is retrieval (put the matching catalog names in the prompt) or constrained decoding (allow only catalog names). Recorded as future work.
 - **all_correct is the headline metric.** The reward gives partial credit (format, count, sets/reps) that the SFT model already earns almost for free. A GRPO run that raises the reward but not all_correct is collecting those free points, not getting better: watch for reward hacking.

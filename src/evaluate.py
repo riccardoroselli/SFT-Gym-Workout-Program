@@ -2,7 +2,7 @@
 
     python src/evaluate.py generate --run base_zeroshot              # model -> eval/outputs/base_zeroshot.jsonl
     python src/evaluate.py generate --run base_fewshot3 --few-shot 3
-    python src/evaluate.py generate --run sft --adapter-path models/sft
+    python src/evaluate.py generate --run sft_grpo --model riccardoroselli/qwen3.5-2b-gym-grpo  # from the Hub (private: HF_TOKEN)
     python src/evaluate.py generate --run base_zeroshot --limit 5    # quick check on the first 5 examples
     python src/evaluate.py score --run base_zeroshot                 # -> eval/results/base_zeroshot.json + results.md
 
