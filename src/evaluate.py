@@ -17,10 +17,9 @@ import json
 import os
 import sys
 import time
-import urllib.error
-import urllib.request
 from pathlib import Path
 
+from llama_client import MAX_NEW_TOKENS, LlamaServerError, check_server, complete
 from verifier import verify
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -29,16 +28,10 @@ TRAIN = ROOT / "data/processed/train.jsonl"
 OUTPUTS = ROOT / "eval/outputs"
 RESULTS = ROOT / "eval/results"
 DEFAULT_MODEL = "Qwen/Qwen3.5-2B"
-MAX_NEW_TOKENS = 512
 # Fixed train.jsonl rows for few-shot: medium, hard, then an impossible easy request (error answer).
 FEW_SHOT_IDS = [2, 3, 15, 13, 7]
 DEFAULT_SERVER = "http://127.0.0.1:8080"
 DEFAULT_TOKENIZER = "riccardoroselli/qwen3.5-2b-gym-grpo"  # build_prompt() for llamacpp needs the HF tokenizer
-MIN_SERVER_CTX = 2048  # per slot: prompt (with few-shot turns) + MAX_NEW_TOKENS must fit
-# Greedy, and every repetition penalty off whatever flags the server was started with, so the answers match mlx's.
-GREEDY = {"temperature": 0, "repeat_penalty": 1.0, "presence_penalty": 0.0, "frequency_penalty": 0.0,
-          "dry_multiplier": 0.0}
-STOP_TYPES = {"eos": False, "word": False, "limit": True}  # llama-server stop_type -> truncated
 FIELDS = ["parse_ok", "strict_format", "names_exist", "body_part_ok", "equipment_ok", "count_ok",
           "no_duplicates", "sets_reps_ok", "advanced_ok", "error_correct", "all_correct", "reward", "has_think", "truncated"]
 
@@ -79,24 +72,15 @@ def mlx_backend(model_name, adapter_path):
     return tokenizer, complete, {}
 
 
-def http_json(url, body=None, timeout=600):
-    """GET (body None) or POST a JSON body -> the parsed JSON answer."""
-    data = None if body is None else json.dumps(body).encode()
-    request = urllib.request.Request(url, data, {"Content-Type": "application/json"})
-    with urllib.request.urlopen(request, timeout=timeout) as response:
-        return json.loads(response.read())
-
-
 def llamacpp_backend(model_path, adapter_path, server_url, tokenizer_name, tokenizer=None):
     """A running llama-server that must have loaded the .gguf file `model_path`. Same return as mlx_backend."""
     if adapter_path:
         sys.exit("--adapter-path works only with --backend mlx (merge the adapter before converting to GGUF)")
     url = server_url.rstrip("/")
     try:
-        http_json(f"{url}/health", timeout=5)  # 503 while the model is still loading
-    except (urllib.error.URLError, OSError) as e:
-        sys.exit(f"llama-server not ready at {url}: {e}")
-    props = http_json(f"{url}/props", timeout=5)
+        props = check_server(url)  # /health (503 while the model is still loading), /props, context per slot
+    except LlamaServerError as e:
+        sys.exit(str(e))
 
     # model_path is the server's -m argument: a relative one is relative to where the server was started
     loaded, wanted = Path(props.get("model_path", "")), Path(model_path)
@@ -104,10 +88,7 @@ def llamacpp_backend(model_path, adapter_path, server_url, tokenizer_name, token
         loaded.exists() and wanted.exists() and os.path.samefile(loaded, wanted)))
     if not same:
         sys.exit(f"llama-server at {url} has loaded {str(loaded)!r}, not --model {model_path!r}")
-    n_ctx = props["default_generation_settings"]["n_ctx"]  # per slot: -np N splits -c by N
-    if n_ctx < MIN_SERVER_CTX:
-        sys.exit(f"llama-server context per slot is {n_ctx}, need at least {MIN_SERVER_CTX}: "
-                 f"restart it with -c 4096 -np 1")
+    n_ctx = props["default_generation_settings"]["n_ctx"]
     build = props.get("build_info")
     print(f"llama-server {url}: {loaded}, build {build}, context per slot {n_ctx}")
 
@@ -115,16 +96,12 @@ def llamacpp_backend(model_path, adapter_path, server_url, tokenizer_name, token
         from transformers import AutoTokenizer  # the prompt must be exactly build_prompt(), as with mlx
         tokenizer = AutoTokenizer.from_pretrained(tokenizer_name, local_files_only=True)
 
-    def complete(prompt):
-        # raw prompt to /completion: no chat template on the server side
-        out = http_json(f"{url}/completion", {"prompt": prompt, "n_predict": MAX_NEW_TOKENS, "stop": ["<|im_end|>"],
-                                              "cache_prompt": False, **GREEDY})
-        if out.get("stop_type") not in STOP_TYPES:
-            sys.exit(f"llama-server returned stop_type {out.get('stop_type')!r}, expected one of {list(STOP_TYPES)}")
-        # tokens_predicted counts the <|im_end|> token too, like mlx's generation_tokens
-        return (out["content"], STOP_TYPES[out["stop_type"]], out["tokens_predicted"],
-                round(out["timings"]["predicted_per_second"], 1))
-    return tokenizer, complete, {"backend": "llamacpp", "model_file": wanted.name, "server_build": build}
+    def complete_or_exit(prompt):
+        try:
+            return complete(url, prompt)  # greedy, raw prompt, every penalty off
+        except LlamaServerError as e:
+            sys.exit(str(e))  # rows already written stay in the file
+    return tokenizer, complete_or_exit, {"backend": "llamacpp", "model_file": wanted.name, "server_build": build}
 
 
 def generate(run, model_name, adapter_path, k, limit=None, backend="mlx", server_url=DEFAULT_SERVER,
