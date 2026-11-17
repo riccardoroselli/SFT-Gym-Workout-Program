@@ -13,3 +13,4 @@ huggingface_hub==2.4.0
 mlx-lm==0.32.2
 fastapi==0.162.0
 uvicorn==0.54.0
+httpx==0.28.1  # tests only: FastAPI's TestClient

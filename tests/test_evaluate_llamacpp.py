@@ -1,56 +1,13 @@
 """Tests for the llamacpp backend of src/evaluate.py generate, against a fake llama-server (no model needed)."""
-import json
 import socket
-import threading
-from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 
 import pytest
 
 import evaluate
 from evaluate import TEST, build_parser, build_prompt, few_shot_turns, generate, read_jsonl, score
+from fakes import FakeServer, FakeTokenizer
 
 MLX_KEYS = ["meta", "request", "output", "truncated", "tokens", "tps", "model", "adapter", "few_shot"]
-ANSWER = json.dumps({"workout": [{"name": "barbell bench press", "sets": 3, "reps": "8-12"}]})
-
-
-class FakeTokenizer:
-    def apply_chat_template(self, messages, add_generation_prompt, tokenize, enable_thinking):
-        return "".join(f"<{m['role']}>{m['content']}" for m in messages) + "<assistant>"
-
-
-class FakeServer:
-    """GET /health, GET /props, POST /completion. Completions cycle through `stop_types`; requests are recorded."""
-
-    def __init__(self, model_path, n_ctx=4096, stop_types=("eos",)):
-        self.props = {"model_path": str(model_path), "build_info": "b12360-fake",
-                      "default_generation_settings": {"n_ctx": n_ctx}}
-        self.stop_types, self.requests = list(stop_types), []
-        server = self
-
-        class Handler(BaseHTTPRequestHandler):
-            def reply(self, obj):
-                body = json.dumps(obj).encode()
-                self.send_response(200)
-                self.send_header("Content-Type", "application/json")
-                self.send_header("Content-Length", str(len(body)))
-                self.end_headers()
-                self.wfile.write(body)
-
-            def do_GET(self):
-                self.reply({"status": "ok"} if self.path == "/health" else server.props)
-
-            def do_POST(self):
-                server.requests.append(json.loads(self.rfile.read(int(self.headers["Content-Length"]))))
-                stop = server.stop_types[(len(server.requests) - 1) % len(server.stop_types)]
-                self.reply({"content": ANSWER, "stop_type": stop, "tokens_predicted": 512 if stop == "limit" else 30,
-                            "timings": {"predicted_per_second": 43.42}})
-
-            def log_message(self, *args):  # keep pytest output quiet
-                pass
-
-        self.httpd = ThreadingHTTPServer(("127.0.0.1", 0), Handler)
-        self.url = f"http://127.0.0.1:{self.httpd.server_port}"
-        threading.Thread(target=self.httpd.serve_forever, daemon=True).start()
 
 
 @pytest.fixture

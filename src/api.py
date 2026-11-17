@@ -1,0 +1,141 @@
+"""GymLeader API: a workout request in plain words -> a workout (or an error) that the verifier has checked.
+
+    llama-server -m "$PWD/models/gguf/qwen3.5-2b-gym-grpo-Q8_0.gguf" -ngl all -c 4096 -np 1 --port 8080
+    HF_HUB_OFFLINE=1 uvicorn api:app --app-dir src --port 8000
+    curl -s localhost:8000/workout -H 'Content-Type: application/json' \
+         -d '{"request": "chest workout, medium difficulty, free weights"}'
+
+POST /workout:
+1. parse the text into body part, equipment group, difficulty, count (request_parser.py); unreadable -> 422;
+2. impossible request (is_feasible() false) -> data-v1's error answer, without calling the model ("guard");
+3. otherwise the model, greedy, exactly as evaluate.py's llamacpp backend; if verify() says it isn't all correct,
+   up to MAX_RETRIES samples at RETRY_TEMPERATURE with seed k. First all-correct answer wins, else the best reward
+   (earliest on a tie) with verified=false. llama-server down -> 503.
+
+Settings, from environment variables: LLAMA_SERVER_URL (http://127.0.0.1:8080), MAX_RETRIES (3),
+RETRY_TEMPERATURE (0.7), TOKENIZER (riccardoroselli/qwen3.5-2b-gym-grpo, from the local HF cache),
+EXPECTED_MODEL_FILE (optional: the .gguf file name llama-server must have loaded).
+"""
+import os
+import time
+from contextlib import asynccontextmanager
+from pathlib import Path
+
+from fastapi import FastAPI, HTTPException
+from fastapi.responses import JSONResponse
+from pydantic import BaseModel, Field
+
+from evaluate import DEFAULT_SERVER, DEFAULT_TOKENIZER, build_prompt
+from llama_client import LlamaServerError, check_server, complete
+from make_dataset import SYSTEM, error_answer
+from request_parser import RequestError, parse_request
+from verifier import _parse, is_feasible, verify
+
+MAX_REQUEST_CHARS = 500  # keeps the prompt far below the server's 2048-token context per slot
+# Retries sample like the GRPO probe and training: temperature only, llama-server's default filters off.
+NO_FILTERS = {"top_k": 0, "top_p": 1.0, "min_p": 0.0}
+
+
+def load_settings():
+    env = os.environ.get
+    settings = {"server_url": env("LLAMA_SERVER_URL", DEFAULT_SERVER).rstrip("/"),
+                "max_retries": int(env("MAX_RETRIES", "3")),
+                "retry_temperature": float(env("RETRY_TEMPERATURE", "0.7")),
+                "tokenizer": env("TOKENIZER", DEFAULT_TOKENIZER),
+                "expected_model_file": env("EXPECTED_MODEL_FILE") or None}
+    if settings["max_retries"] < 0 or settings["retry_temperature"] <= 0:
+        raise ValueError(f"MAX_RETRIES must be >= 0 and RETRY_TEMPERATURE > 0, got {settings}")
+    return settings
+
+
+def load_tokenizer(name):
+    from transformers import AutoTokenizer  # the prompt must be exactly build_prompt(), as in evaluate.py
+    return AutoTokenizer.from_pretrained(name, local_files_only=True)
+
+
+@asynccontextmanager
+async def lifespan(app):
+    """Startup checks, like evaluate.py: any failure stops the app before it takes requests."""
+    settings = load_settings()
+    props = check_server(settings["server_url"])
+    model_file = Path(props.get("model_path", "")).name  # the name only: the server may run in another container
+    if settings["expected_model_file"] and model_file != settings["expected_model_file"]:
+        raise RuntimeError(f"llama-server at {settings['server_url']} has loaded {model_file!r}, "
+                           f"not EXPECTED_MODEL_FILE {settings['expected_model_file']!r}")
+    app.state.settings, app.state.tokenizer = settings, load_tokenizer(settings["tokenizer"])
+    app.state.model_file, app.state.server_build = model_file, props.get("build_info")
+    yield
+
+
+app = FastAPI(title="GymLeader", lifespan=lifespan)
+
+
+class WorkoutRequest(BaseModel):
+    request: str = Field(min_length=1, max_length=MAX_REQUEST_CHARS,
+                         examples=["chest workout, medium difficulty, free weights, 5 exercises"])
+
+
+class WorkoutResponse(BaseModel):
+    request: dict
+    workout: list | None  # not list[dict]: an odd model answer must come back as it is, not as a 500
+    error: str | None
+    raw_output: str
+    source: str  # guard | model_greedy | model_retry_<k>
+    verified: bool
+    checks: dict
+    model_calls: int
+    timings_ms: dict
+    model_file: str
+    server_build: str | None
+
+
+def ask_model(text, req):
+    """-> (source, output, verify result, model calls, seconds in the model). Raises HTTP 503 if llama-server fails."""
+    settings = app.state.settings
+    prompt = build_prompt(app.state.tokenizer, [{"role": "system", "content": SYSTEM}, {"role": "user", "content": text}])
+    attempts, seconds = [], 0.0
+    for k in range(settings["max_retries"] + 1):
+        overrides = {"temperature": settings["retry_temperature"], "seed": k, **NO_FILTERS} if k else {}
+        start = time.perf_counter()
+        try:
+            output = complete(settings["server_url"], prompt, **overrides)[0]
+        except LlamaServerError as e:
+            raise HTTPException(503, detail=str(e)) from e
+        seconds += time.perf_counter() - start
+        attempts.append((f"model_retry_{k}" if k else "model_greedy", output, verify(req, output)))
+        if attempts[-1][2]["all_correct"]:
+            break
+    # all correct: the last attempt; otherwise the best reward, and max() keeps the earliest of equal rewards
+    best = attempts[-1] if attempts[-1][2]["all_correct"] else max(attempts, key=lambda a: a[2]["reward"])
+    return *best, len(attempts), seconds
+
+
+@app.post("/workout", response_model=WorkoutResponse)
+def workout(body: WorkoutRequest):
+    start = time.perf_counter()
+    try:
+        req = parse_request(body.request)
+    except RequestError as e:
+        raise HTTPException(422, detail=e.detail()) from e
+    feasible = is_feasible(req)
+    if feasible:
+        source, output, result, calls, model_seconds = ask_model(body.request, req)
+    else:  # the catalog decides, not the model: the error answer is exact and costs no model call
+        output = error_answer(req)
+        source, result, calls, model_seconds = "guard", verify(req, output), 0, 0.0
+    obj = _parse(output)[0] if result["parse_ok"] else {}
+    return {"request": {**req, "feasible": feasible}, "workout": obj.get("workout"), "error": obj.get("error"),
+            "raw_output": output, "source": source, "verified": bool(result["all_correct"]), "checks": result,
+            "model_calls": calls,
+            "timings_ms": {"model": round(model_seconds * 1000), "total": round((time.perf_counter() - start) * 1000)},
+            "model_file": app.state.model_file, "server_build": app.state.server_build}
+
+
+@app.get("/health")
+def health():
+    """200 if llama-server answers its own /health (and still has enough context), else 503."""
+    try:
+        check_server(app.state.settings["server_url"])
+    except LlamaServerError as e:
+        return JSONResponse(status_code=503, content={"status": "unavailable", "detail": str(e)})
+    return {"status": "ok", "model_file": app.state.model_file, "server_build": app.state.server_build}
