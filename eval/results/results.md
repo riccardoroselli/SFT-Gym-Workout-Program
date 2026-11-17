@@ -7,5 +7,9 @@
 | sft_grpo_gguf_bf16 | 300 | 1.0 | 1.0 | 0.9535 | 0.9391 | 0.9312 | 1.0 | 0.6497 | 0.9966 | 0.9966 | 0.375 | 0.54 | 0.9166 | 0.0 | 0.0 |
 | sft_grpo_gguf_q8 | 300 | 1.0 | 1.0 | 0.9549 | 0.9404 | 0.9326 | 1.0 | 0.6599 | 0.9966 | 0.9966 | 0.375 | 0.55 | 0.9183 | 0.0 | 0.0 |
 | sft_grpo_gguf_q4km | 300 | 1.0 | 1.0 | 0.8152 | 0.803 | 0.7991 | 1.0 | 0.543 | 0.9897 | 0.9931 | 0.4375 | 0.2467 | 0.834 | 0.0 | 0.0 |
+| system_q8_r0 | 300 | 1.0 | 1.0 | 0.9575 | 0.9554 | 0.9525 | 1.0 | 0.6655 | 0.9965 | 0.9965 | 1.0 | 0.5833 | 0.9483 | 0.0 | 0.0 |
+| system_q8_r3 | 300 | 1.0 | 1.0 | 0.9904 | 0.9814 | 0.9853 | 1.0 | 0.9049 | 1.0 | 1.0 | 1.0 | 0.82 | 0.9852 | 0.0 | 0.0 |
 
 All runs are scored with the variant-duplicate rule (docs/spec.md section 2): two names with the same base name, e.g. `x` and `x v. 2`, count as a duplicate.
+
+Rows system_q8_r0 and system_q8_r3 are system rows, not model rows: model + guard + verifier retries (the r0 row has no retries, only the guard), through the API (src/eval_service.py).

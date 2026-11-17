@@ -132,18 +132,18 @@ def report(name, outputs_dir=OUTPUTS, reference=REFERENCE):
         print(f"    {k:>2} {stats['all_correct']:>12} {stats['reward']:>8} {stats['rescued']:>8} "
               f"{stats['calls_per_row']:>10} {stats['calls_per_model_row']:>16}")
 
-    # (c) latency of the live answers (the API ran with MAX_RETRIES=3), by the source that answered
+    # (c) latency of the live answers (the API ran with MAX_RETRIES=3), by the source that answered and whether it
+    # was verified: an unverified "model_greedy" is a row where all 4 calls failed and greedy had the best reward
     by_source = collections.defaultdict(list)
     for r in raws:
-        by_source[r["response"]["source"]].append(r["response"]["timings_ms"]["total"])
-    print(f"\n(c) {'source':<14} {'rows':>5} {'mean ms':>8} {'p50':>7} {'p95':>7}")
+        by_source[r["response"]["source"], r["response"]["verified"]].append(r["response"]["timings_ms"]["total"])
+    print(f"\n(c) {'source':<14} {'verified':<9} {'rows':>5} {'mean ms':>8} {'p50':>7} {'p95':>7}")
     out["latency"] = {}
-    for source in sorted(by_source, key=lambda s: (s != "guard", s)):
-        ms = by_source[source]
-        out["latency"][source] = {"rows": len(ms), "mean": round(sum(ms) / len(ms)),
-                                  "p50": percentile(ms, 50), "p95": percentile(ms, 95)}
-        s = out["latency"][source]
-        print(f"    {source:<14} {s['rows']:>5} {s['mean']:>8} {s['p50']:>7} {s['p95']:>7}")
+    for source, verified in sorted(by_source, key=lambda sv: (sv[0] != "guard", sv[0], not sv[1])):
+        ms = by_source[source, verified]
+        s = out["latency"][source, verified] = {"rows": len(ms), "mean": round(sum(ms) / len(ms)),
+                                                "p50": percentile(ms, 50), "p95": percentile(ms, 95)}
+        print(f"    {source:<14} {str(verified).lower():<9} {s['rows']:>5} {s['mean']:>8} {s['p50']:>7} {s['p95']:>7}")
 
     # (d) the greedy failure behind each row that retries rescued, or didn't
     failed = [r for r in raws if r["response"]["attempts"] and not r["response"]["attempts"][0]["all_correct"]]

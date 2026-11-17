@@ -191,9 +191,12 @@ def test_report(tmp_path):
     assert [k[i]["calls_per_row"] for i in range(4)] == [0.75, 1.25, 1.5, 1.75]
     assert k[3]["calls_per_model_row"] == round(7 / 3, 3)
     assert k[0]["reward"] == round((1.0 + 0.91 + 0.0 + 1.0) / 4, 4)
-    assert out["latency"]["guard"] == {"rows": 1, "mean": 5, "p50": 5, "p95": 5}
-    # the rescued row (3005 ms) and the still-failing one, whose tied best reward is retry 1 too (2005 ms)
-    assert out["latency"]["model_retry_1"] == {"rows": 2, "mean": 2505, "p50": 2005, "p95": 3005}
+    assert out["latency"]["guard", True] == {"rows": 1, "mean": 5, "p50": 5, "p95": 5}
+    assert out["latency"]["model_greedy", True] == {"rows": 1, "mean": 1005, "p50": 1005, "p95": 1005}
+    # the rescued row passed at retry 1; the still-failing one's tied best reward is retry 1 too: kept apart
+    assert out["latency"]["model_retry_1", True] == {"rows": 1, "mean": 3005, "p50": 3005, "p95": 3005}
+    assert out["latency"]["model_retry_1", False] == {"rows": 1, "mean": 2005, "p50": 2005, "p95": 2005}
+    assert set(out["latency"]) == {("guard", True), ("model_greedy", True), ("model_retry_1", True), ("model_retry_1", False)}
     assert out["greedy_failures"] == {"rescued": {"duplicates": 1}, "still failing": {"parse": 1}}
 
 
