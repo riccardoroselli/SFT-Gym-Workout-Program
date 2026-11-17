@@ -94,16 +94,25 @@ def user_message(rng, req, omit_count, templates):
     return text[0].upper() + text[1:], i
 
 
+def compact_json(obj):
+    return json.dumps(obj, ensure_ascii=False, separators=(",", ":"))
+
+
+def error_answer(req):
+    """The error answer to an impossible request (docs/spec.md section 4). src/api.py answers with it too.
+    The count is of matching names, not of distinct base names: see docs/spec.md "Known limitations"."""
+    return compact_json({"error": f"Only {len(matching_exercises(req))} {req['body_part']} exercises match "
+                                  f"{req['equipment_group']} at {req['difficulty']} difficulty, "
+                                  f"but {req['n_exercises']} were requested."})
+
+
 def assistant_answer(rng, req):
     names = matching_exercises(req)
     n = req["n_exercises"]
     if len(names) < n:
-        obj = {"error": f"Only {len(names)} {req['body_part']} exercises match {req['equipment_group']} "
-                        f"at {req['difficulty']} difficulty, but {n} were requested."}
-    else:
-        sets, reps = SETS_REPS[req["difficulty"]]
-        obj = {"workout": [{"name": nm, "sets": sets, "reps": reps} for nm in rng.sample(names, n)]}
-    return json.dumps(obj, ensure_ascii=False, separators=(",", ":"))
+        return error_answer(req)
+    sets, reps = SETS_REPS[req["difficulty"]]
+    return compact_json({"workout": [{"name": nm, "sets": sets, "reps": reps} for nm in rng.sample(names, n)]})
 
 
 def make_split(rng, combos, size, templates):
