@@ -1,0 +1,9 @@
+# The API container only (docker/api.Dockerfile). Same versions as the conda env GymLeaderProject.
+# No torch / pandas / mlx: api.py never imports them, and transformers only needs the tokenizer.
+fastapi==0.162.0
+uvicorn==0.54.0
+pydantic==2.14.2
+transformers==5.22.1
+tokenizers==0.23.3
+huggingface_hub==2.4.0
+Jinja2==3.1.6  # apply_chat_template

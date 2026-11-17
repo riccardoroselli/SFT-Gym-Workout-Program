@@ -1,0 +1,44 @@
+# GymLeader: llama.cpp server (CPU, built from source at tag b12360, the build every GGUF eval used) + the API.
+#   docker compose build && docker compose up -d   ->   http://127.0.0.1:8000/docs
+# The model file is not in the image: ./models/gguf is mounted read-only.
+services:
+  llama:
+    build:
+      context: https://github.com/ggml-org/llama.cpp.git#b12360
+      dockerfile: .devops/cpu.Dockerfile
+      target: server
+      args:
+        BUILDKIT_CONTEXT_KEEP_GIT_DIR: "1"  # keeps .git so cmake can write the commit into --version
+    image: gymleader-llama:b12360
+    command: ["-m", "/models/qwen3.5-2b-gym-grpo-Q8_0.gguf", "--host", "0.0.0.0", "--port", "8080",
+              "-c", "4096", "-np", "1"]
+    volumes:
+      - ./models/gguf:/models:ro
+    # no ports: only the api service talks to it, over the compose network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+      start_period: 120s  # loading the 2 GB model
+
+  api:
+    build:
+      context: .
+      dockerfile: docker/api.Dockerfile
+    image: gymleader-api
+    environment:
+      LLAMA_SERVER_URL: http://llama:8080
+      EXPECTED_MODEL_FILE: qwen3.5-2b-gym-grpo-Q8_0.gguf
+      MAX_RETRIES: "3"
+    ports:
+      - "127.0.0.1:8000:8000"
+    depends_on:
+      llama:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/health', timeout=4)"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+      start_period: 30s
