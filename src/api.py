@@ -22,13 +22,13 @@ import os
 import time
 from contextlib import asynccontextmanager
 from pathlib import Path
-
 from typing import Annotated
 
 from fastapi import Body, FastAPI, HTTPException
 from fastapi.responses import JSONResponse
 from pydantic import BaseModel, Field
 
+from analyze_errors import first_failed
 from evaluate import DEFAULT_SERVER, DEFAULT_TOKENIZER, build_prompt
 from llama_client import LlamaServerError, check_server, complete
 from make_dataset import SYSTEM, error_answer
@@ -82,6 +82,21 @@ class WorkoutRequest(BaseModel):
 REQUEST_EXAMPLES = {"valid": {"summary": "A valid request", "value": {"request": EXAMPLE_REQUEST}}}
 
 
+class Attempt(BaseModel):
+    """One model call: greedy first, then the retries."""
+    source: str  # model_greedy | model_retry_<k>
+    temperature: float
+    seed: int | None  # None: greedy sends no seed
+    raw_output: str
+    tokens: int
+    tps: float
+    truncated: bool  # stopped by the 512-token limit, not by the model
+    ms: int
+    reward: float
+    all_correct: bool
+    first_failed: str  # analyze_errors.py's order: parse, names, body part, ..., or "passed"
+
+
 class WorkoutResponse(BaseModel):
     request: dict
     workout: list | None  # not list[dict]: an odd model answer must come back as it is, not as a 500
@@ -93,6 +108,7 @@ class WorkoutResponse(BaseModel):
     verified: bool
     checks: dict
     model_calls: int
+    attempts: list[Attempt]  # every model call, in order; empty when the guard answered
     timings_ms: dict
     model_file: str
     server_build: str | None
@@ -110,24 +126,30 @@ class Unavailable(BaseModel):
 
 
 def ask_model(text, req):
-    """-> (source, output, verify result, model calls, seconds in the model). Raises HTTP 503 if llama-server fails."""
+    """-> (attempts, index of the chosen one, its verify result). Raises HTTP 503 if llama-server fails."""
     settings = app.state.settings
     prompt = build_prompt(app.state.tokenizer, [{"role": "system", "content": SYSTEM}, {"role": "user", "content": text}])
-    attempts, seconds = [], 0.0
+    attempts, results = [], []
     for k in range(settings["max_retries"] + 1):
-        overrides = {"temperature": settings["retry_temperature"], "seed": k, **NO_FILTERS} if k else {}
+        temperature = settings["retry_temperature"] if k else 0.0
+        overrides = {"temperature": temperature, "seed": k, **NO_FILTERS} if k else {}
         start = time.perf_counter()
         try:
-            output = complete(settings["server_url"], prompt, **overrides)[0]
+            output, truncated, tokens, tps = complete(settings["server_url"], prompt, **overrides)
         except LlamaServerError as e:
             raise HTTPException(503, detail=str(e)) from e
-        seconds += time.perf_counter() - start
-        attempts.append((f"model_retry_{k}" if k else "model_greedy", output, verify(req, output)))
-        if attempts[-1][2]["all_correct"]:
+        ms = round((time.perf_counter() - start) * 1000)
+        result = verify(req, output)
+        results.append(result)
+        attempts.append({"source": f"model_retry_{k}" if k else "model_greedy", "temperature": temperature,
+                         "seed": k or None, "raw_output": output, "tokens": tokens, "tps": tps, "truncated": truncated,
+                         "ms": ms, "reward": result["reward"], "all_correct": bool(result["all_correct"]),
+                         "first_failed": first_failed({**req, "feasible": True}, result)})
+        if result["all_correct"]:
             break
     # all correct: the last attempt; otherwise the best reward, and max() keeps the earliest of equal rewards
-    best = attempts[-1] if attempts[-1][2]["all_correct"] else max(attempts, key=lambda a: a[2]["reward"])
-    return *best, len(attempts), seconds
+    best = len(attempts) - 1 if results[-1]["all_correct"] else max(range(len(attempts)), key=lambda i: results[i]["reward"])
+    return attempts, best, results[best]
 
 
 @app.post("/workout", response_model=WorkoutResponse)
@@ -140,15 +162,17 @@ def workout(body: Annotated[WorkoutRequest, Body(openapi_examples=REQUEST_EXAMPL
     feasible = is_feasible(req)
     if feasible:
         text = model_input(body.request, req, notes)
-        source, output, result, calls, model_seconds = ask_model(text, req)
+        attempts, best, result = ask_model(text, req)
+        source, output = attempts[best]["source"], attempts[best]["raw_output"]
     else:  # the catalog decides, not the model: the error answer is exact and costs no model call
-        output, text = error_answer(req), None
-        source, result, calls, model_seconds = "guard", verify(req, output), 0, 0.0
+        output, text, attempts = error_answer(req), None, []
+        source, result = "guard", verify(req, output)
     obj = _parse(output)[0] if result["parse_ok"] else {}
     return {"request": {**req, "feasible": feasible}, "workout": obj.get("workout"), "error": obj.get("error"),
-            "raw_output": output, "interpreted_as": notes, "model_input": text, "source": source, "verified": bool(result["all_correct"]), "checks": result,
-            "model_calls": calls,
-            "timings_ms": {"model": round(model_seconds * 1000), "total": round((time.perf_counter() - start) * 1000)},
+            "raw_output": output, "interpreted_as": notes, "model_input": text, "source": source,
+            "verified": bool(result["all_correct"]), "checks": result, "model_calls": len(attempts), "attempts": attempts,
+            "timings_ms": {"model": sum(a["ms"] for a in attempts),
+                           "total": round((time.perf_counter() - start) * 1000)},
             "model_file": app.state.model_file, "server_build": app.state.server_build}
 
 

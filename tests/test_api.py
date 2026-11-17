@@ -68,7 +68,7 @@ def test_guard_answers_impossible_requests_without_the_model(start):
     assert body["raw_output"] == error_answer(meta) and body["error"] == json.loads(error_answer(meta))["error"]
     assert body["workout"] is None and body["source"] == "guard" and body["verified"] is True
     assert body["model_calls"] == 0 and body["timings_ms"]["model"] == 0
-    assert body["model_input"] is None and body["interpreted_as"] == []
+    assert body["model_input"] is None and body["interpreted_as"] == [] and body["attempts"] == []
     assert server.requests == []
 
 
@@ -101,6 +101,14 @@ def test_retry_pass_at_k2(start):
     assert body["source"] == "model_retry_2" and body["verified"] is True and body["model_calls"] == 3
     assert body["raw_output"] == GOOD
     assert server.requests == [GREEDY_BODY, retry_body(1), retry_body(2)]
+    a = body["attempts"]
+    assert [(x["source"], x["temperature"], x["seed"]) for x in a] == [
+        ("model_greedy", 0.0, None), ("model_retry_1", 0.7, 1), ("model_retry_2", 0.7, 2)]
+    assert [x["raw_output"] for x in a] == [DUP, DUP, GOOD]
+    assert [(x["all_correct"], x["first_failed"]) for x in a] == [(False, "duplicates"), (False, "duplicates"), (True, "passed")]
+    assert [x["reward"] for x in a] == [pytest.approx(0.91), pytest.approx(0.91), 1.0]
+    assert all(x["tokens"] == 30 and x["tps"] == 43.4 and x["truncated"] is False and x["ms"] >= 0 for x in a)
+    assert body["timings_ms"]["model"] == sum(x["ms"] for x in a)
 
 
 def test_all_fail_returns_the_best_reward(start):
@@ -109,6 +117,8 @@ def test_all_fail_returns_the_best_reward(start):
     assert body["source"] == "model_retry_2" and body["verified"] is False and body["model_calls"] == 4
     assert body["raw_output"] == DUP and body["checks"]["reward"] == pytest.approx(0.91)
     assert server.requests == [GREEDY_BODY, retry_body(1), retry_body(2), retry_body(3)]
+    assert [x["first_failed"] for x in body["attempts"]] == ["names", "parse", "duplicates", "parse"]
+    assert [x["reward"] for x in body["attempts"]] == [pytest.approx(0.865), 0.0, pytest.approx(0.91), 0.0]
 
 
 def test_all_fail_tie_keeps_the_earliest_greedy_included(start):
