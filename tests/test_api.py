@@ -10,6 +10,7 @@ from evaluate import build_prompt
 from fakes import FakeServer, FakeTokenizer
 from llama_client import GREEDY, LlamaServerError
 from make_dataset import SYSTEM, error_answer
+from request_parser import EXAMPLE_REQUEST
 
 REQUEST = "Chest workout, medium difficulty, free weights"  # no count: 4
 NAMES = ["barbell bench press", "dumbbell bench press", "barbell incline bench press", "barbell decline bench press"]
@@ -23,9 +24,13 @@ GOOD = answer(NAMES)                               # reward 1.0
 DUP = answer(NAMES[:3] + NAMES[:1])                # a repeat: reward 0.91
 INVENTED = answer(NAMES[:3] + ["dumbbell moon press"])  # 3 of 4 names exist: reward 0.865
 BROKEN = "not json"                                # reward 0.0
-GREEDY_BODY = {"prompt": build_prompt(FakeTokenizer(), [{"role": "system", "content": SYSTEM},
-                                                        {"role": "user", "content": REQUEST}]),
-               "n_predict": 512, "stop": ["<|im_end|>"], "cache_prompt": False, **GREEDY}
+
+
+def prompt(user_text):
+    return build_prompt(FakeTokenizer(), [{"role": "system", "content": SYSTEM}, {"role": "user", "content": user_text}])
+
+
+GREEDY_BODY = {"prompt": prompt(REQUEST), "n_predict": 512, "stop": ["<|im_end|>"], "cache_prompt": False, **GREEDY}
 
 
 def retry_body(k):
@@ -63,6 +68,7 @@ def test_guard_answers_impossible_requests_without_the_model(start):
     assert body["raw_output"] == error_answer(meta) and body["error"] == json.loads(error_answer(meta))["error"]
     assert body["workout"] is None and body["source"] == "guard" and body["verified"] is True
     assert body["model_calls"] == 0 and body["timings_ms"]["model"] == 0
+    assert body["model_input"] is None and body["interpreted_as"] == []
     assert server.requests == []
 
 
@@ -75,7 +81,18 @@ def test_greedy_pass(start):
     assert body["request"] == {"body_part": "chest", "equipment_group": "free weights", "difficulty": "medium",
                                "n_exercises": 4, "feasible": True}
     assert body["model_file"] == "model-Q8_0.gguf" and body["server_build"] == "b12360-fake"
+    assert body["interpreted_as"] == [] and body["model_input"] == REQUEST  # spec words: the text goes unchanged
     assert server.requests == [GREEDY_BODY]  # exactly evaluate.py's llamacpp request
+
+
+def test_aliases_send_the_canonical_sentence_and_say_so(start):
+    client, server = start(MAX_RETRIES="0")
+    body = post(client, "biceps workout, easy, dumbbells, 5 exercises").json()
+    canonical = "Arms workout, easy difficulty, free weights, 5 exercises"
+    assert body["request"] == {"body_part": "arms", "equipment_group": "free weights", "difficulty": "easy",
+                               "n_exercises": 5, "feasible": True}
+    assert body["model_input"] == canonical and [n.split(" → ")[0] for n in body["interpreted_as"]] == ["biceps", "dumbbells"]
+    assert server.requests == [{**GREEDY_BODY, "prompt": prompt(canonical)}]
 
 
 def test_retry_pass_at_k2(start):
@@ -127,6 +144,7 @@ def test_unreadable_request_is_422_with_the_allowed_words(start, text, field):
     assert r.status_code == 422
     detail = r.json()["detail"]
     assert detail[field] and "pecs" in detail["allowed"]["body_part"]["chest"]
+    assert detail["example"] == EXAMPLE_REQUEST and EXAMPLE_REQUEST in detail["message"]
     assert server.requests == []
 
 
@@ -173,3 +191,14 @@ def test_startup_checks_the_expected_model_file(start):
 def test_startup_accepts_the_right_model_file(start):
     client, _ = start(EXPECTED_MODEL_FILE="model-Q8_0.gguf")
     assert client.get("/health").status_code == 200
+
+
+def test_openapi_prefills_the_example_and_types_health(start):
+    client, _ = start()
+    spec = client.get("/openapi.json").json()
+    examples = spec["paths"]["/workout"]["post"]["requestBody"]["content"]["application/json"]["examples"]
+    assert examples["valid"]["value"] == {"request": EXAMPLE_REQUEST}
+    health = spec["paths"]["/health"]["get"]["responses"]
+    assert health["200"]["content"]["application/json"]["schema"] == {"$ref": "#/components/schemas/HealthResponse"}
+    assert health["503"]["content"]["application/json"]["schema"] == {"$ref": "#/components/schemas/Unavailable"}
+    assert {"interpreted_as", "model_input"} <= set(spec["components"]["schemas"]["WorkoutResponse"]["properties"])

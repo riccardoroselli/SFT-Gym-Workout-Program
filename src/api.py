@@ -6,9 +6,11 @@
          -d '{"request": "chest workout, medium difficulty, free weights"}'
 
 POST /workout:
-1. parse the text into body part, equipment group, difficulty, count (request_parser.py); unreadable -> 422;
+1. parse the text into body part, equipment group, difficulty, count (request_parser.py); unreadable -> 422.
+   Everyday words like "biceps" or "dumbbells" are serving aliases: each one is reported in "interpreted_as";
 2. impossible request (is_feasible() false) -> data-v1's error answer, without calling the model ("guard");
-3. otherwise the model, greedy, exactly as evaluate.py's llamacpp backend; if verify() says it isn't all correct,
+3. otherwise the model, greedy, exactly as evaluate.py's llamacpp backend. It gets the user's text unchanged if it
+   uses only spec words, else a canonical sentence in spec words ("model_input"). If verify() says it isn't all correct,
    up to MAX_RETRIES samples at RETRY_TEMPERATURE with seed k. First all-correct answer wins, else the best reward
    (earliest on a tie) with verified=false. llama-server down -> 503.
 
@@ -21,14 +23,16 @@ import time
 from contextlib import asynccontextmanager
 from pathlib import Path
 
-from fastapi import FastAPI, HTTPException
+from typing import Annotated
+
+from fastapi import Body, FastAPI, HTTPException
 from fastapi.responses import JSONResponse
 from pydantic import BaseModel, Field
 
 from evaluate import DEFAULT_SERVER, DEFAULT_TOKENIZER, build_prompt
 from llama_client import LlamaServerError, check_server, complete
 from make_dataset import SYSTEM, error_answer
-from request_parser import RequestError, parse_request
+from request_parser import EXAMPLE_REQUEST, RequestError, model_input, parse_request
 from verifier import _parse, is_feasible, verify
 
 MAX_REQUEST_CHARS = 500  # keeps the prompt far below the server's 2048-token context per slot
@@ -71,8 +75,11 @@ app = FastAPI(title="GymLeader", lifespan=lifespan)
 
 
 class WorkoutRequest(BaseModel):
-    request: str = Field(min_length=1, max_length=MAX_REQUEST_CHARS,
-                         examples=["chest workout, medium difficulty, free weights, 5 exercises"])
+    request: str = Field(min_length=1, max_length=MAX_REQUEST_CHARS)
+
+
+# OpenAPI-level example (not JSON Schema "examples"): the one Swagger UI prefills in "Try it out"
+REQUEST_EXAMPLES = {"valid": {"summary": "A valid request", "value": {"request": EXAMPLE_REQUEST}}}
 
 
 class WorkoutResponse(BaseModel):
@@ -80,6 +87,8 @@ class WorkoutResponse(BaseModel):
     workout: list | None  # not list[dict]: an odd model answer must come back as it is, not as a 500
     error: str | None
     raw_output: str
+    interpreted_as: list[str]  # one note per serving alias used, e.g. "dumbbells → free weights (...)"
+    model_input: str | None  # the user text sent to the model; None when the guard answered
     source: str  # guard | model_greedy | model_retry_<k>
     verified: bool
     checks: dict
@@ -87,6 +96,17 @@ class WorkoutResponse(BaseModel):
     timings_ms: dict
     model_file: str
     server_build: str | None
+
+
+class HealthResponse(BaseModel):
+    status: str
+    model_file: str
+    server_build: str | None
+
+
+class Unavailable(BaseModel):
+    status: str
+    detail: str
 
 
 def ask_model(text, req):
@@ -111,27 +131,28 @@ def ask_model(text, req):
 
 
 @app.post("/workout", response_model=WorkoutResponse)
-def workout(body: WorkoutRequest):
+def workout(body: Annotated[WorkoutRequest, Body(openapi_examples=REQUEST_EXAMPLES)]):
     start = time.perf_counter()
     try:
-        req = parse_request(body.request)
+        req, notes = parse_request(body.request)
     except RequestError as e:
         raise HTTPException(422, detail=e.detail()) from e
     feasible = is_feasible(req)
     if feasible:
-        source, output, result, calls, model_seconds = ask_model(body.request, req)
+        text = model_input(body.request, req, notes)
+        source, output, result, calls, model_seconds = ask_model(text, req)
     else:  # the catalog decides, not the model: the error answer is exact and costs no model call
-        output = error_answer(req)
+        output, text = error_answer(req), None
         source, result, calls, model_seconds = "guard", verify(req, output), 0, 0.0
     obj = _parse(output)[0] if result["parse_ok"] else {}
     return {"request": {**req, "feasible": feasible}, "workout": obj.get("workout"), "error": obj.get("error"),
-            "raw_output": output, "source": source, "verified": bool(result["all_correct"]), "checks": result,
+            "raw_output": output, "interpreted_as": notes, "model_input": text, "source": source, "verified": bool(result["all_correct"]), "checks": result,
             "model_calls": calls,
             "timings_ms": {"model": round(model_seconds * 1000), "total": round((time.perf_counter() - start) * 1000)},
             "model_file": app.state.model_file, "server_build": app.state.server_build}
 
 
-@app.get("/health")
+@app.get("/health", response_model=HealthResponse, responses={503: {"model": Unavailable}})
 def health():
     """200 if llama-server answers its own /health (and still has enough context), else 503."""
     try:
