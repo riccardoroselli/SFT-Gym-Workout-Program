@@ -132,7 +132,11 @@ def tokenizer_dir(env):
     if env.get("TOKENIZER"):
         return env["TOKENIZER"]
     log(f"getting the tokenizer files from {TOKENIZER_REPO} at {TOKENIZER_REVISION[:8]}")
-    return snapshot_download(TOKENIZER_REPO, revision=TOKENIZER_REVISION, allow_patterns=TOKENIZER_FILES, token=False)
+    # 4 small files: their bars only print "Download complete 0.00B / Reconstruction complete" lines at exit. Off here
+    # only (huggingface_hub docs, Utilities > Configure progress bars); the 2 GB model download keeps its bar.
+    with disable_progress_bars():
+        return snapshot_download(TOKENIZER_REPO, revision=TOKENIZER_REVISION, allow_patterns=TOKENIZER_FILES,
+                                 token=False)
 
 
 def child_env(env, model, tokenizer):
@@ -196,9 +200,6 @@ def _on_sigterm(signum, frame):
 
 
 def main():
-    # The log() lines say what is downloaded; the bars only add "Download complete 0.00B" lines at exit.
-    # huggingface_hub docs, Utilities > Configure progress bars (HF_HUB_DISABLE_PROGRESS_BARS=0 still overrides it).
-    disable_progress_bars()
     signal.signal(signal.SIGTERM, _on_sigterm)
     procs = {}
     try:

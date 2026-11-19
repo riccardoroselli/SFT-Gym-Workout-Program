@@ -121,6 +121,15 @@ def test_tokenizer(monkeypatch):
                                           "allow_patterns": serve.TOKENIZER_FILES, "token": False})]
 
 
+def test_progress_bars_off_only_for_the_tokenizer(monkeypatch):
+    from huggingface_hub.utils import are_progress_bars_disabled
+    monkeypatch.delenv("HF_HUB_DISABLE_PROGRESS_BARS", raising=False)
+    seen = []
+    monkeypatch.setattr(serve, "snapshot_download", lambda repo, **kw: seen.append(are_progress_bars_disabled()))
+    serve.tokenizer_dir({})
+    assert seen == [True] and not are_progress_bars_disabled()  # the model download still gets its bar
+
+
 def test_dockerfile_bakes_the_same_tokenizer():
     dockerfile = (ROOT / "docker" / "Dockerfile").read_text()
     assert serve.TOKENIZER_REVISION in dockerfile and all(f in dockerfile for f in serve.TOKENIZER_FILES)
