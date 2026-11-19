@@ -1,0 +1,5 @@
+-r requirements-serve.txt
+# Versions as in the GymLeaderProject env (pip show, 19 Nov 2026). No mlx/torch: tests that need them import lazily or use fakes.
+pytest==9.2.0
+httpx==0.28.1
+numpy==2.5.4
