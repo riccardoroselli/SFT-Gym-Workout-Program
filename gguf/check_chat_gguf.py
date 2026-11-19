@@ -1,12 +1,17 @@
 """Checks for the chat-ready GGUF (gguf/make_chat_gguf.py). Each prints counts and exits 1 on any mismatch.
 
     PYTHONPATH=<llama.cpp b12360>/gguf-py python gguf/check_chat_gguf.py tensors OLD.gguf NEW.gguf
+    PYTHONPATH=<llama.cpp b12360>/gguf-py python gguf/check_chat_gguf.py split-check FUSED.gguf SPLIT.gguf REFERENCE
     python gguf/check_chat_gguf.py render-offline            # new template (transformers) == build_prompt(), 2,980 prompts
     python gguf/check_chat_gguf.py render-server --url URL   # llama-server /apply-template == build_prompt(), 300 test rows
     python gguf/check_chat_gguf.py chat --url URL [--limit N]  # /v1/chat/completions == sft_grpo_gguf_q8 raw outputs
 
 tensors:        every tensor has the same name, type, shape and bytes; the metadata differs only by the new template
                 and general.sampling.temp. (The file hashes differ: a longer header moves the tensor data.)
+split-check:    gguf/split_fused.py output vs its input: (a) every other tensor byte-identical, (b) each split pair
+                joined back equals the fused tensor's bytes, (c) tensor names, types and shapes without the MTP block
+                equal a reference Qwen3.5-2B GGUF (REFERENCE: the file or only its first 16 MB, e.g.
+                curl -r 0-16777215 from lmstudio-community/Qwen3.5-2B-GGUF), (d) metadata identical.
 render-offline: 2,500 data-v1 chats + the 480 canonical sentences, rendered with and without our SYSTEM message and
                 with enable_thinking unset / false / true; each must equal build_prompt() (original template, SYSTEM,
                 thinking off).
@@ -34,15 +39,34 @@ CHANGED = {"tokenizer.chat_template"}
 ADDED = {"general.sampling.temp": 0.0}
 
 
-def tensors(old_path, new_path):
+def head(t):
+    return t.name, t.tensor_type, t.shape.tolist(), t.n_bytes
+
+
+def tensor_bytes(t):
     import numpy as np
+    return np.ascontiguousarray(t.data).reshape(-1).view(np.uint8)
+
+
+def digest(t):
+    return hashlib.sha256(tensor_bytes(t)).digest()
+
+
+def fields(reader):
+    """Metadata without GGUF.*, the reader's own fields (tensor and kv counts)."""
+    return {k: f for k, f in reader.fields.items() if not k.startswith("GGUF.")}
+
+
+def metadata_diff(a, b):
+    return {k for k in a.keys() & b.keys() if (a[k].types, a[k].contents()) != (b[k].types, b[k].contents())}
+
+
+def tensors(old_path, new_path):
     from gguf import GGUFReader
     old, new = GGUFReader(old_path), GGUFReader(new_path)
 
-    # metadata: GGUF.* are the reader's own fields (kv_count grows by one with the added key)
-    fields = lambda r: {k: f for k, f in r.fields.items() if not k.startswith("GGUF.")}  # noqa: E731
-    a, b = fields(old), fields(new)
-    differ = {k for k in a.keys() & b.keys() if (a[k].types, a[k].contents()) != (b[k].types, b[k].contents())}
+    a, b = fields(old), fields(new)  # kv_count grows by one with the added key
+    differ = metadata_diff(a, b)
     added = {k: b[k].contents() for k in b.keys() - a.keys()}
     removed = a.keys() - b.keys()
     print(f"metadata: {len(a.keys() & b.keys()) - len(differ)} keys equal, changed {sorted(differ)}, "
@@ -54,8 +78,6 @@ def tensors(old_path, new_path):
         print(f"tensor count {len(old.tensors)} != {len(new.tensors)}")
         ok = False
     for x, y in zip(old.tensors, new.tensors):
-        head = lambda t: (t.name, t.tensor_type, t.shape.tolist(), t.n_bytes)  # noqa: E731
-        digest = lambda t: hashlib.sha256(np.ascontiguousarray(t.data).reshape(-1).view(np.uint8)).digest()  # noqa: E731
         if head(x) == head(y) and x.data.nbytes == x.n_bytes and digest(x) == digest(y):
             same += 1
             total += x.n_bytes
@@ -65,6 +87,106 @@ def tensors(old_path, new_path):
     print(f"tensors: {same} / {len(old.tensors)} identical (name, type, shape, bytes), {total:,} tensor bytes")
     print(f"tensor data starts at byte {old.data_offset:,} (old) and {new.data_offset:,} (new)")
     return ok
+
+
+def read_header(path):
+    """[(name, type id, shape)] from a GGUF file or only its first bytes (a range request). Standard library only:
+    the reference headers are downloaded files, so they are parsed, never loaded."""
+    import struct
+    b, pos = Path(path).read_bytes(), 4
+    assert b[:4] == b"GGUF", f"{path} is not a GGUF file"
+    scalar = {0: "B", 1: "b", 2: "H", 3: "h", 4: "I", 5: "i", 6: "f", 7: "?", 10: "Q", 11: "q", 12: "d"}
+
+    def read(fmt):
+        nonlocal pos
+        value = struct.unpack_from("<" + fmt, b, pos)[0]
+        pos += struct.calcsize("<" + fmt)
+        return value
+
+    def text():
+        nonlocal pos
+        n = read("Q")
+        pos += n
+        return b[pos - n:pos].decode("utf-8", "replace")
+
+    def skip_value(t):
+        if t == 8:
+            text()
+        elif t == 9:
+            item, n = read("I"), read("Q")
+            for _ in range(n):
+                skip_value(item)
+        else:
+            read(scalar[t])
+
+    read("I")  # version
+    n_tensors, n_kv = read("Q"), read("Q")
+    for _ in range(n_kv):
+        text()
+        skip_value(read("I"))
+    out = []
+    for _ in range(n_tensors):
+        name = text()
+        shape = [read("Q") for _ in range(read("I"))]
+        out.append((name, read("I"), shape))
+        read("Q")  # data offset
+    return out
+
+
+def split_check(fused_path, split_path, reference_path):
+    """split_fused.py output: (a) other tensors byte-identical, (b) each pair joined back == the fused tensor,
+    (c) tensor names, types and shapes without blk.<MTP> == the reference file, (d) metadata identical."""
+    from gguf import GGUFReader
+    fused, split = GGUFReader(fused_path), GGUFReader(split_path)
+    by_name = {t.name: t for t in split.tensors}
+    pairs = {"attn_qkv_gate.weight": ("attn_qkv.weight", "attn_gate.weight"),
+             "ssm_beta_alpha.weight": ("ssm_beta.weight", "ssm_alpha.weight")}
+    same, joined, n_fused, used = 0, 0, 0, set()
+    for t in fused.tensors:
+        blk, block, suffix = (t.name.split(".", 2) + ["", ""])[:3]  # blk.0.attn_qkv_gate.weight
+        prefix = f"{blk}.{block}"
+        if blk == "blk" and suffix in pairs:
+            n_fused += 1
+            halves = [by_name.get(f"{prefix}.{p}") for p in pairs[suffix]]
+            used |= {f"{prefix}.{p}" for p in pairs[suffix]}
+            if None in halves:
+                print(f"  (b) missing half of {t.name}")
+                continue
+            ok_pair = all(h.tensor_type == t.tensor_type and h.shape[0] == t.shape[0] for h in halves) \
+                and sum(h.shape[1] for h in halves) == t.shape[1] \
+                and bytes(tensor_bytes(halves[0])) + bytes(tensor_bytes(halves[1])) == bytes(tensor_bytes(t))
+            joined += ok_pair
+            if not ok_pair:
+                print(f"  (b) differs: {t.name}")
+        else:
+            used.add(t.name)
+            u = by_name.get(t.name)
+            if u is not None and head(u) == head(t) and digest(u) == digest(t):
+                same += 1
+            else:
+                print(f"  (a) differs: {t.name}")
+    extra = sorted(by_name.keys() - used)
+    print(f"(a) other tensors byte-identical: {same} / {len(fused.tensors) - n_fused}"
+          + (f"; unexpected tensors {extra}" if extra else ""))
+    print(f"(b) split pairs joined back == fused bytes: {joined} / {n_fused} "
+          f"({len(fused.tensors)} -> {len(split.tensors)} tensors)")
+    ok = same == len(fused.tensors) - n_fused and joined == n_fused and not extra
+
+    # our files carry one MTP block after the 24 layers (nextn_predict_layers = 1); the reference files don't
+    mtp = "blk.%d." % (fused.fields[f"{fused.fields['general.architecture'].contents()}.block_count"].contents() - 1)
+    ours = sorted((t.name, int(t.tensor_type), t.shape.tolist()) for t in split.tensors if not t.name.startswith(mtp))
+    ref = sorted(read_header(reference_path))
+    missing, unexpected = [x for x in ref if x not in ours], [x for x in ours if x not in ref]
+    print(f"(c) names, types, shapes without {mtp}* ({len(split.tensors) - len(ours)} MTP tensors): "
+          f"{len(ours)} ours vs {len(ref)} in {Path(reference_path).name}, "
+          f"{len(ref) - len(missing)} equal; missing {missing[:3]}, unexpected {unexpected[:3]}")
+    ok = ok and ours == ref
+
+    a, b = fields(fused), fields(split)
+    differ = metadata_diff(a, b) | (a.keys() ^ b.keys())
+    print(f"(d) metadata: {len(a.keys() & b.keys()) - len(differ & a.keys() & b.keys())} / {len(a)} keys identical"
+          + (f"; differ {sorted(differ)}" if differ else ""))
+    return ok and not differ
 
 
 def load_tokenizer():
@@ -175,13 +297,18 @@ def main():
     p = sub.add_parser("tensors")
     p.add_argument("old", type=Path)
     p.add_argument("new", type=Path)
+    p = sub.add_parser("split-check")
+    p.add_argument("fused", type=Path)
+    p.add_argument("split", type=Path)
+    p.add_argument("reference", type=Path)
     sub.add_parser("render-offline")
     for name in ("render-server", "chat"):
         p = sub.add_parser(name)
         p.add_argument("--url", default="http://127.0.0.1:8080")
     p.add_argument("--limit", type=int, default=None)
     args = parser.parse_args()
-    ok = {"tensors": lambda: tensors(args.old, args.new), "render-offline": render_offline,
+    ok = {"tensors": lambda: tensors(args.old, args.new),
+          "split-check": lambda: split_check(args.fused, args.split, args.reference), "render-offline": render_offline,
           "render-server": lambda: render_server(args.url), "chat": lambda: chat(args.url, args.limit)}[args.step]()
     print("PASS" if ok else "FAIL")
     sys.exit(0 if ok else 1)
