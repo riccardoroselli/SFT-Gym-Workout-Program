@@ -93,6 +93,78 @@ During the full test runs Q4_K_M averaged only 45.6 tok/s. It ran last, right af
 - **Serve Q8_0 in Step 16:** the same quality as BF16, half the size, 1.7× faster writing.
 - **Publish BF16 and Q8_0.** BF16 is the reference; Q8_0 is the file to use. Q4_K_M is reported here but not published: it's the fastest, but it gives up most of the GRPO gain.
 
+## Chat-ready files and compatibility
+
+Everything above was measured on the files exactly as converted, with `build_prompt()` sent raw to `/completion`. The published files were then changed twice, so that a chat UI or a chat API gets the same answers (Step 17.1). The tensor bytes and the tokenizer never changed.
+
+### Why
+- **Thinking was on by default.** llama-server b12360 runs the GGUF's Jinja template with `--reasoning auto`, which sends `enable_thinking=true` whenever the template supports it. Qwen3.5's stock template then ends the prompt with an open `<think>\n`, which the model never saw in training.
+- **No system prompt.** The stock template adds none, while every training example had our `SYSTEM` message.
+- **Fused tensors after b12343.** Since llama.cpp b12343 (PR #32102, 12 Nov 2026), the converter joins two pairs of tensors in each of the 18 linear-attention layers:
+  - `attn_qkv` + `attn_gate` → `attn_qkv_gate`;
+  - `ssm_beta` + `ssm_alpha` → `ssm_beta_alpha`.
+  
+  Loaders from b12343 on read both layouts; older ones only the separate one. LM Studio 0.4.28 (engine llama.cpp b12270) refused our file with `tensor 'blk.0.ssm_beta.weight' not found`.
+
+### What changed
+1. **Template (`gguf/chat_template.jinja`):** the stock one with two edits:
+   - our `SYSTEM` message when the chat has none (a caller's own system message is kept);
+   - the empty `<think>\n\n</think>\n\n` block always, whatever `enable_thinking` says.
+2. **`general.sampling.temp = 0.0`:** llama.cpp reads it as the default, so it decodes greedily unless the user passes `--temp` or a request sends a temperature.
+
+   Both 1 and 2 were written by `gguf/make_chat_gguf.py`, through gguf-py's own metadata copier. These are the "fused chat" files.
+3. **Split (`gguf/split_fused.py`):** each fused tensor is cut back into its two row blocks.
+   - The converter built it as plain row concatenation (`torch.cat([first, second], dim=0)`).
+   - A Q8_0 or BF16 block never crosses a row, so no byte changes.
+   - The file goes from 299 to 335 tensors; metadata is copied unchanged. These are the published files.
+
+### Proofs and results
+- **(a) tensors** (`check_chat_gguf.py tensors`, original → fused chat, Q8_0 and BF16): 299 / 299 tensors identical (name, type, shape, sha256 of the bytes). Only `tokenizer.chat_template` changed and `general.sampling.temp` was added.
+- **(c) render-offline:** the new template equals `build_prompt()` for 2,980 prompts × {no system, `SYSTEM`} × `enable_thinking` {unset, false, true}: 6 × 2,980 / 2,980. The stock template: 0 / 2,980 without a system message.
+- **split-check** (fused chat → split, Q8_0 and BF16):
+  - (a) 263 / 263 other tensors byte-identical;
+  - (b) 36 / 36 split pairs joined back equal the fused bytes;
+  - (c) names, types and shapes without the MTP block equal a reference Qwen3.5-2B GGUF, 320 / 320 (lmstudio-community Q8_0 and unsloth BF16 headers);
+  - (d) 44 / 44 metadata keys identical.
+- **render-server** (split Q8_0, b12360): PASS, the server's own Jinja engine gives `build_prompt()`.
+- **chat** (`/v1/chat/completions`, user message only, greedy, 300 test rows; content must equal the raw `/completion` text of `sft_grpo_gguf_q8`, with empty reasoning):
+  - fused chat Q8_0, b12360 Metal: **300 / 300 identical**;
+  - split Q8_0, b12360 Metal: **300 / 300 identical**;
+  - the original file, stock template: 0 / 300.
+- So the scores in this file describe the published files through the chat API as well.
+
+### Compatibility (split Q8_0)
+
+| engine | status | what was run |
+|---|---|---|
+| llama.cpp b12360, Metal (Mac) | tested | render-server + chat, 300 / 300 identical |
+| llama.cpp b12360, CPU in Docker (Step 16c) | tested | system evaluation on 30 rows, on the original file, which has the same tensors; CPU sums in another order, so some near-tied answers differ from Metal |
+| LM Studio 0.4.28, engine llama.cpp b12270 (Metal) | tested | loads; 3 requests at temperature 0, all `all_correct`, empty reasoning |
+| official image `ghcr.io/ggml-org/llama.cpp:server-b12464` (`b12464-d3c3e242c`), CPU | tested | loads; 1 request with no temperature sent, 4 runs identical, `all_correct`, empty reasoning |
+| Ollama | not tested | an `hf.co/...` pull picks a Go template from a list and doesn't run our Jinja |
+
+The published BF16 file has passed split-check only. It was not loaded on a server after the split.
+
+- **The four answers, scored with `request_parser` + `verify()`:** every request used only spec words (no alias notes).
+  - LM Studio, "moderate chest … any equipment … 5 exercises": 5 exercises, all checks pass.
+  - LM Studio, "medium forearms … elastic bands": impossible request (2 matching exercises, 4 asked for). The model refused, giving the right count.
+  - LM Studio, "hard shoulders … weights": 4 exercises, all checks pass.
+  - b12464, "chest workout, medium difficulty, free weights": 4 exercises, all checks pass.
+  - All four: strict format, reward 1.0.
+- **LM Studio doesn't read `general.sampling.temp`:** set temperature 0 in its settings.
+- **What b12464 shows:** with the default temperature of 0.8, four identical answers would be unlikely, so they are consistent with the file's greedy default being used. This is not a proof: one request only.
+
+### sha256
+
+| file | sha256 |
+|---|---|
+| original BF16 (evaluated above) | `a4767439187a5f6ae01ea3f1ee5c466b600b23c75294fb050f3670dc373fec90` |
+| original Q8_0 (evaluated above) | `c1e5904bc7da960affc82b034f7e7d6295fc5659d8cb62017c0fc4dae04b9c74` |
+| fused chat BF16 (not published) | `cd8b4531f4a1ed628cfb7ce991b582f4281feb793b22958802707268d61fdb96` |
+| fused chat Q8_0 (not published) | `c122afd5683aad2be7720f159ea41cc9518ca363885ddd48e454336c7b2e376d` |
+| **published BF16** (chat-ready, split) | `ade25302cea60cf78432b0f92b491e93b7cdcfabed29e70a18d6cd4d8cceb20c` |
+| **published Q8_0** (chat-ready, split) | `713efb40bd59dd5dc62b43f2145f540a9780ff6bfcd21006ff36dbceb7df5137` |
+
 ## Limits
 
 - **One test set** of 300 requests: enough to separate Q4_K_M from the others, not to rank BF16 and Q8_0, whose differences are within noise.
