@@ -17,9 +17,9 @@ services:
     volumes:
       - gymleader-models:/models
     restart: unless-stopped
-    # environment:                 # optional, see src/serve.py
-    #   HF_TOKEN: ${HF_TOKEN}      # only while the model repo is private
-    #   LLAMA_ARGS: "-t 4"
+    environment:
+      - HF_TOKEN            # passed only if set; see src/serve.py for LLAMA_ARGS etc.
 
 volumes:
   gymleader-models:
+    name: gymleader-models  # no project prefix: the same volume as `docker run -v gymleader-models:/models`
