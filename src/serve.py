@@ -10,8 +10,8 @@
 4. uvicorn api:app on HOST:PORT (0.0.0.0:8000) with HF_HUB_OFFLINE=1, after llama-server's /health answers.
 If either process stops, the other is stopped and serve.py exits non-zero. SIGTERM/Ctrl-C stop both, exit 0.
 
-Environment: MODEL_PATH, MODEL_DIR, MODEL_REPO, MODEL_FILE, MODEL_REVISION, MODEL_SHA256, HF_TOKEN (only while
-the model repo is private), LLAMA_ARGS (e.g. "-t 6", or "-ngl all" on a Mac), HOST, PORT, and api.py's own
+Environment: MODEL_PATH, MODEL_DIR, MODEL_REPO, MODEL_FILE, MODEL_REVISION, MODEL_SHA256, HF_TOKEN (only for
+a private MODEL_REPO), LLAMA_ARGS (e.g. "-t 6", or "-ngl all" on a Mac), HOST, PORT, and api.py's own
 MAX_RETRIES, RETRY_TEMPERATURE, TOKENIZER, EXPECTED_MODEL_FILE (default: the model's file name).
 """
 import hashlib

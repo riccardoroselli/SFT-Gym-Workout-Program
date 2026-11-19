@@ -1,6 +1,6 @@
 # GRPO notes: the SFT model after reinforcement learning
 
-Model: [`riccardoroselli/qwen3.5-2b-gym-grpo`](https://huggingface.co/riccardoroselli/qwen3.5-2b-gym-grpo) (private; the SFT LoRA trained on with GRPO for 300 steps, then merged, bf16), trained with `notebooks/03_grpo_colab.ipynb`. Reward = `verify()["reward"]`, 8 answers per prompt at temperature 0.7, 600 train prompts (20% impossible).
+Model: [`riccardoroselli/qwen3.5-2b-gym-grpo`](https://huggingface.co/riccardoroselli/qwen3.5-2b-gym-grpo) (public; the SFT LoRA trained on with GRPO for 300 steps, then merged, bf16), trained with `notebooks/03_grpo_colab.ipynb`. Reward = `verify()["reward"]`, 8 answers per prompt at temperature 0.7, 600 train prompts (20% impossible).
 Same test set as the baselines and SFT: 300 requests (unseen combinations, 3 unseen phrasing templates), 16 of them impossible. Greedy decoding, thinking off, zero-shot.
 Breakdowns come from `python src/analyze_errors.py --run sft_grpo`, compared with `--run sft_lora_r16`.
 

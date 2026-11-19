@@ -1,6 +1,6 @@
 # GGUF notes: the GRPO model, converted and quantized for llama.cpp
 
-Model: [`riccardoroselli/qwen3.5-2b-gym-grpo`](https://huggingface.co/riccardoroselli/qwen3.5-2b-gym-grpo) (private; see `grpo_notes.md`), converted to GGUF with llama.cpp b12360 and quantized to Q8_0 and Q4_K_M.
+Model: [`riccardoroselli/qwen3.5-2b-gym-grpo`](https://huggingface.co/riccardoroselli/qwen3.5-2b-gym-grpo) (public; see `grpo_notes.md`), converted to GGUF with llama.cpp b12360 and quantized to Q8_0 and Q4_K_M.
 Same test set as every other run: 300 requests (unseen combinations, 3 unseen phrasing templates), 16 of them impossible. Greedy decoding, thinking off, zero-shot.
 Answers come from `python src/evaluate.py generate --backend llamacpp`, breakdowns from `python src/analyze_errors.py --run <run>`, paired comparisons from `python src/compare_runs.py <A> <B>`.
 
@@ -139,11 +139,12 @@ Everything above was measured on the files exactly as converted, with `build_pro
 |---|---|---|
 | llama.cpp b12360, Metal (Mac) | tested | render-server + chat, 300 / 300 identical |
 | llama.cpp b12360, CPU in Docker (Step 16c) | tested | system evaluation on 30 rows, on the original file, which has the same tensors; CPU sums in another order, so some near-tied answers differ from Metal |
+| llama.cpp b12360, CPU, the GymLeader image (Step 17.2) | tested | the app on 30 test rows with the split Q8_0: greedy text equal to Metal on 19 / 29 model rows, r3 26 / 30 all correct (`system_notes.md`) |
 | LM Studio 0.4.28, engine llama.cpp b12270 (Metal) | tested | loads; 3 requests at temperature 0, all `all_correct`, empty reasoning |
 | official image `ghcr.io/ggml-org/llama.cpp:server-b12464` (`b12464-d3c3e242c`), CPU | tested | loads; 1 request with no temperature sent, 4 runs identical, `all_correct`, empty reasoning |
 | Ollama | not tested | an `hf.co/...` pull picks a Go template from a list and doesn't run our Jinja |
 
-The published BF16 file has passed split-check only. It was not loaded on a server after the split.
+The published BF16 file passed split-check, and through the chat API (llama.cpp b12360, Metal) it gave 30 / 30 answers identical to `sft_grpo_gguf_bf16` on the first 30 test rows.
 
 - **The four answers, scored with `request_parser` + `verify()`:** every request used only spec words (no alias notes).
   - LM Studio, "moderate chest … any equipment … 5 exercises": 5 exercises, all checks pass.
@@ -169,10 +170,9 @@ The published BF16 file has passed split-check only. It was not loaded on a serv
 
 - **One test set** of 300 requests: enough to separate Q4_K_M from the others, not to rank BF16 and Q8_0, whose differences are within noise.
 - **Greedy decoding only.** With sampling the engine and quantization effects might look different.
-- **Speeds were measured on Metal on this Mac**, not in Docker on a CPU, where Step 16 will run.
+- **The speeds above were measured on Metal on this Mac.** CPU speeds in Docker are in `system_notes.md`, Docker (CPU).
 - The two explanations above (rounding differences between engines, 4-bit rounding blurring GRPO's changes) are **hypotheses, not measured**.
 
 ## What's next
 
-- **Step 16:** serve Q8_0 from Docker with llama.cpp.
 - **A smaller file that keeps the GRPO gain:** an importance-matrix (imatrix) quantization, which uses sample text to round the most important weights more carefully, or Q5_K_M / Q6_K. Each would need the same full evaluation against GGUF BF16.

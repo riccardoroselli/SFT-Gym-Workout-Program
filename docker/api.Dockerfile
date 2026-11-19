@@ -1,4 +1,4 @@
-# GymLeader API (src/api.py). Build context: the repo root (see docker-compose.yml).
+# GymLeader API (src/api.py). Build context: the repo root (see docker-compose.dev.yml).
 FROM python:3.12-slim
 
 WORKDIR /app

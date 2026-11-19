@@ -100,7 +100,7 @@ Serve with the guard and `MAX_RETRIES=3`: **0.82 all_correct, 0.985 reward**, an
 
 ## Docker (CPU)
 
-Step 16c packs the same system into two containers (`docker-compose.yml`). The API code and the model file are the same as above, but the llama.cpp backend is different: CPU instead of Metal.
+Step 16c packs the same system into two containers (now `docker-compose.dev.yml`). The API code and the model file are the same as above, but the llama.cpp backend is different: CPU instead of Metal.
 
 ### Setup
 - **`llama`:** llama-server built from source at the tag `b12360` (`https://github.com/ggml-org/llama.cpp.git#b12360`, `.devops/cpu.Dockerfile`, target `server`).
@@ -185,6 +185,12 @@ Latency of the live answers (`MAX_RETRIES=3`), same 30 rows:
   - The likely cause is thermal throttling: all 10 CPU cores ran for minutes on a fanless MacBook Air. I didn't measure temperature. Metal slows down too over a long run (mean 34.3 tok/s over all 300 Step 16b rows), but only after the first 30 rows.
   - Mean time per model request: 1.8× Metal at r0 and 1.7× at r3. The slowest Docker request took 24.3 s.
 - **What this means:** the Step 16b score (0.82 all_correct) is a Metal number. On these 30 rows Docker reaches the same level but not the same answers row by row. 30 rows are too few to give Docker its own score, and the run wasn't scored into `results.md`.
+
+### The single image (Step 17.2)
+The all-in-one image (`docker/Dockerfile`: llama-server b12360 built for the CPU, the API and the page; the split Q8_0 is downloaded on the first start) on the same Mac:
+- Image 623 MB on disk. `llama-server --version`: build 12360, commit 2d8a32502. `docker stats` during the live requests: 4.44 GiB.
+- `eval_service.py run --run docker_aio_q8 --limit 30`: r0 19 / 30, r3 26 / 30 all correct (7 rescued), greedy p50 3.0 s. The greedy text equals Metal's on 19 / 29 model rows (16c: 22 / 29); where it differs, it starts mid-answer, a near-tie flip as above.
+- First start: the 2.1 GB download took about 3 min (~11 MB/s); from model load to ready took 2.5 s.
 
 ### How to run
 Three ways, same API and page at http://127.0.0.1:8000 (`/docs` for the API).
