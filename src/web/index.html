@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- The browser itself refuses any script, style, font or request that isn't from this server. -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; base-uri 'none'; form-action 'none'">
+<title>GymLeader</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="/static/style.css">
+<script src="/static/app.js" defer></script>
+</head>
+<body>
+<header>
+  <h1>GymLeader</h1>
+  <p id="status" role="status" class="status">Checking the model…</p>
+</header>
+
+<main>
+  <!-- data-template: the canonical request sentence (train template 0), which the chips fill in -->
+  <form id="ask" data-template="{body} workout, {level} difficulty, {equip}, {n} exercises" novalidate>
+    <label for="request">Your request</label>
+    <div class="row">
+      <input id="request" name="request" type="text" maxlength="500" autocomplete="off" required
+             placeholder="chest workout, medium difficulty, free weights, 5 exercises">
+      <button id="go" type="submit">Generate</button>
+    </div>
+
+    <fieldset>
+      <legend>Body part</legend>
+      <label class="chip"><input type="radio" name="body" value="chest"><span>chest</span></label>
+      <label class="chip"><input type="radio" name="body" value="back"><span>back</span></label>
+      <label class="chip"><input type="radio" name="body" value="shoulders"><span>shoulders</span></label>
+      <label class="chip"><input type="radio" name="body" value="arms"><span>arms</span></label>
+      <label class="chip"><input type="radio" name="body" value="forearms"><span>forearms</span></label>
+      <label class="chip"><input type="radio" name="body" value="legs"><span>legs</span></label>
+      <label class="chip"><input type="radio" name="body" value="calves"><span>calves</span></label>
+      <label class="chip"><input type="radio" name="body" value="abs"><span>abs / core</span></label>
+    </fieldset>
+    <fieldset>
+      <legend>Equipment</legend>
+      <label class="chip"><input type="radio" name="equip" value="free weights"><span>free weights</span></label>
+      <label class="chip"><input type="radio" name="equip" value="machines"><span>machines</span></label>
+      <label class="chip"><input type="radio" name="equip" value="bodyweight"><span>bodyweight</span></label>
+      <label class="chip"><input type="radio" name="equip" value="bands"><span>bands</span></label>
+      <label class="chip"><input type="radio" name="equip" value="any equipment"><span>any equipment</span></label>
+    </fieldset>
+    <div class="pair">
+      <fieldset>
+        <legend>Difficulty</legend>
+        <label class="chip"><input type="radio" name="level" value="easy"><span>easy</span></label>
+        <label class="chip"><input type="radio" name="level" value="medium"><span>medium</span></label>
+        <label class="chip"><input type="radio" name="level" value="hard"><span>hard</span></label>
+      </fieldset>
+      <fieldset>
+        <legend>Exercises</legend>
+        <label class="chip"><input type="radio" name="n" value="3"><span>3</span></label>
+        <label class="chip"><input type="radio" name="n" value="4" checked><span>4</span></label>
+        <label class="chip"><input type="radio" name="n" value="5"><span>5</span></label>
+        <label class="chip"><input type="radio" name="n" value="6"><span>6</span></label>
+      </fieldset>
+    </div>
+    <p id="chip-hint" class="hint">Type a request, or pick a body part, equipment and difficulty.</p>
+
+    <p class="examples">Try:
+      <button type="button" class="example">chest workout, medium difficulty, free weights, 5 exercises</button>
+      <button type="button" class="example">easy biceps workout with dumbbells</button>
+      <button type="button" class="example">hard legs workout, machines, 6 exercises</button>
+      <button type="button" class="example">Forearms workout, easy difficulty, bands, 3 exercises</button>
+    </p>
+  </form>
+
+  <section id="out" aria-live="polite"></section>
+</main>
+
+<footer>
+  <h2>About</h2>
+  <p>A small model (Qwen3.5-2B, fine-tuned with SFT and then GRPO) writes the workout; every answer is then checked
+     against the exercise catalog. On 300 test requests the model alone was fully correct 55% of the time, and the
+     full checked system (catalog guard and retries) 82%.</p>
+  <p><a href="https://github.com/riccardoroselli/SFT-Gym-Workout-Program" rel="noopener noreferrer">Code on GitHub</a> ·
+     <a href="https://huggingface.co/riccardoroselli/qwen3.5-2b-gym-grpo-GGUF" rel="noopener noreferrer">GGUF model</a> ·
+     <a href="https://huggingface.co/riccardoroselli/qwen3.5-2b-gym-grpo" rel="noopener noreferrer">Fine-tuned model</a> ·
+     <a href="/docs">API docs</a></p>
+  <p class="hint">Not medical advice. Check with a professional before starting a new training program.</p>
+</footer>
+</body>
+</html>

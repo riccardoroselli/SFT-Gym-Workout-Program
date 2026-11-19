@@ -1,0 +1,78 @@
+/* System fonts, one accent colour, light and dark. Every text/background pair here is at least 6.4:1 (WCAG AA needs 4.5:1). */
+:root {
+  color-scheme: light dark;
+  --bg: #ffffff; --fg: #1c1e21; --muted: #555b63; --line: #d5d9de; --card: #f5f7f9;
+  --accent: #0b5cad; --on-accent: #ffffff; --good: #1d6b33; --bad: #a3231b;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #16181c; --fg: #e8eaed; --muted: #a4abb4; --line: #3a3f46; --card: #20242a;
+    --accent: #8cc2ff; --on-accent: #0e1116; --good: #7fd393; --bad: #ff9a90;
+  }
+}
+
+* { box-sizing: border-box; }
+body { margin: 0 auto; max-width: 52rem; padding: 1rem 1.25rem 3rem; background: var(--bg); color: var(--fg); line-height: 1.45; }
+header { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: .5rem; border-bottom: 1px solid var(--line); }
+h1 { margin: .25rem 0 .5rem; font-size: 1.6rem; }
+h2 { font-size: 1.1rem; }
+h3 { font-size: 1rem; margin: 1rem 0 .4rem; }
+a { color: var(--accent); }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+
+.status { margin: 0; font-size: .9rem; color: var(--muted); }
+.status.ok { color: var(--good); }
+
+form > label { display: block; font-weight: 600; margin: 1rem 0 .35rem; }
+.row { display: flex; gap: .5rem; }
+#request { flex: 1; min-width: 0; font: inherit; padding: .6rem .7rem; border: 1px solid var(--line); border-radius: .4rem; background: var(--card); color: var(--fg); }
+button { font: inherit; cursor: pointer; }
+#go { padding: .6rem 1.2rem; border: 0; border-radius: .4rem; background: var(--accent); color: var(--on-accent); font-weight: 600; }
+#go:disabled { opacity: .55; cursor: progress; }
+
+fieldset { border: 0; margin: .6rem 0 0; padding: 0; }
+legend { font-size: .85rem; font-weight: 600; color: var(--muted); padding: 0; margin-bottom: .3rem; }
+.pair { display: flex; flex-wrap: wrap; gap: 0 2rem; }
+
+/* Chips are native radio buttons: arrow keys move inside a group, Space selects. */
+.chip { display: inline-block; margin: 0 .3rem .35rem 0; }
+.chip input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+.chip span { display: inline-block; padding: .3rem .7rem; border: 1px solid var(--line); border-radius: 999px; font-size: .9rem; }
+.chip input:checked + span { background: var(--accent); border-color: var(--accent); color: var(--on-accent); }
+.chip input:focus-visible + span { outline: 3px solid var(--accent); outline-offset: 2px; }
+
+.hint { color: var(--muted); font-size: .85rem; }
+.examples { font-size: .9rem; color: var(--muted); }
+.example { margin: .2rem .3rem 0 0; padding: .2rem .55rem; border: 1px dashed var(--line); border-radius: .4rem; background: none; color: var(--fg); font-size: .85rem; text-align: left; }
+
+#out { margin-top: 1.25rem; }
+.loading { font-weight: 600; }
+.badges { display: flex; flex-wrap: wrap; gap: .4rem; }
+.badge { padding: .15rem .6rem; border: 1px solid var(--line); border-radius: 999px; font-size: .85rem; }
+.badge.good { color: var(--good); border-color: currentColor; font-weight: 600; }
+.badge.bad { color: var(--bad); border-color: currentColor; font-weight: 600; }
+.notes { padding-left: 0; list-style: none; color: var(--muted); font-size: .9rem; }
+
+.cards { list-style: none; padding: 0; counter-reset: ex; display: grid; gap: .5rem; }
+.card { counter-increment: ex; display: flex; justify-content: space-between; gap: 1rem; padding: .7rem .9rem; background: var(--card); border: 1px solid var(--line); border-radius: .5rem; }
+.card .name::before { content: counter(ex) "  "; font-weight: 700; color: var(--accent); white-space: pre; }
+.card .dose { white-space: nowrap; font-variant-numeric: tabular-nums; color: var(--muted); }
+
+.box { padding: .8rem 1rem; border-radius: .5rem; border: 1px solid var(--line); background: var(--card); }
+.error-box { border-left: 4px solid var(--bad); }
+.allowed dt { font-weight: 600; margin-top: .4rem; }
+.allowed dd { margin: 0; font-size: .9rem; }
+
+details { margin-top: 1rem; }
+summary { cursor: pointer; font-weight: 600; }
+table { border-collapse: collapse; font-size: .85rem; width: 100%; }
+th, td { text-align: left; padding: .25rem .5rem; border-bottom: 1px solid var(--line); }
+pre { white-space: pre-wrap; word-break: break-word; background: var(--card); padding: .7rem; border-radius: .4rem; font-size: .8rem; }
+
+footer { margin-top: 2.5rem; border-top: 1px solid var(--line); font-size: .9rem; }
+
+@media (max-width: 640px) {
+  .row { flex-direction: column; }
+  .card { flex-direction: column; gap: .2rem; }
+}

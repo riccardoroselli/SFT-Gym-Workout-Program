@@ -17,6 +17,9 @@ POST /workout:
 Settings, from environment variables: LLAMA_SERVER_URL (http://127.0.0.1:8080), MAX_RETRIES (3),
 RETRY_TEMPERATURE (0.7), TOKENIZER (riccardoroselli/qwen3.5-2b-gym-grpo, from the local HF cache),
 EXPECTED_MODEL_FILE (optional: the .gguf file name llama-server must have loaded).
+
+GET / serves the web page in src/web/ (plain HTML/CSS/JS under /static). The page makes no outside requests;
+/docs (FastAPI's Swagger UI) loads its script and CSS from a CDN.
 """
 import os
 import time
@@ -25,7 +28,8 @@ from pathlib import Path
 from typing import Annotated
 
 from fastapi import Body, FastAPI, HTTPException
-from fastapi.responses import JSONResponse
+from fastapi.responses import FileResponse, JSONResponse
+from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, Field
 
 from analyze_errors import first_failed
@@ -38,6 +42,7 @@ from verifier import _parse, is_feasible, verify
 MAX_REQUEST_CHARS = 500  # keeps the prompt far below the server's 2048-token context per slot
 # Retries sample like the GRPO probe and training: temperature only, llama-server's default filters off.
 NO_FILTERS = {"top_k": 0, "top_p": 1.0, "min_p": 0.0}
+WEB = Path(__file__).resolve().parent / "web"
 
 
 def load_settings():
@@ -72,6 +77,12 @@ async def lifespan(app):
 
 
 app = FastAPI(title="GymLeader", lifespan=lifespan)
+app.mount("/static", StaticFiles(directory=WEB), name="static")  # not in /docs
+
+
+@app.get("/", include_in_schema=False)
+def page():
+    return FileResponse(WEB / "index.html")
 
 
 class WorkoutRequest(BaseModel):
