@@ -4,7 +4,7 @@
     PYTHONPATH=<llama.cpp b12360>/gguf-py python gguf/check_chat_gguf.py split-check FUSED.gguf SPLIT.gguf REFERENCE
     python gguf/check_chat_gguf.py render-offline            # new template (transformers) == build_prompt(), 2,980 prompts
     python gguf/check_chat_gguf.py render-server --url URL   # llama-server /apply-template == build_prompt(), 300 test rows
-    python gguf/check_chat_gguf.py chat --url URL [--limit N]  # /v1/chat/completions == sft_grpo_gguf_q8 raw outputs
+    python gguf/check_chat_gguf.py chat --url URL [--limit N] [--reference RUN.jsonl]  # /v1/chat/completions == raw outputs
 
 tensors:        every tensor has the same name, type, shape and bytes; the metadata differs only by the new template
                 and general.sampling.temp. (The file hashes differ: a longer header moves the tensor data.)
@@ -34,7 +34,7 @@ from make_dataset import SYSTEM, all_combos  # noqa: E402
 from request_parser import canonical_text  # noqa: E402
 
 TEMPLATE = Path(__file__).with_name("chat_template.jinja").read_text(encoding="utf-8")
-REFERENCE = "sft_grpo_gguf_q8"
+REFERENCE = OUTPUTS / "sft_grpo_gguf_q8.jsonl"
 CHANGED = {"tokenizer.chat_template"}
 ADDED = {"general.sampling.temp": 0.0}
 
@@ -260,15 +260,16 @@ def render_server(url):
     return all(n == len(test) for n in counts.values())
 
 
-def chat(url, limit=None):
+def chat(url, limit=None, reference=REFERENCE):
     url = url.rstrip("/")
     server_info(url)
-    test, ref = read_jsonl(TEST)[:limit], read_jsonl(OUTPUTS / f"{REFERENCE}.jsonl")[:limit]
+    print(f"reference: {reference}")
+    test, ref = read_jsonl(TEST)[:limit], read_jsonl(reference)[:limit]
     tok = None
     identical, problems = 0, []
     for i, (row, r) in enumerate(zip(test, ref)):
         text = row["messages"][1]["content"]
-        assert r["request"] == text, f"row {i}: {REFERENCE} has another request"
+        assert r["request"] == text, f"row {i}: {reference.name} has another request"
         out = http_json(f"{url}/v1/chat/completions", {"messages": chats(text)["no system"], "max_tokens": MAX_NEW_TOKENS,
                                                        "cache_prompt": False, **GREEDY})
         choice = out["choices"][0]
@@ -287,7 +288,7 @@ def chat(url, limit=None):
             problems.append(i)
             print(f"    row {i}: {text!r}: finish {choice['finish_reason']}, reasoning {reasoning!r}, cause: {cause}\n"
                   f"    {first_difference(content or '', r['output'])}")
-    print(f"chat content identical to {REFERENCE}: {identical} / {len(test)}; differing rows: {problems}")
+    print(f"chat content identical to {reference.name}: {identical} / {len(test)}; differing rows: {problems}")
     return not problems
 
 
@@ -306,10 +307,11 @@ def main():
         p = sub.add_parser(name)
         p.add_argument("--url", default="http://127.0.0.1:8080")
     p.add_argument("--limit", type=int, default=None)
+    p.add_argument("--reference", type=Path, default=REFERENCE, help="raw /completion run (evaluate.py output)")
     args = parser.parse_args()
     ok = {"tensors": lambda: tensors(args.old, args.new),
           "split-check": lambda: split_check(args.fused, args.split, args.reference), "render-offline": render_offline,
-          "render-server": lambda: render_server(args.url), "chat": lambda: chat(args.url, args.limit)}[args.step]()
+          "render-server": lambda: render_server(args.url), "chat": lambda: chat(args.url, args.limit, args.reference)}[args.step]()
     print("PASS" if ok else "FAIL")
     sys.exit(0 if ok else 1)
 
