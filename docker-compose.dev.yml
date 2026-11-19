@@ -1,5 +1,5 @@
 # GymLeader: llama.cpp server (CPU, built from source at tag b12360, the build every GGUF eval used) + the API.
-#   docker compose build && docker compose up -d   ->   http://127.0.0.1:8000/docs
+#   docker compose -f docker-compose.dev.yml build && docker compose -f docker-compose.dev.yml up -d   ->   http://127.0.0.1:8000/docs
 # The model file is not in the image: ./models/gguf is mounted read-only.
 services:
   llama:

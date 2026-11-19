@@ -187,14 +187,33 @@ Latency of the live answers (`MAX_RETRIES=3`), same 30 rows:
 - **What this means:** the Step 16b score (0.82 all_correct) is a Metal number. On these 30 rows Docker reaches the same level but not the same answers row by row. 30 rows are too few to give Docker its own score, and the run wasn't scored into `results.md`.
 
 ### How to run
+Three ways, same API and page at http://127.0.0.1:8000 (`/docs` for the API).
+
+**1. The single image (llama-server + API + page; Step 17.2).** The first start downloads the model (2.1 GB) into the `gymleader-models` volume; follow it with `docker logs -f gymleader` or `docker compose logs -f`.
 ```bash
-docker compose build                                   # first time: compiles llama.cpp (several minutes)
+docker run -d --name gymleader -p 127.0.0.1:8000:8000 -v gymleader-models:/models ghcr.io/riccardoroselli/gymleader:v1.0
+# or, from this checkout (pulls the image, or builds docker/Dockerfile if it isn't published):
 docker compose up -d
-docker compose ps                                      # both (healthy)
-docker compose exec llama /app/llama-server --version  # build 1, commit 2d8a325
+docker compose ps                                             # (healthy)
+docker exec gymleader llama-server --version                  # build 12360, commit 2d8a32502 (compose: docker compose exec gymleader ...)
+docker compose down                                           # the volume and the model stay
+```
+
+**2. The two-container dev setup of this step (llama.cpp's own image + `docker/api.Dockerfile`, `./models/gguf` mounted).**
+```bash
+docker compose -f docker-compose.dev.yml build               # first time: compiles llama.cpp (several minutes)
+docker compose -f docker-compose.dev.yml up -d
+docker compose -f docker-compose.dev.yml ps                  # both (healthy)
+docker compose -f docker-compose.dev.yml exec llama /app/llama-server --version  # build 1, commit 2d8a325
+docker compose -f docker-compose.dev.yml down
+```
+
+**3. On the Mac without Docker (Metal),** in the env with `requirements-serve.txt`: `scripts/run_local.sh` (Ctrl-C stops both processes). It uses `models/gguf/` and the `llama-server` on PATH, and warns if it isn't build 12360.
+
+**Requests and the 30-row check** (any of the three):
+```bash
 curl -s 127.0.0.1:8000/health
 curl -s 127.0.0.1:8000/workout -H 'Content-Type: application/json' \
      -d '{"request": "chest workout, medium difficulty, free weights, 5 exercises"}'
 python src/eval_service.py run --run docker_q8 --limit 30   # then derive / report --run docker_q8
-docker compose down
 ```

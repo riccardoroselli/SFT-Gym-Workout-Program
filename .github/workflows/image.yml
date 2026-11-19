@@ -80,4 +80,4 @@ jobs:
         run: |
           out=$(docker run --rm --entrypoint llama-server "$IMAGE" --version 2>&1)
           echo "$out"
-          grep -qF "version: 12360 (2d8a32502)" <<<"$out"
+          grep -qF "build 12360, commit 2d8a32502" <<<"$out"  # e.g. "version: 1.0.0-dev (build 12360, commit 2d8a32502)"

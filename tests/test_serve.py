@@ -161,3 +161,31 @@ def test_wait_until_up_fails_if_the_process_exits():
 def test_missing_binary():
     with pytest.raises(serve.StartError, match="not found on PATH"):
         serve.start("llama-server", ["gymleader-no-such-binary"], {})
+
+
+def run_local(tmp_path, *, fake_llama, **env):
+    """scripts/run_local.sh with PATH = this python + (optionally) a fake llama-server; returns the finished process."""
+    bin_dir = tmp_path / "bin"
+    bin_dir.mkdir()
+    if fake_llama:
+        (bin_dir / "llama-server").write_text("#!/bin/sh\necho 'version: 1.0.0 (build 9999, commit abc)'\n")
+        (bin_dir / "llama-server").chmod(0o755)
+    path = f"{bin_dir}:{Path(sys.executable).parent}:/usr/bin:/bin"
+    return subprocess.run(["bash", str(ROOT / "scripts" / "run_local.sh")], capture_output=True, text=True,
+                          env={"PATH": path, "HOME": os.environ.get("HOME", str(tmp_path)), **env}, timeout=120)
+
+
+@pytest.mark.skipif(os.name != "posix", reason="bash script")
+def test_run_local_needs_llama_server(tmp_path):
+    r = run_local(tmp_path, fake_llama=False)
+    assert r.returncode == 1 and "llama-server is not on PATH" in r.stderr
+
+
+@pytest.mark.skipif(os.name != "posix", reason="bash script")
+def test_run_local_warns_on_other_build_then_runs_serve(tmp_path):
+    own = tmp_path / "mine.gguf"
+    own.write_bytes(OLD)
+    r = run_local(tmp_path, fake_llama=True, MODEL_PATH=str(own))
+    assert "WARNING: not llama.cpp build 12360" in r.stderr
+    assert r.returncode == 1 and "set MODEL_SHA256" in r.stdout  # serve.py ran, checked the file and stopped
+    assert own.read_bytes() == OLD
