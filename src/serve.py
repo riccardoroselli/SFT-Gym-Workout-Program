@@ -26,6 +26,7 @@ import urllib.request
 from pathlib import Path
 
 from huggingface_hub import get_hf_file_metadata, hf_hub_download, hf_hub_url, snapshot_download
+from huggingface_hub.utils import disable_progress_bars
 
 SRC = Path(__file__).resolve().parent
 LLAMA_URL = "http://127.0.0.1:8080"
@@ -195,6 +196,9 @@ def _on_sigterm(signum, frame):
 
 
 def main():
+    # The log() lines say what is downloaded; the bars only add "Download complete 0.00B" lines at exit.
+    # huggingface_hub docs, Utilities > Configure progress bars (HF_HUB_DISABLE_PROGRESS_BARS=0 still overrides it).
+    disable_progress_bars()
     signal.signal(signal.SIGTERM, _on_sigterm)
     procs = {}
     try:

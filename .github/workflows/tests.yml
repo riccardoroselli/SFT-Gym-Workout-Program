@@ -1,8 +1,11 @@
-# pytest on every push and pull request: no model, no llama-server, no GPU (fakes stand in for them).
+# pytest on every branch push and pull request: no model, no llama-server, no GPU (fakes stand in for them).
 name: tests
 
 on:
   push:
+    # Only branches: a filter for branches alone means tag pushes don't run this (GitHub docs, Workflow syntax,
+    # on.push.<branches|tags|...>); a tag points to a commit whose branch push already ran the tests.
+    branches: ["**"]
   pull_request:
 
 permissions:
