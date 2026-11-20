@@ -86,7 +86,7 @@ A greedy pass takes about 2.7 s. Every failed attempt adds another call of about
 ## Caveats
 
 - **This is a system, not a model.** r0–r3 are not comparable with the model rows in `results.md` as a measure of the model. They measure what a user of the API gets. The model's own score is still `sft_grpo_gguf_q8`: 0.55.
-- **`MAX_RETRIES=3` was fixed in advance** (in the Step 16a design) and not tuned on the test set. r1 and r2 are reported to show the curve, not to pick a budget after looking at test results.
+- **`MAX_RETRIES=3` was fixed in advance** (in the system's design, before any test run) and not tuned on the test set. r1 and r2 are reported to show the curve, not to pick a budget after looking at test results.
 - **Retries cost latency.**
   - A request makes 2.06 model calls on average instead of 1.
   - The mean time per model request goes from 3.1 s to 6.7 s, and the slowest requests take up to about 20 s.
@@ -100,7 +100,7 @@ Serve with the guard and `MAX_RETRIES=3`: **0.82 all_correct, 0.985 reward**, an
 
 ## Docker (CPU)
 
-Step 16c packs the same system into two containers (now `docker-compose.dev.yml`). The API code and the model file are the same as above, but the llama.cpp backend is different: CPU instead of Metal.
+This check packs the same system into two containers (now `docker-compose.dev.yml`). The API code and the model file are the same as above, but the llama.cpp backend is different: CPU instead of Metal.
 
 ### Setup
 - **`llama`:** llama-server built from source at the tag `b12360` (`https://github.com/ggml-org/llama.cpp.git#b12360`, `.devops/cpu.Dockerfile`, target `server`).
@@ -132,13 +132,13 @@ Step 16c packs the same system into two containers (now `docker-compose.dev.yml`
 | calves workout, easy, bands, 5 exercises | calves / bands / easy / 5, impossible | 200 | guard | true | 0 | 1.0 | 0 | – | – |
 
 - `/health`: `{"status":"ok","model_file":"qwen3.5-2b-gym-grpo-Q8_0.gguf","server_build":"b1-2d8a325"}`.
-- The answers have the same sources as on Metal (Step 16a). The biceps greedy answer failed on duplicates again, and retry 1 passed. Each model request took about 1.3× as long as on Metal.
+- The answers have the same sources as on Metal. The biceps greedy answer failed on duplicates again, and retry 1 passed. Each model request took about 1.3× as long as on Metal.
 - **`docker stats` during the chest request:**
   - `llama`: 926 % CPU (about 9.3 of the 10 CPUs) and 4.11 GiB of the 7.75 GiB, which includes the 2 GB model mapped into memory;
   - `api`: 4 % CPU and 317 MiB.
 
 ### 30 test rows: Docker vs Metal
-I ran `eval_service.py run --run docker_q8 --limit 30`, then `derive` and `report`. The Metal side is the first 30 rows of the Step 16b run (`system_q8`), with the same API code and the same model file. 1 of the 30 rows is impossible (the guard answers it), so 29 are model rows.
+I ran `eval_service.py run --run docker_q8 --limit 30`, then `derive` and `report`. The Metal side is the first 30 rows of the Metal run above (`system_q8`), with the same API code and the same model file. 1 of the 30 rows is impossible (the guard answers it), so 29 are model rows.
 
 **Greedy text identical to `sft_grpo_gguf_q8`: 22 / 29.** The 7 rows that differ (test row numbers, 0-based):
 
@@ -152,7 +152,7 @@ I ran `eval_service.py run --run docker_q8 --limit 30`, then `derive` and `repor
 | 19 | light chest, any equipment, 5 | exercise 2, name | cable one arm fly on exercise ball | cable decline fly | 1.0 (passed) | 1.0 (passed) |
 | 20 | hard shoulders, any equipment, 6 | exercise 5, name | dumbbell rear fly v. 2 | dumbbell one arm lateral raise | 0.82 (names) | 0.82 (names) |
 
-| first 30 rows | Docker (CPU) | Metal (Step 16b) |
+| first 30 rows | Docker (CPU) | Metal (`system_q8`) |
 |---|---|---|
 | r0 all_correct | 17 / 30 (0.5667) | 18 / 30 (0.60) |
 | r0 reward | 0.9454 | 0.9493 |
@@ -182,21 +182,21 @@ Latency of the live answers (`MAX_RETRIES=3`), same 30 rows:
   - r3 is still 25 / 30 on both, but not on the same rows: one row passes only on Docker and one only on Metal.
 - **Speed.** Fresh, the CPU makes about 34 tok/s against Metal's 44.
   - During the 30 rows it fell steadily to 15–20 tok/s, while Metal stayed at 43–45 on the same rows.
-  - The likely cause is thermal throttling: all 10 CPU cores ran for minutes on a fanless MacBook Air. I didn't measure temperature. Metal slows down too over a long run (mean 34.3 tok/s over all 300 Step 16b rows), but only after the first 30 rows.
+  - The likely cause is thermal throttling: all 10 CPU cores ran for minutes on a fanless MacBook Air. I didn't measure temperature. Metal slows down too over a long run (mean 34.3 tok/s over all 300 `system_q8` rows), but only after the first 30 rows.
   - Mean time per model request: 1.8× Metal at r0 and 1.7× at r3. The slowest Docker request took 24.3 s.
-- **What this means:** the Step 16b score (0.82 all_correct) is a Metal number. On these 30 rows Docker reaches the same level but not the same answers row by row. 30 rows are too few to give Docker its own score, and the run wasn't scored into `results.md`.
+- **What this means:** the `system_q8` score (0.82 all_correct) is a Metal number. On these 30 rows Docker reaches the same level but not the same answers row by row. 30 rows are too few to give Docker its own score, and the run wasn't scored into `results.md`.
 
-### The single image (Step 17.2)
+### The single image
 The all-in-one image (`docker/Dockerfile`: llama-server b12360 built for the CPU, the API and the page; the split Q8_0 is downloaded on the first start) on the same Mac:
 - Image 623 MB on disk. `llama-server --version`: build 12360, commit 2d8a32502. `docker stats` during the live requests: 4.44 GiB.
-- Rule fixed before the run: the image builds llama-server with GCC 14 (Debian), not with llama.cpp's own `.devops/cpu.Dockerfile` as in 16c, so the 30-row run passes only with no errors, differing greedy rows that look like near-tie flips, and r3 all_correct within ±3 of 25 / 30 (16c). It passed.
-- `eval_service.py run --run docker_aio_q8 --limit 30`: r0 19 / 30, r3 26 / 30 all correct (7 rescued), greedy p50 3.0 s. The greedy text equals Metal's on 19 / 29 model rows (16c: 22 / 29); where it differs, it starts mid-answer, a near-tie flip as above.
+- Rule fixed before the run: the image builds llama-server with GCC 14 (Debian), not with llama.cpp's own `.devops/cpu.Dockerfile` as in the two-container check, so the 30-row run passes only with no errors, differing greedy rows that look like near-tie flips, and r3 all_correct within ±3 of 25 / 30 (the two-container check). It passed.
+- `eval_service.py run --run docker_aio_q8 --limit 30`: r0 19 / 30, r3 26 / 30 all correct (7 rescued), greedy p50 3.0 s. The greedy text equals Metal's on 19 / 29 model rows (two containers: 22 / 29); where it differs, it starts mid-answer, a near-tie flip as above.
 - First start: the 2.1 GB download took about 3 min (~11 MB/s); from model load to ready took 2.5 s.
 
 ### How to run
 Three ways, same API and page at http://127.0.0.1:8000 (`/docs` for the API).
 
-**1. The single image (llama-server + API + page; Step 17.2).** The first start downloads the model (2.1 GB) into the `gymleader-models` volume; follow it with `docker logs -f gymleader` or `docker compose logs -f`.
+**1. The single image (llama-server + API + page).** The first start downloads the model (2.1 GB) into the `gymleader-models` volume; follow it with `docker logs -f gymleader` or `docker compose logs -f`.
 ```bash
 docker run -d --name gymleader -p 127.0.0.1:8000:8000 -v gymleader-models:/models ghcr.io/riccardoroselli/gymleader:v1.0
 # or, from this checkout (pulls the image, or builds docker/Dockerfile if it isn't published):
@@ -206,7 +206,7 @@ docker exec gymleader llama-server --version                  # build 12360, com
 docker compose down                                           # the volume and the model stay
 ```
 
-**2. The two-container dev setup of this step (llama.cpp's own image + `docker/api.Dockerfile`, `./models/gguf` mounted).**
+**2. The two-container dev setup (llama.cpp's own image + `docker/api.Dockerfile`, `./models/gguf` mounted).**
 ```bash
 docker compose -f docker-compose.dev.yml build               # first time: compiles llama.cpp (several minutes)
 docker compose -f docker-compose.dev.yml up -d

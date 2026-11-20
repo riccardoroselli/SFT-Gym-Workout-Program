@@ -2,7 +2,7 @@
 #   docker compose up -d            # pulls the published image; builds it from this checkout if it isn't published
 #   docker compose up -d --build    # always builds from this checkout
 #   docker compose logs -f          # the first start downloads the model (2.1 GB) into the volume
-# The two-container setup of step 16c (llama.cpp's own image + docker/api.Dockerfile) is in docker-compose.dev.yml.
+# The two-container setup (llama.cpp's own image + docker/api.Dockerfile) is in docker-compose.dev.yml.
 services:
   gymleader:
     image: ghcr.io/riccardoroselli/gymleader:v1.0

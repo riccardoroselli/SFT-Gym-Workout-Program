@@ -6,7 +6,7 @@ Answers come from `python src/evaluate.py generate --backend llamacpp`, breakdow
 
 ## Why GGUF
 
-Step 16 serves the model from a Docker container. Until now every answer came from MLX, which runs on the Apple GPU through Metal; a Linux container has no Metal, so it can't use MLX. llama.cpp runs GGUF files on a plain CPU (and on Metal, CUDA and other GPUs), so the same file works on the Mac and in Docker. GGUF also stores smaller, quantized weights: fewer bits per weight means a smaller file and faster writing, since generating each token reads every weight once.
+The served system runs the model in a Docker container. Until now every answer came from MLX, which runs on the Apple GPU through Metal; a Linux container has no Metal, so it can't use MLX. llama.cpp runs GGUF files on a plain CPU (and on Metal, CUDA and other GPUs), so the same file works on the Mac and in Docker. GGUF also stores smaller, quantized weights: fewer bits per weight means a smaller file and faster writing, since generating each token reads every weight once.
 
 ## Conversion and quantization
 
@@ -92,12 +92,12 @@ During the full test runs Q4_K_M averaged only 45.6 tok/s. It ran last, right af
 
 ## Decision
 
-- **Serve Q8_0 in Step 16:** the same quality as BF16, half the size, 1.7× faster writing.
+- **Serve Q8_0:** the same quality as BF16, half the size, 1.7× faster writing.
 - **Publish BF16 and Q8_0.** BF16 is the reference; Q8_0 is the file to use. Q4_K_M is reported here but not published: it's the fastest, but it gives up most of the GRPO gain.
 
 ## Chat-ready files and compatibility
 
-Everything above was measured on the files exactly as converted, with `build_prompt()` sent raw to `/completion`. The published files were then changed twice, so that a chat UI or a chat API gets the same answers (Step 17.1). The tensor bytes and the tokenizer never changed.
+Everything above was measured on the files exactly as converted, with `build_prompt()` sent raw to `/completion`. The published files were then changed twice, so that a chat UI or a chat API gets the same answers. The tensor bytes and the tokenizer never changed.
 
 ### Why
 - **Thinking was on by default.** llama-server b12360 runs the GGUF's Jinja template with `--reasoning auto`, which sends `enable_thinking=true` whenever the template supports it. Qwen3.5's stock template then ends the prompt with an open `<think>\n`, which the model never saw in training.
@@ -140,8 +140,8 @@ Everything above was measured on the files exactly as converted, with `build_pro
 | engine | status | what was run |
 |---|---|---|
 | llama.cpp b12360, Metal (Mac) | tested | render-server + chat, 300 / 300 identical |
-| llama.cpp b12360, CPU in Docker (Step 16c) | tested | system evaluation on 30 rows, on the original file, which has the same tensors; CPU sums in another order, so some near-tied answers differ from Metal |
-| llama.cpp b12360, CPU, the GymLeader image (Step 17.2) | tested | the app on 30 test rows with the split Q8_0: greedy text equal to Metal on 19 / 29 model rows, r3 26 / 30 all correct (`system_notes.md`) |
+| llama.cpp b12360, CPU in Docker (two containers, `docker-compose.dev.yml`) | tested | system evaluation on 30 rows, on the original file, which has the same tensors; CPU sums in another order, so some near-tied answers differ from Metal |
+| llama.cpp b12360, CPU, the GymLeader image | tested | the app on 30 test rows with the split Q8_0: greedy text equal to Metal on 19 / 29 model rows, r3 26 / 30 all correct (`system_notes.md`) |
 | LM Studio 0.4.28, engine llama.cpp b12270 (Metal) | tested | loads; 3 requests at temperature 0, all `all_correct`, empty reasoning |
 | official image `ghcr.io/ggml-org/llama.cpp:server-b12464` (`b12464-d3c3e242c`), CPU | tested | loads; 1 request with no temperature sent, 4 runs identical, `all_correct`, empty reasoning |
 | Ollama | not tested | an `hf.co/...` pull picks a Go template from a list and doesn't run our Jinja |

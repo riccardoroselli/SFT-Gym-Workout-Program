@@ -1,4 +1,4 @@
-"""The Hub model cards in cards/ (uploaded by hand as each repo's README.md): headers as approved in Step 17.3,
+"""The Hub model cards in cards/ (uploaded by hand as each repo's README.md): the agreed headers,
 the GGUF card's files equal to what serve.py downloads, and links that point only to things that exist."""
 import re
 from pathlib import Path
@@ -62,4 +62,4 @@ def test_gguf_card_lists_the_files_serve_py_downloads():
     q8_row = next(l for l in card.splitlines() if l.startswith(f"| `{d['MODEL_FILE']}`"))
     assert d["MODEL_SHA256"] in q8_row and "2,076,675,008 bytes" in q8_row
     assert card.count(d["MODEL_REVISION"]) >= 2  # the files table and the download command
-    assert "ade25302cea60cf78432b0f92b491e93b7cdcfabed29e70a18d6cd4d8cceb20c" in card  # BF16, Hub check of 17.2c
+    assert "ade25302cea60cf78432b0f92b491e93b7cdcfabed29e70a18d6cd4d8cceb20c" in card  # BF16, as in eval/gguf_notes.md "sha256"

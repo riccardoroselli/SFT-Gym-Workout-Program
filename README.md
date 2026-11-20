@@ -191,7 +191,6 @@ They need a Colab secret `HF_TOKEN` with write access, because they upload the r
   - 300 steps, KL penalty 0, learning rate 5e-6.
 - **Outcome:** names in the catalog 0.75 → 0.95, duplicates 59% → 34% of workouts, refusals 4 → 6 of 16.
 
-The badge links follow the pattern `colab.research.google.com/github/<owner>/<repo>/blob/<branch>/<path>`, from Colab's notebook *Using Google Colab with GitHub* (`googlecolab/colabtools`, `notebooks/colab-github-demo.ipynb`).
 The GGUF files were made with llama.cpp's converter, then [`gguf/`](gguf/). That code adds the chat template and the greedy default, and splits the fused tensors so older loaders such as LM Studio's can read the files. The tensor bytes are unchanged. Details: [`eval/gguf_notes.md`](eval/gguf_notes.md).
 
 ## System requirements

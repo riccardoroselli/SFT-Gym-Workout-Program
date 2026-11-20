@@ -46,7 +46,7 @@ names 171 → 60 · duplicates 45 → 60 · error handling 12 → 10 · equipmen
 
 5. **Small new failures (5 answers).** 3 abs / free weights / hard answers list band exercises (`band v-up`, `band jack knife sit-up`), one legs / machines / easy answer uses 3 sets instead of 2 (easy sets/reps 313 / 316 exercises), one abs / bodyweight / medium answer includes an advanced exercise. Body-part mix-ups among exact names are as before (shoulders → chest 8, SFT 6).
 
-## The refusal dial (from training, `docs/steps.md` Step 14.3)
+## The refusal dial (from training: the val checks in `notebooks/03_grpo_colab.ipynb`)
 
 The 40-row val check during training shows refusals moving as **one dial for all requests**, not as knowledge of which pairs are impossible:
 
@@ -68,5 +68,6 @@ A wrong name is partly missing knowledge, and RL can't add knowledge: it can onl
 ## What's next
 
 - **Refusals:** the reward can't make the dial stable with these settings. Options: more impossible prompts per step, a decaying learning rate, or, since feasibility can be computed exactly from the catalog (`is_feasible()`), a rule-based check before or after the model.
+  Done later for serving: the API's guard answers impossible requests from the catalog, 16 / 16 on test ([system notes](system_notes.md)).
 - **Duplicates:** 34% of workouts still repeat themselves with greedy decoding. Options: more GRPO steps, sampling at inference, or a deduplicating post-check.
 - **Names and variety:** retrieval or constrained decoding (see above).

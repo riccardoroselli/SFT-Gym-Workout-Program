@@ -5,7 +5,7 @@ WORKDIR /app
 COPY requirements-serve.txt .
 RUN pip install --no-cache-dir -r requirements-serve.txt
 
-# The tokenizer files only, from the public base model at a pinned revision, no token. Step 16c checked that
+# The tokenizer files only, from the public base model at a pinned revision, no token. Checked in eval/system_notes.md ("Docker (CPU)"):
 # build_prompt() gives the same text and token IDs as riccardoroselli/qwen3.5-2b-gym-grpo on all 2,500 data-v1
 # requests and the 480 canonical sentences. config.json makes transformers load the same tokenizer class.
 RUN python -c "from huggingface_hub import snapshot_download; snapshot_download('Qwen/Qwen3.5-2B', \

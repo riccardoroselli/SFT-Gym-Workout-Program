@@ -36,13 +36,13 @@ DEFAULTS = {
     "MODEL_DIR": "/models",
     "MODEL_REPO": "riccardoroselli/qwen3.5-2b-gym-grpo-GGUF",
     "MODEL_FILE": "qwen3.5-2b-gym-grpo-Q8_0.gguf",
-    "MODEL_REVISION": "bbb1d3cf7f9113ec518b56c95a74702bbd83ba9b",  # the commit with the split, chat-ready files (17.1b)
+    "MODEL_REVISION": "bbb1d3cf7f9113ec518b56c95a74702bbd83ba9b",  # the split, chat-ready files (eval/gguf_notes.md)
     "MODEL_SHA256": "713efb40bd59dd5dc62b43f2145f540a9780ff6bfcd21006ff36dbceb7df5137",
     "HOST": "0.0.0.0",
     "PORT": "8000",
     "LLAMA_ARGS": "",
 }
-# The same 4 files docker/Dockerfile bakes into the image (16c checked they give the same prompts and token IDs).
+# The same 4 files docker/Dockerfile bakes into the image (same prompts and token IDs: eval/system_notes.md, "Docker (CPU)").
 TOKENIZER_REPO, TOKENIZER_REVISION = "Qwen/Qwen3.5-2B", "15852e8c16360a2fea060d615a32b45270f8a8fc"
 TOKENIZER_FILES = ["tokenizer.json", "tokenizer_config.json", "chat_template.jinja", "config.json"]
 

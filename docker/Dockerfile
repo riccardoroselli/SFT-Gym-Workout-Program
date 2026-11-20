@@ -31,7 +31,8 @@ COPY requirements-serve.txt .
 RUN pip install --no-cache-dir -r requirements-serve.txt
 
 # The tokenizer files only (+ their license), from the public base model at a pinned revision, no token.
-# 16c checked they give the same prompts and token IDs as riccardoroselli/qwen3.5-2b-gym-grpo. serve.py has the same list.
+# They give the same prompts and token IDs as riccardoroselli/qwen3.5-2b-gym-grpo (eval/system_notes.md, "Docker (CPU)").
+# serve.py has the same list.
 RUN python -c "from huggingface_hub import snapshot_download; snapshot_download('Qwen/Qwen3.5-2B', \
     revision='15852e8c16360a2fea060d615a32b45270f8a8fc', token=False, local_dir='/app/tokenizer', \
     allow_patterns=['tokenizer.json', 'tokenizer_config.json', 'chat_template.jinja', 'config.json', 'LICENSE'])" \
