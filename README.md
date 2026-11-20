@@ -1,13 +1,17 @@
 <img src="img/GymLeader-Banner.jpg" alt="GymLeader banner" width="100%">
 
-# GymLeader: Qwen3.5-2B fine-tuned to write gym workouts that a verifier checks
+# GymLeader: a 2B model that writes your gym workout, and a verifier that checks every line of it
 
-[![tests](https://github.com/riccardoroselli/SFT-Gym-Workout-Program/actions/workflows/tests.yml/badge.svg)](https://github.com/riccardoroselli/SFT-Gym-Workout-Program/actions/workflows/tests.yml)
+[![Hugging Face](https://img.shields.io/badge/Hugging%20Face-GGUF-FFD21E?logo=huggingface&logoColor=black)](https://huggingface.co/riccardoroselli/qwen3.5-2b-gym-grpo-GGUF)
+[![Docker image](https://img.shields.io/badge/ghcr.io-gymleader-2496ED?logo=docker&logoColor=white)](https://github.com/users/riccardoroselli/packages/container/package/gymleader)
+[![Fine-tuned with Unsloth](https://img.shields.io/badge/fine--tuned%20with-Unsloth-1F9D55)](https://github.com/unslothai/unsloth)
 [![License: Apache-2.0](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](LICENSE)
 
-GymLeader turns a request like *"chest workout, medium difficulty, free weights, 5 exercises"* into a JSON workout. Every name in it must be an exact name from the [exercise catalog](https://github.com/hasaneyldrm/exercises-dataset), with the sets and reps the difficulty calls for. When too few exercises match, it answers with an error instead.
-Qwen3.5-2B was trained with SFT (LoRA), then GRPO. On 300 held-out requests, all_correct goes from 0.00 (the base model) to 0.24 after SFT and 0.55 after GRPO. The served system reaches **0.82**.
-Everything runs in one Docker container on a CPU: llama.cpp b12360 with the Q8_0 GGUF (2.1 GB), a FastAPI service and a web page.
+Ask for *"chest workout, medium difficulty, free weights, 5 exercises"* and GymLeader writes the workout as JSON. Every exercise is an exact name from a real [exercise catalog](https://github.com/hasaneyldrm/exercises-dataset), with the sets and reps that difficulty calls for. If the catalog doesn't have enough matching exercises, it tells you so instead of making some up.
+
+The model is Qwen3.5-2B, trained with SFT (LoRA) and then GRPO. On 300 held-out requests, all_correct goes from 0.00 for the base model to 0.24 after SFT and 0.55 after GRPO. Put a guard and verifier retries around it and the served system reaches **0.82** (measured on Metal; the Docker CPU image scored 26/30 on a 30-row check).
+
+It all fits in one Docker container on a CPU: llama.cpp b12360 with the Q8_0 GGUF (2.1 GB), a FastAPI service and a web page.
 
 **The core idea: one verifier, used four ways.** [`src/verifier.py`](src/verifier.py) `verify(request, answer)` checks an answer against the task contract in [`docs/spec.md`](docs/spec.md). The same function is used in four places:
 
@@ -19,11 +23,7 @@ Everything runs in one Docker container on a CPU: llama.cpp b12360 with the Q8_0
 | quality control when serving | [`src/api.py`](src/api.py) | an answer that is not all_correct is sampled again, up to `MAX_RETRIES=3` times |
 
 Checks: parse, strict format, names in the catalog, body part, equipment, count, no duplicates, sets/reps, no advanced exercise in easy or medium workouts, and the error answer for impossible requests. all_correct means every check passed.
-The reward is in [0, 1]. 10% is for the exact JSON format and 90% for the content:
-- names 0.30;
-- body part 0.15;
-- equipment 0.15;
-- 0.10 each for count, no duplicates, sets/reps and advanced.
+The reward is in [0, 1]: **reward = 0.1 × strict format + 0.9 × content**, where content is the weighted average of the checks (names 0.30, body part 0.15, equipment 0.15, count / duplicates / sets-reps / advanced 0.10 each). For an impossible request, content is 1 for an error answer and 0 for a workout. An answer that doesn't parse gets 0.
 
 <img src="img/demo-result.png" width="80%" alt="The GymLeader web page: request chips, a verified 4-exercise chest workout with machines">
 
@@ -45,12 +45,10 @@ curl -s 127.0.0.1:8000/workout -H 'Content-Type: application/json' \
      -d '{"request": "chest workout, medium difficulty, free weights, 5 exercises"}'
 ```
 
-- **First start:**
-  - the container downloads the Q8_0 model (2.1 GB) from [the GGUF repo](https://huggingface.co/riccardoroselli/qwen3.5-2b-gym-grpo-GGUF) at a pinned revision, into the `gymleader-models` volume;
-  - it checks the file's sha256, then starts;
-  - no Hugging Face token is needed;
-  - the page answers only after the download.
-- **Later starts** reuse the file in the volume.
+- **The first start downloads the 2.1 GB model once** (about 3 min at ~11 MB/s); **later starts take seconds** (2.5 s from model load to ready).
+  - The Q8_0 file comes from [the GGUF repo](https://huggingface.co/riccardoroselli/qwen3.5-2b-gym-grpo-GGUF) at a pinned revision, into the `gymleader-models` volume, and its sha256 is checked before the server starts.
+  - No Hugging Face token is needed.
+  - The page answers only after the download.
 - **Normal log lines:**
   - 15 `unused tensor blk.24…` warnings, from the multi-token-prediction layer, which is kept in the file but not used;
   - `PyTorch was not found`, because only the tokenizer is used.
@@ -117,6 +115,14 @@ How the gains add up:
 
 Full tables: [`eval/results/results.md`](eval/results/results.md). Notes per stage: [baseline](eval/baseline_notes.md), [SFT](eval/sft_notes.md), [GRPO](eval/grpo_notes.md), [GGUF](eval/gguf_notes.md), [system](eval/system_notes.md).
 
+## Findings
+
+- **Refusals moved as one dial.** On the 40-row val check during GRPO, the model refused 3 of 13 impossible requests at step 0, 12 at step 250 and 3 again at step 300, and its false refusals of feasible requests rose and fell with them (0, 3, 0 of 27). It learned "refuse more" or "refuse less", not which requests are impossible. Feasibility can be computed exactly from the catalog, so the guard answers those requests instead: 16 / 16 on test. [GRPO notes](eval/grpo_notes.md)
+- **RL sharpened what SFT taught; it didn't teach new names.** After GRPO, 92% of the names the model lists appear in train answers (SFT: 74%), and it uses fewer distinct names (223 vs 263). It stopped paraphrasing names it knew, and the names it never learned are still missing. [GRPO notes](eval/grpo_notes.md)
+- **Q8_0 costs nothing, Q4_K_M costs most of GRPO's gain.** In the paired bootstrap, MLX → GGUF BF16 and BF16 → Q8_0 both have intervals that contain 0. Q4_K_M drops all_correct from 0.54 to 0.25 (−0.293 [−0.350, −0.240]), about back to the SFT level, so it isn't published. [GGUF notes](eval/gguf_notes.md)
+- **Retries take the system from 0.58 to 0.82, but they can't add knowledge.** 54 of 284 model requests still fail after 3 retries. In 11 of the 22 that fail on names, every one of the 4 attempts has a name that isn't in the catalog, and the same wrong names come back (`bodyweight standing archer`, 6 times). In 3 hard abs workouts with free weights, every attempt picks band exercises. [system notes](eval/system_notes.md)
+- **Decision rules were fixed before looking at the results.** The GRPO sampling temperature (0.7) came from a rule written before the probe ran. `MAX_RETRIES=3` was set in the design, not tuned on the test set. The Docker image's GCC 14 build had a pass rule before its 30-row check (no errors, only near-tie flips, r3 within ±3 of 25 / 30), which it passed with 26 / 30. [GRPO notes](eval/grpo_notes.md), [system notes](eval/system_notes.md)
+
 ## How a request is handled
 
 ```mermaid
@@ -142,7 +148,8 @@ flowchart TD
   - `model_calls`;
   - every attempt, with its text, seed, reward and time.
 - **Latency on Metal:**
-  - a greedy pass takes about 2.7 s;
+  - a request that passes at greedy takes 2.7 s (mean of the 159 such requests);
+  - the mean per model request is 3.1 s at r0 (greedy only) and 6.7 s at r3 (with up to 3 retries);
   - a request makes 2.06 model calls on average;
   - the 54 of 284 model requests that never pass take 13–15 s.
 
@@ -168,7 +175,7 @@ Raw answers (`eval/outputs/`) are not in git: `generate` recreates them. MLX nee
 
 ## Training
 
-Both notebooks run on Google Colab with a T4 GPU or better. Each one checks that `data/processed/` equals the `data-v1` tag before training.
+Both notebooks run on Google Colab with a T4 GPU or better. On a free Colab T4, SFT took 19 min and GRPO 48.6 min. Each one checks that `data/processed/` equals the `data-v1` tag before training.
 They need a Colab secret `HF_TOKEN` with write access, because they upload the results to the Hub under that token's user.
 
 **SFT** [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/riccardoroselli/SFT-Gym-Workout-Program/blob/main/notebooks/02_sft_colab.ipynb)
@@ -194,7 +201,7 @@ The GGUF files were made with llama.cpp's converter, then [`gguf/`](gguf/). That
 | hardware | linux/amd64 or linux/arm64, **CPU only** (no GPU inside the container) | Mac with Apple silicon (Metal) |
 | memory | 4.44 GiB in `docker stats` during a request (Docker Desktop, M4) | not measured |
 | disk | image 623 MB + model 2.08 GB | model 2.08 GB in `models/gguf/` |
-| speed (Apple M4) | CPU, 10 cores: 34 tok/s fresh, 15–20 tok/s when hot. Mean per model request 4.0 s greedy, 8.5 s with retries (30 test rows) | Metal: 43.2 tok/s writing (`llama-bench` tg128). Mean per model request 3.1 s greedy, 6.7 s with retries (300 test rows) |
+| speed (Apple M4) | CPU, 10 cores: 34 tok/s fresh, 15–20 tok/s when hot. Mean per model request 4.0 s at r0 (greedy only), 8.5 s at r3 (29 model rows of 30 test rows) | Metal: 43.2 tok/s writing (`llama-bench` tg128). Mean per model request 3.1 s at r0 (greedy only), 6.7 s at r3 (284 model rows of 300 test rows) |
 | network | first start only: the 2.1 GB model download | the same, plus the 4 tokenizer files |
 
 The CPU speeds come from the two-container setup of `docker-compose.dev.yml` (the same llama.cpp tag, CPU build, and the same model and API), on a fanless MacBook Air, which slows down as it heats up. Other CPUs will differ.
@@ -251,7 +258,7 @@ python -m pytest -q
 - **Names:**
   - about 5% of names the model writes are not exact catalog names, and some wrong names come back again and again (`bodyweight standing archer`);
   - retries can't add knowledge: 54 of 284 model requests still fail after 3 retries, and come back marked `"verified": false`.
-- **The 0.82 is a Metal number.** In the CPU image, greedy answers differ from Metal's where two tokens are nearly tied (19 of 29 identical on 30 test rows; 26 of 30 all correct with retries), and seeded retries reproduce only on the same build, backend and hardware.
+- **The 0.82 is a Metal number.** In the CPU image, greedy answers differ from Metal's where two tokens are nearly tied. On a 30-row check, 1 row is answered by the guard; on the other 29, the greedy text matched Metal's 19 times, and 26 of the 30 were all correct with retries, and seeded retries reproduce only on the same build, backend and hardware.
 - **Retries cost time:** the slowest requests took up to about 20 s on Metal and 24.3 s on the CPU.
 - **Scope of the evaluation:** one test set of 300 requests, greedy decoding only. English requests, this one task only.
 - GymLeader suggests workouts; it is not medical advice.

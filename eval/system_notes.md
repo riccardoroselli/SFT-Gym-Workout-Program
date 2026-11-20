@@ -189,6 +189,7 @@ Latency of the live answers (`MAX_RETRIES=3`), same 30 rows:
 ### The single image (Step 17.2)
 The all-in-one image (`docker/Dockerfile`: llama-server b12360 built for the CPU, the API and the page; the split Q8_0 is downloaded on the first start) on the same Mac:
 - Image 623 MB on disk. `llama-server --version`: build 12360, commit 2d8a32502. `docker stats` during the live requests: 4.44 GiB.
+- Rule fixed before the run: the image builds llama-server with GCC 14 (Debian), not with llama.cpp's own `.devops/cpu.Dockerfile` as in 16c, so the 30-row run passes only with no errors, differing greedy rows that look like near-tie flips, and r3 all_correct within ±3 of 25 / 30 (16c). It passed.
 - `eval_service.py run --run docker_aio_q8 --limit 30`: r0 19 / 30, r3 26 / 30 all correct (7 rescued), greedy p50 3.0 s. The greedy text equals Metal's on 19 / 29 model rows (16c: 22 / 29); where it differs, it starts mid-answer, a near-tie flip as above.
 - First start: the 2.1 GB download took about 3 min (~11 MB/s); from model load to ready took 2.5 s.
 

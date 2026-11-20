@@ -3,6 +3,7 @@
 Model: [`riccardoroselli/qwen3.5-2b-gym-grpo`](https://huggingface.co/riccardoroselli/qwen3.5-2b-gym-grpo) (public; the SFT LoRA trained on with GRPO for 300 steps, then merged, bf16), trained with `notebooks/03_grpo_colab.ipynb`. Reward = `verify()["reward"]`, 8 answers per prompt at temperature 0.7, 600 train prompts (20% impossible).
 Same test set as the baselines and SFT: 300 requests (unseen combinations, 3 unseen phrasing templates), 16 of them impossible. Greedy decoding, thinking off, zero-shot.
 Breakdowns come from `python src/analyze_errors.py --run sft_grpo`, compared with `--run sft_lora_r16`.
+Temperature 0.7 came from a rule fixed before the probe ran (`src/probe_groups.py`, 40 train requests × 8 answers): 0.7 if, at 0.7, overall zero_std ≤ 0.15 and pass@8 ≥ 0.35 and at least 3 of the 8 impossible requests get at least one refusal; otherwise 1.0. All three passed (zero_std 0.05, pass@8 0.775, 6 of 8).
 
 | run | n | parse_ok | strict_format | names_exist | body_part_ok | equipment_ok | count_ok | no_duplicates | sets_reps_ok | advanced_ok | error_correct | all_correct | reward | has_think | truncated |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
