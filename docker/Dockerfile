@@ -4,7 +4,9 @@
 #   docker build -f docker/Dockerfile -t gymleader .
 #   docker run -p 127.0.0.1:8000:8000 -v gymleader-models:/models gymleader     ->  http://127.0.0.1:8000
 # Both stages use the same base, so llama-server is linked against the glibc it runs with.
-ARG BASE=python:3.12-slim
+# The multi-arch index (linux/amd64 + linux/arm64) the v1.0 image was built from (its build provenance), pinned so
+# a rebuild gets the same Debian release and Python. apt-get still installs that release's current packages.
+ARG BASE=python:3.12-slim@sha256:5e2bdb1b0d542d5039cffb8181c65930093949194a65c365dfb1b0fe13a4fa5b
 
 FROM ${BASE} AS llama-build
 RUN apt-get update && apt-get install -y --no-install-recommends build-essential cmake \
