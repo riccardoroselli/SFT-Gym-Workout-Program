@@ -33,6 +33,8 @@ def first_failed(meta, result):
         return "passed"
     if not meta["feasible"]:  # the verifier scores impossible requests only on the error answer
         return "error handling"
+    if result["parse_ok"] and result["names_exist"] is None:  # an error answer to a feasible request
+        return "refused"
     return next((label for label, k in CHECKS if result[k] not in (True, 1.0)), "strict format only")
 
 
@@ -104,7 +106,7 @@ def analyze(run):
 
     print(f"== {run}: {len(rows)} answers, {sum(not r['meta']['feasible'] for r in rows)} impossible requests\n")
     print("1. first failed check (impossible requests count as error handling)")
-    for label in [l for l, _ in CHECKS] + ["error handling", "strict format only", "passed"]:
+    for label in ["parse", "refused"] + [l for l, _ in CHECKS[1:]] + ["error handling", "strict format only", "passed"]:
         print(f"   {label:18} {first[label]}")
 
     print("\n2. sets/reps exactly right, per exercise")

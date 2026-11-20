@@ -43,7 +43,7 @@ Full rows in `results/results.md`.
 | `analyze_errors.py` | MLX | BF16 | Q8_0 | Q4_K_M |
 |---|---|---|---|---|
 | first failed: passed | 165 | 162 | 165 | 74 |
-| first failed: names | 60 | 57 | 54 | 161 |
+| first failed: names | 60 | 57 | 54 | 161¹ |
 | first failed: duplicates | 60 | 66 | 66 | 52 |
 | first failed: equipment / body part | 3 / 0 | 3 / 0 | 3 / 0 | 0 / 1 |
 | first failed: sets/reps / advanced | 1 / 1 | 1 / 1 | 1 / 1 | 1 / 2 |
@@ -53,6 +53,8 @@ Full rows in `results/results.md`.
 | impossible refused | 6/16 | 6/16 | 6/16 | 7/16 |
 | false refusals (of 284 feasible) | 0 | 0 | 0 | 2 |
 | all_correct easy / medium / hard | 0.75 / 0.55 / 0.41 | 0.73 / 0.61 / 0.36 | 0.75 / 0.56 / 0.41 | 0.47 / 0.22 / 0.12 |
+
+¹ Counted before `analyze_errors.py` had a "refused" label: 2 of the 161 are the 2 false refusals in the row below. With today's code the Q4_K_M column reads names 159, refused 2. No other column has a false refusal.
 
 **Paired comparison.** All runs answered the same 300 requests, so each request is compared with itself. The 95% intervals come from a paired bootstrap (resample the 300 requests 10,000 times, seed 42); if an interval contains 0, the difference is within noise.
 

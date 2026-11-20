@@ -3,8 +3,11 @@ and the degree-sign fix being display-only (the API answer is unchanged)."""
 import itertools
 import json
 import re
+import shutil
+import subprocess
 from pathlib import Path
 
+import pytest
 from fastapi.testclient import TestClient
 
 import api
@@ -95,3 +98,18 @@ def test_degree_fix_is_display_only(monkeypatch, tmp_path):
         server.stop()
     assert body["workout"][0]["name"] == name and name in body["raw_output"]  # the API answer is unchanged
     assert 'replaceAll("в°", "°")' in (WEB / "app.js").read_text()  # the page fixes it for display only
+
+
+@pytest.mark.skipif(shutil.which("node") is None, reason="needs node")
+def test_source_badge_matches_the_model_calls():
+    """app.js sourceText(), run in node: an unverified answer after several calls is 'best of N', even if greedy."""
+    js = re.search(r"function sourceText\(r\) \{.*?\n\}", (WEB / "app.js").read_text(), re.DOTALL).group()
+    cases = [({"source": "guard", "verified": True, "model_calls": 0}, "answered from the catalog"),
+             ({"source": "model_greedy", "verified": True, "model_calls": 1}, "model, first answer"),
+             ({"source": "model_greedy", "verified": False, "model_calls": 1}, "model, first answer"),  # MAX_RETRIES=0
+             ({"source": "model_greedy", "verified": False, "model_calls": 4}, "model, best of 4 answers"),
+             ({"source": "model_retry_2", "verified": False, "model_calls": 4}, "model, best of 4 answers"),
+             ({"source": "model_retry_1", "verified": True, "model_calls": 2}, "model, rescued at retry 1")]
+    script = js + f"\nconsole.log(JSON.stringify({json.dumps([c for c, _ in cases])}.map(sourceText)));"
+    out = subprocess.run(["node", "-e", script], capture_output=True, text=True, check=True).stdout
+    assert json.loads(out) == [want for _, want in cases]

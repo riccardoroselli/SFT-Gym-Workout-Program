@@ -21,6 +21,8 @@ def test_first_failed_order():
     assert check(CHEST, answer(NAMES[:3] + ["made up press"], sets=4)) == "names"  # names before sets/reps
     assert check(CHEST, answer(NAMES, sets=4)) == "sets/reps"
     assert check(IMPOSSIBLE, answer(["made up curl"] * 3)) == "error handling"  # not "names"
+    assert check(CHEST, '{"error": "no"}') == "refused"  # a false refusal, not "names"
+    assert check(CHEST, '{"error": 3}') == "parse"  # not the spec's error shape
 
 
 def test_closest_kinds():

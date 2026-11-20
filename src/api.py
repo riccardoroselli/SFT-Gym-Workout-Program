@@ -105,7 +105,7 @@ class Attempt(BaseModel):
     ms: int
     reward: float
     all_correct: bool
-    first_failed: str  # analyze_errors.py's order: parse, names, body part, ..., or "passed"
+    first_failed: str  # analyze_errors.py's order: parse, refused, names, body part, ..., or "passed"
 
 
 class WorkoutResponse(BaseModel):

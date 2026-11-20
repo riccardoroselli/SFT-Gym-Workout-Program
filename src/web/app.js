@@ -49,9 +49,10 @@ function chipSentence() {
 // ---- results ----
 function sourceText(r) {
   if (r.source === "guard") return "answered from the catalog";
+  // unverified: the best of all the calls, even when that is the greedy one
+  if (!r.verified && r.model_calls > 1) return `model, best of ${r.model_calls} answers`;
   if (r.source === "model_greedy") return "model, first answer";
-  const k = r.source.replace("model_retry_", "");
-  return r.verified ? `model, rescued at retry ${k}` : `model, best of ${r.model_calls} answers`;
+  return `model, rescued at retry ${r.source.replace("model_retry_", "")}`;
 }
 
 const secs = (ms) => `${(ms / 1000).toFixed(1)} s`;
