@@ -18,10 +18,12 @@ ROOT = Path(serve.__file__).resolve().parent.parent
 
 @pytest.fixture
 def hub(monkeypatch):
-    """A fake Hub: records downloads and writes `hub.content` where hf_hub_download would."""
-    hub = SimpleNamespace(calls=[], content=GOOD, size=len(GOOD))
+    """A fake Hub: records metadata lookups and downloads, and writes `hub.content` where hf_hub_download would.
+    hub.etag: what the Hub reports as the file's etag (an LFS file's sha256 by default)."""
+    hub = SimpleNamespace(calls=[], lookups=[], content=GOOD, size=len(GOOD), etag=GOOD_SHA)
     monkeypatch.setattr(serve, "hf_hub_url", lambda repo, name, revision: (repo, name, revision))
-    monkeypatch.setattr(serve, "get_hf_file_metadata", lambda url: SimpleNamespace(size=hub.size))
+    monkeypatch.setattr(serve, "get_hf_file_metadata",
+                        lambda url: hub.lookups.append(url) or SimpleNamespace(size=hub.size, etag=hub.etag))
 
     def download(repo_id, filename, revision, local_dir):
         hub.calls.append((repo_id, filename, revision, Path(local_dir)))
@@ -54,7 +56,7 @@ def test_good_file_is_used_without_download(tmp_path, hub):
     c = cfg(tmp_path)
     (tmp_path / "models").mkdir()
     (tmp_path / "models" / c["MODEL_FILE"]).write_bytes(GOOD)
-    assert serve.model_file(c).read_bytes() == GOOD and hub.calls == []
+    assert serve.model_file(c).read_bytes() == GOOD and hub.calls == [] and hub.lookups == []
 
 
 def test_stale_file_is_replaced(tmp_path, hub):
@@ -75,6 +77,38 @@ def test_wrong_download_is_deleted(tmp_path, hub):
     assert not (tmp_path / "models" / c["MODEL_FILE"]).exists()
 
 
+def test_hub_sha256_mismatch_stops_before_download(tmp_path, hub):
+    """MODEL_FILE changed (e.g. to the BF16 file) without MODEL_SHA256: no download, no restart loop."""
+    hub.etag = hashlib.sha256(OLD).hexdigest()
+    c = cfg(tmp_path)
+    with pytest.raises(serve.StartError, match=f"nothing was downloaded.*set MODEL_SHA256={hub.etag}"):
+        serve.model_file(c)
+    assert hub.calls == [] and len(hub.lookups) == 1
+    (tmp_path / "models" / c["MODEL_FILE"]).write_bytes(b"a file already there")  # with a file present
+    with pytest.raises(serve.StartError, match="nothing was downloaded"):
+        serve.model_file(c)
+    assert (tmp_path / "models" / c["MODEL_FILE"]).read_bytes() == b"a file already there" and hub.calls == []
+
+
+@pytest.mark.parametrize("etag", [None, "f7e3bfa2f907fc597e783cae9b997df0fae8db45"])  # none, or a git file's sha1
+def test_hub_without_sha256_downloads_and_checks_as_before(tmp_path, hub, etag):
+    hub.etag = etag
+    c = cfg(tmp_path)
+    assert serve.model_file(c).read_bytes() == GOOD and len(hub.calls) == 1
+    hub.content = OLD
+    (tmp_path / "models" / c["MODEL_FILE"]).unlink()
+    with pytest.raises(serve.StartError, match="expected MODEL_SHA256.*deleted it"):  # the check after the download
+        serve.model_file(c)
+
+
+def test_stop_during_download_is_a_stop_not_a_failed_download(tmp_path, hub, monkeypatch):
+    def interrupted(**kw):
+        raise serve.Stop
+    monkeypatch.setattr(serve, "hf_hub_download", interrupted)
+    with pytest.raises(serve.Stop):  # main() turns it into "stopping", exit 0
+        serve.model_file(cfg(tmp_path))
+
+
 def test_model_path_is_used_as_is_and_never_deleted(tmp_path, hub):
     own = tmp_path / "mine.gguf"
     own.write_bytes(GOOD)
@@ -82,7 +116,7 @@ def test_model_path_is_used_as_is_and_never_deleted(tmp_path, hub):
     own.write_bytes(OLD)
     with pytest.raises(serve.StartError, match="set MODEL_SHA256"):
         serve.model_file(cfg(tmp_path, MODEL_PATH=str(own)))
-    assert own.read_bytes() == OLD and hub.calls == []
+    assert own.read_bytes() == OLD and hub.calls == [] and hub.lookups == []  # MODEL_PATH never asks the Hub
     with pytest.raises(serve.StartError, match="not a file"):
         serve.model_file(cfg(tmp_path, MODEL_PATH=str(tmp_path / "missing.gguf")))
 

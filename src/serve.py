@@ -5,6 +5,7 @@
 1. The model: MODEL_PATH if set (your own file, never deleted), else MODEL_DIR/MODEL_FILE, downloaded from
    MODEL_REPO at MODEL_REVISION if missing. Its sha256 must equal MODEL_SHA256 before anything starts.
    A wrong file in MODEL_DIR (an older version) is deleted and downloaded again; a wrong download is deleted.
+   If the Hub reports a sha256 for the file and it isn't MODEL_SHA256, nothing is deleted or downloaded.
 2. The tokenizer: TOKENIZER if set (the image sets it), else the 4 files from Qwen/Qwen3.5-2B at a pinned revision.
 3. llama-server on 127.0.0.1:8080 (not reachable from outside), flags as in every eval (-c 4096 -np 1) + LLAMA_ARGS.
 4. uvicorn api:app on HOST:PORT (0.0.0.0:8000) with HF_HUB_OFFLINE=1, after llama-server's /health answers.
@@ -16,6 +17,7 @@ MAX_RETRIES, RETRY_TEMPERATURE, TOKENIZER, EXPECTED_MODEL_FILE (default: the mod
 """
 import hashlib
 import os
+import re
 import shlex
 import shutil
 import signal
@@ -49,8 +51,8 @@ class StartError(Exception):
     """Something the user must fix; main() prints it and exits 1."""
 
 
-class Stop(Exception):
-    """SIGTERM (docker stop)."""
+class Stop(BaseException):
+    """SIGTERM (docker stop). BaseException: the `except Exception` around the download must not catch it."""
 
 
 def log(message):
@@ -94,10 +96,18 @@ def download(cfg, path):
         raise StartError(f"MODEL_DIR {folder} is not writable by uid {os.getuid()}: mount a volume there "
                          f"(-v gymleader-models:{folder}) or give that user write access")
     try:  # token=None: huggingface_hub reads HF_TOKEN from the environment itself
-        size = get_hf_file_metadata(hf_hub_url(repo, name, revision=rev)).size
+        meta = get_hf_file_metadata(hf_hub_url(repo, name, revision=rev))
     except Exception as e:
         raise StartError(f"can't find {name} in {repo} at revision {rev}: {e}. "
                          "If the repo is private, set HF_TOKEN.") from e
+    # An LFS file's etag is its sha256 (64 hex); a small git file's is a 40-hex git hash, so no early check then.
+    hub_sha = (meta.etag or "").lower()
+    if re.fullmatch(r"[0-9a-f]{64}", hub_sha) and hub_sha != cfg["MODEL_SHA256"].lower():
+        raise StartError(f"{name} in {repo} at {rev[:8]} has sha256 {hub_sha}, not MODEL_SHA256 "
+                         f"{cfg['MODEL_SHA256']}: nothing was downloaded. If this is the file you want, "
+                         f"set MODEL_SHA256={hub_sha}")
+    remove(path)  # an older file of that name: only now, once the Hub file is known to be the right one
+    size = meta.size
     free = shutil.disk_usage(folder).free
     if size and free < size:
         raise StartError(f"{folder} has {free / 1e9:.2f} GB free, the model needs {size / 1e9:.2f} GB")
@@ -121,9 +131,8 @@ def model_file(cfg):
         if sha256(path) == cfg["MODEL_SHA256"].lower():
             log(f"found {path}, checksum OK")
             return path
-        log(f"{path} has a different sha256 (an older version?): deleting it and downloading again")
-        remove(path)
-    download(cfg, path)
+        log(f"{path} has a different sha256 (an older version?): replacing it")
+    download(cfg, path)  # deletes the old file only after checking the Hub's
     check(path, cfg["MODEL_SHA256"], delete=True)
     return path
 
