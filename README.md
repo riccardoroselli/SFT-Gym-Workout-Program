@@ -34,11 +34,10 @@ The reward is in [0, 1]: **reward = 0.1 × strict format + 0.9 × content**, whe
 **Docker, on any machine (CPU, linux/amd64 or linux/arm64):**
 
 ```bash
-docker run -d --rm --name gymleader -p 127.0.0.1:8000:8000 -v gymleader-models:/models ghcr.io/riccardoroselli/gymleader:v1.0
-docker logs -f gymleader        # wait for "ready at http://127.0.0.1:8000", then Ctrl-C (the container keeps running)
+docker run --rm --name gymleader -p 127.0.0.1:8000:8000 -v gymleader-models:/models ghcr.io/riccardoroselli/gymleader:v1.0
 ```
 
-Stop: `docker stop gymleader` (the container is removed; the model stays in the volume).
+Wait for `ready at http://127.0.0.1:8000`, then open it. Ctrl-C stops it (the model stays in the volume). To run it in the background, use `docker compose up -d`.
 
 Open **http://127.0.0.1:8000**, or call the API directly (`/docs` lists its endpoints):
 
@@ -74,7 +73,7 @@ scripts/run_local.sh            # model into models/gguf/, all layers on the GPU
 ```
 
 **The model alone, in LM Studio or llama.cpp.**
-- **LM Studio:** search for `riccardoroselli/qwen3.5-2b-gym-grpo-GGUF`, download the Q8_0 file, and set **Temperature 0** (LM Studio ignores the file's default).
+- **LM Studio:** search for `riccardoroselli/qwen3.5-2b-gym-grpo-GGUF` and download the Q8_0 file. One request per new chat (no greetings or follow-ups): it's a single-task model, not a chatbot. Leave the System Prompt empty and set **Temperature 0** (LM Studio ignores the file's default).
 - **llama-server:**
 
   ```bash
@@ -260,6 +259,7 @@ python -m pytest -q
   - retries can't add knowledge: 54 of 284 model requests still fail after 3 retries, and come back marked `"verified": false`.
 - **The 0.82 is a Metal number.** In the CPU image, greedy answers differ from Metal's where two tokens are nearly tied. On a 30-row check, 1 row is answered by the guard; on the other 29, the greedy text matched Metal's 19 times, and 26 of the 30 were all correct with retries, and seeded retries reproduce only on the same build, backend and hardware.
 - **Retries cost time:** the slowest requests took up to about 20 s on Metal and 24.3 s on the CPU.
+- **Numbers in requests:** the request parser reads any number as the exercise count: "3 sets" becomes 3 exercises, and "45 minutes" is rejected. Write the count as "N exercises".
 - **Scope of the evaluation:** one test set of 300 requests, greedy decoding only. English requests, this one task only.
 - GymLeader suggests workouts; it is not medical advice.
 

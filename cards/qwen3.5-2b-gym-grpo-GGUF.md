@@ -36,13 +36,13 @@ At revision [`bbb1d3cf7f9113ec518b56c95a74702bbd83ba9b`](https://huggingface.co/
 
 Speeds from `llama-bench` (llama.cpp b12360) on an Apple M4 MacBook Air: Metal, all layers on the GPU, 3 repetitions. They will be different on other hardware, and lower on a CPU.
 
-**Q4_K_M is not published.** It was measured, and it loses most of what GRPO added: all_correct 0.25 against 0.54 for BF16, and names in the catalog 0.82 against 0.95.
+**Q4_K_M is not published.** It was measured, and it loses most of what GRPO added: all_correct 0.25 against GGUF BF16 (0.54), and names in the catalog 0.82 against 0.95.
 
 ## How to use
 
 ### LM Studio
 
-Search for `riccardoroselli/qwen3.5-2b-gym-grpo-GGUF`, download the Q8_0 file, and set **Temperature 0** in the model's settings: LM Studio doesn't read the file's default temperature. Then write a request in the chat.
+Search for `riccardoroselli/qwen3.5-2b-gym-grpo-GGUF` and download the Q8_0 file. One request per new chat (no greetings or follow-ups): it's a single-task model, not a chatbot. Leave the System Prompt empty and set **Temperature 0** in the model's settings: LM Studio doesn't read the file's default temperature. Then write a request in the chat.
 
 Tested with LM Studio 0.4.28 (engine llama.cpp b12270), loading a local copy of the file: 3 requests, all correct, empty reasoning.
 
@@ -79,12 +79,12 @@ The answer is in the `content` field.
 ### The GymLeader app (Docker)
 
 ```bash
-docker run -d --rm --name gymleader -p 127.0.0.1:8000:8000 -v gymleader-models:/models ghcr.io/riccardoroselli/gymleader:v1.0
+docker run --rm --name gymleader -p 127.0.0.1:8000:8000 -v gymleader-models:/models ghcr.io/riccardoroselli/gymleader:v1.0
 ```
 
-Stop: `docker stop gymleader` (the container is removed; the model stays in the volume).
+Wait for `ready at http://127.0.0.1:8000`, then open it. Ctrl-C stops it (the model stays in the volume). To run it in the background, use `docker compose up -d`.
 
-Then open http://127.0.0.1:8000. The image (linux/amd64 and linux/arm64, CPU) downloads the Q8_0 file from this repo at the revision above on its first start and checks its sha256. It runs the whole GymLeader system, with the guard and the verifier retries described under the results.
+The image (linux/amd64 and linux/arm64, CPU) downloads the Q8_0 file from this repo at the revision above on its first start and checks its sha256. It runs the whole GymLeader system, with the guard and the verifier retries described under the results.
 
 ### MLX (Apple silicon)
 
@@ -124,7 +124,7 @@ MLX bf16, GGUF BF16 and GGUF Q8_0 score the same within noise: in a paired boots
 | engine | status | what was run |
 |---|---|---|
 | llama.cpp b12360, Metal (Mac) | tested | the chat API on the 300 test requests: 300/300 identical to the evaluated answers |
-| llama.cpp b12360, CPU (the GymLeader Docker image) | tested | the app on 30 test requests: 26/30 all correct with retries. Greedy answers equal Metal's on 19 of 29: the CPU adds numbers in another order, which can flip a near-tie |
+| llama.cpp b12360, CPU (the GymLeader Docker image) | tested | the app on 30 test requests: 26/30 all correct with retries. 1 of the 30 is answered by the guard without the model; on the other 29, the greedy answer equals Metal's on 19: the CPU adds numbers in another order, which can flip a near-tie |
 | LM Studio 0.4.28, engine llama.cpp b12270 (Metal) | tested | loads; 3 requests at temperature 0, all correct, empty reasoning |
 | llama.cpp b12464, official image `ghcr.io/ggml-org/llama.cpp:server-b12464`, CPU | tested | loads; 1 request with no temperature sent, 4 runs identical, all correct, empty reasoning |
 | Ollama | not tested | it picks a Go template from a list instead of running the file's Jinja template, so the prompt may differ |
