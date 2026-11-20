@@ -79,8 +79,10 @@ The answer is in the `content` field.
 ### The GymLeader app (Docker)
 
 ```bash
-docker run -d --name gymleader -p 127.0.0.1:8000:8000 -v gymleader-models:/models ghcr.io/riccardoroselli/gymleader:v1.0
+docker run -d --rm --name gymleader -p 127.0.0.1:8000:8000 -v gymleader-models:/models ghcr.io/riccardoroselli/gymleader:v1.0
 ```
+
+Stop: `docker stop gymleader` (the container is removed; the model stays in the volume).
 
 Then open http://127.0.0.1:8000. The image (linux/amd64 and linux/arm64, CPU) downloads the Q8_0 file from this repo at the revision above on its first start and checks its sha256. It runs the whole GymLeader system, with the guard and the verifier retries described under the results.
 

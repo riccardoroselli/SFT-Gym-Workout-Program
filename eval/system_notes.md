@@ -198,7 +198,8 @@ Three ways, same API and page at http://127.0.0.1:8000 (`/docs` for the API).
 
 **1. The single image (llama-server + API + page).** The first start downloads the model (2.1 GB) into the `gymleader-models` volume; follow it with `docker logs -f gymleader` or `docker compose logs -f`.
 ```bash
-docker run -d --name gymleader -p 127.0.0.1:8000:8000 -v gymleader-models:/models ghcr.io/riccardoroselli/gymleader:v1.0
+docker run -d --rm --name gymleader -p 127.0.0.1:8000:8000 -v gymleader-models:/models ghcr.io/riccardoroselli/gymleader:v1.0
+# stop: docker stop gymleader (the container is removed; the model stays in the volume)
 # or, from this checkout (pulls the image, or builds docker/Dockerfile if it isn't published):
 docker compose up -d
 docker compose ps                                             # (healthy)

@@ -34,9 +34,11 @@ The reward is in [0, 1]: **reward = 0.1 × strict format + 0.9 × content**, whe
 **Docker, on any machine (CPU, linux/amd64 or linux/arm64):**
 
 ```bash
-docker run -d --name gymleader -p 127.0.0.1:8000:8000 -v gymleader-models:/models ghcr.io/riccardoroselli/gymleader:v1.0
+docker run -d --rm --name gymleader -p 127.0.0.1:8000:8000 -v gymleader-models:/models ghcr.io/riccardoroselli/gymleader:v1.0
 docker logs -f gymleader        # wait for "ready at http://127.0.0.1:8000", then Ctrl-C (the container keeps running)
 ```
+
+Stop: `docker stop gymleader` (the container is removed; the model stays in the volume).
 
 Open **http://127.0.0.1:8000**, or call the API directly (`/docs` lists its endpoints):
 
@@ -52,7 +54,6 @@ curl -s 127.0.0.1:8000/workout -H 'Content-Type: application/json' \
 - **Normal log lines:**
   - 15 `unused tensor blk.24…` warnings, from the multi-token-prediction layer, which is kept in the file but not used;
   - `PyTorch was not found`, because only the tokenizer is used.
-- **Stop:** `docker stop gymleader`. The volume keeps the model.
 
 **Docker Compose, from a clone:**
 
