@@ -9,9 +9,11 @@
 
 Ask for *"chest workout, medium difficulty, free weights, 5 exercises"* and GymLeader writes the workout as JSON. Every exercise is an exact name from a real [exercise catalog](https://github.com/hasaneyldrm/exercises-dataset), with the sets and reps that difficulty calls for. If the catalog doesn't have enough matching exercises, it tells you so instead of making some up.
 
-The model is Qwen3.5-2B, trained with SFT (LoRA) and then GRPO. On 300 held-out requests, all_correct goes from 0.00 for the base model to 0.24 after SFT and 0.55 after GRPO. Put a guard and verifier retries around it and the served system reaches **0.82** (measured on Metal; the Docker CPU image scored 26/30 on a 30-row check).
+The model is Qwen3.5-2B, trained with SFT (LoRA) and then GRPO. On 300 held-out requests, fully correct answers (all_correct) go from 0.00 for the base model to 0.24 after SFT and 0.55 after GRPO. Put a guard and verifier retries around it and the served system reaches **0.82** (measured on Metal; the Docker CPU image scored 26/30 on a 30-row check).
 
 It all fits in one Docker container on a CPU: llama.cpp b12360 with the Q8_0 GGUF (2.1 GB), a FastAPI service and a web page.
+
+[Quick start](#quick-start) · [Results](#results) · [Findings](#findings) · [How a request is handled](#how-a-request-is-handled) · [How evaluation works](#how-evaluation-works) · [Training](#training) · [System requirements](#system-requirements) · [Repository layout](#repository-layout) · [Known limitations](#known-limitations) · [Links](#links) · [License](#license)
 
 **The core idea: one verifier, used four ways.** [`src/verifier.py`](src/verifier.py) `verify(request, answer)` checks an answer against the task contract in [`docs/spec.md`](docs/spec.md). The same function is used in four places:
 
@@ -33,11 +35,13 @@ The reward is in [0, 1]: **reward = 0.1 × strict format + 0.9 × content**, whe
 
 **Docker, on any machine (CPU, linux/amd64 or linux/arm64):**
 
+Needs Docker running with at least ~5 GB of memory and ~2.7 GB of free disk.
+
 ```bash
 docker run --rm --name gymleader -p 127.0.0.1:8000:8000 -v gymleader-models:/models ghcr.io/riccardoroselli/gymleader:v1.0
 ```
 
-Wait for `ready at http://127.0.0.1:8000`, then open it. Ctrl-C stops it (the model stays in the volume). To run it in the background, use `docker compose up -d`.
+Wait for `ready at http://127.0.0.1:8000`, then open it. Ctrl-C stops it (the model stays in the volume). To remove the model later: `docker volume rm gymleader-models`. To run it in the background, use `docker compose up -d`.
 
 Open **http://127.0.0.1:8000**, or call the API directly (`/docs` lists its endpoints):
 
@@ -73,7 +77,7 @@ scripts/run_local.sh            # model into models/gguf/, all layers on the GPU
 ```
 
 **The model alone, in LM Studio or llama.cpp.**
-- **LM Studio:** search for `riccardoroselli/qwen3.5-2b-gym-grpo-GGUF` and download the Q8_0 file. One request per new chat (no greetings or follow-ups): it's a single-task model, not a chatbot. Leave the System Prompt empty and set **Temperature 0** (LM Studio ignores the file's default).
+- **LM Studio:** search for `riccardoroselli/qwen3.5-2b-gym-grpo-GGUF` and download the Q8_0 file. One request per new chat (no greetings or follow-ups): it's a single-task model, not a chatbot. Leave the System Prompt empty and set **Temperature 0** (LM Studio ignores the file's default). Type a request such as `chest workout, medium difficulty, free weights, 4 exercises`; the answer is JSON. There is no guard here, so an impossible request may get a made-up workout.
 - **llama-server:**
 
   ```bash
@@ -259,7 +263,10 @@ python -m pytest -q
 - **Names:**
   - about 5% of names the model writes are not exact catalog names, and some wrong names come back again and again (`bodyweight standing archer`);
   - retries can't add knowledge: 54 of 284 model requests still fail after 3 retries, and come back marked `"verified": false`.
-- **The 0.82 is a Metal number.** In the CPU image, greedy answers differ from Metal's where two tokens are nearly tied. On a 30-row check, 1 row is answered by the guard; on the other 29, the greedy text matched Metal's 19 times, and 26 of the 30 were all correct with retries, and seeded retries reproduce only on the same build, backend and hardware.
+- **The 0.82 is a Metal number.**
+  - In the CPU image, greedy answers differ from Metal's where two tokens are nearly tied.
+  - On a 30-row check, 1 row is answered by the guard; on the other 29, the greedy text matched Metal's 19 times, and 26 of the 30 were all correct with retries.
+  - Seeded retries reproduce only on the same build, backend and hardware.
 - **Retries cost time:** the slowest requests took up to about 20 s on Metal and 24.3 s on the CPU.
 - **Numbers in requests:** the request parser reads any number as the exercise count: "3 sets" becomes 3 exercises, and "45 minutes" is rejected. Write the count as "N exercises".
 - **Scope of the evaluation:** one test set of 300 requests, greedy decoding only. English requests, this one task only.
@@ -273,7 +280,7 @@ python -m pytest -q
 | GGUF files (Q8_0, BF16) | [riccardoroselli/qwen3.5-2b-gym-grpo-GGUF](https://huggingface.co/riccardoroselli/qwen3.5-2b-gym-grpo-GGUF) |
 | final LoRA adapter (on Qwen3.5-2B) | [riccardoroselli/qwen3.5-2b-gym-grpo-lora](https://huggingface.co/riccardoroselli/qwen3.5-2b-gym-grpo-lora) |
 | SFT stage, merged / adapter | [riccardoroselli/qwen3.5-2b-gym-sft](https://huggingface.co/riccardoroselli/qwen3.5-2b-gym-sft) · [riccardoroselli/qwen3.5-2b-gym-sft-lora](https://huggingface.co/riccardoroselli/qwen3.5-2b-gym-sft-lora) |
-| Docker image | `ghcr.io/riccardoroselli/gymleader` |
+| Docker image | [ghcr.io/riccardoroselli/gymleader](https://github.com/users/riccardoroselli/packages/container/package/gymleader) |
 | base model | [Qwen/Qwen3.5-2B](https://huggingface.co/Qwen/Qwen3.5-2B) |
 | exercise data | [hasaneyldrm/exercises-dataset](https://github.com/hasaneyldrm/exercises-dataset), MIT |
 
