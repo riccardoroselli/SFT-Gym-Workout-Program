@@ -198,10 +198,12 @@ The GGUF files were made with llama.cpp's converter, then [`gguf/`](gguf/). That
 | | Docker image | `scripts/run_local.sh` |
 |---|---|---|
 | hardware | linux/amd64 or linux/arm64, **CPU only** (no GPU inside the container) | Mac with Apple silicon (Metal) |
-| memory | 4.44 GiB in `docker stats` during a request (Docker Desktop, M4) | not measured |
+| memory | 4.44 GiB in `docker stats` during a request (Docker Desktop, M4); give Docker at least ~5 GB of memory | not measured |
 | disk | image 623 MB + model 2.08 GB | model 2.08 GB in `models/gguf/` |
 | speed (Apple M4) | CPU, 10 cores: 34 tok/s fresh, 15–20 tok/s when hot. Mean per model request 4.0 s at r0 (greedy only), 8.5 s at r3 (29 model rows of 30 test rows) | Metal: 43.2 tok/s writing (`llama-bench` tg128). Mean per model request 3.1 s at r0 (greedy only), 6.7 s at r3 (284 model rows of 300 test rows) |
-| network | first start only: the 2.1 GB model download | the same, plus the 4 tokenizer files |
+| network | first start only: the 2.1 GB model download (about 3 min at ~11 MB/s) | the same, plus the 4 tokenizer files |
+
+Docker and `scripts/run_local.sh` run the full system (parser, guard, up to 3 verifier retries); LM Studio and plain `llama-server` run the model alone, with no guard or retries.
 
 The CPU speeds come from the two-container setup of `docker-compose.dev.yml` (the same llama.cpp tag, CPU build, and the same model and API), on a fanless MacBook Air, which slows down as it heats up. Other CPUs will differ.
 
