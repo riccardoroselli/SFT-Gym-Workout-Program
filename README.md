@@ -27,9 +27,12 @@ It all fits in one Docker container on a CPU: llama.cpp b12360 with the Q8_0 GGU
 Checks: parse, strict format, names in the catalog, body part, equipment, count, no duplicates, sets/reps, no advanced exercise in easy or medium workouts, and the error answer for impossible requests. all_correct means every check passed.
 The reward is in [0, 1]: **reward = 0.1 × strict format + 0.9 × content**, where content is the weighted average of the checks (names 0.30, body part 0.15, equipment 0.15, count / duplicates / sets-reps / advanced 0.10 each). For an impossible request, content is 1 for an error answer and 0 for a workout. An answer that doesn't parse gets 0.
 
-<img src="img/demo-result.png" width="80%" alt="The GymLeader web page: request chips, a verified 4-exercise chest workout with machines">
+<p align="center">
+  <img src="img/docker-demo.png" width="44%" alt="GymLeader web page in Docker">
+  <img src="img/lmstudio-chat-demo.png" width="52%" alt="GymLeader with LMStudio">
+</p>
 
-*The web page at http://127.0.0.1:8000. The greedy answer to this request failed the verifier. Retry 1 passed, so the page shows "verified" after 2 model calls (4.2 s).*
+*Left: the web page at http://127.0.0.1:8000. The greedy answer to this request failed the verifier. Retry 1 passed, so the page shows "verified" after 2 model calls (4.2 s). Right: GymLeader running with LM Studio.*
 
 ## Quick start
 
